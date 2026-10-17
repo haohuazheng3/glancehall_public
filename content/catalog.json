@@ -75,7 +75,22 @@
      "status": "pending"
     },
     "claude-fable-5-1": {
-     "status": "pending"
+     "status": "ok",
+     "seconds": 1694.1,
+     "startedAt": "2026-10-17T06:53:59.859535+00:00",
+     "finishedAt": "2026-10-17T07:22:14.134654+00:00",
+     "cliVersion": "2.1.302 (Claude Code)",
+     "attempts": 1,
+     "inputTokens": 2574801,
+     "outputTokens": 130942,
+     "turns": 57,
+     "files": [
+      "index.html"
+     ],
+     "sourceBytes": 93931,
+     "artifact": "r01/saas-landing-page/claude-fable-5-1/build/index.html",
+     "media": {},
+     "runtime": null
     },
     "gpt-6-astra": {
      "status": "ok",

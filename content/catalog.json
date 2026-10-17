@@ -97,7 +97,8 @@
        "seconds": 29.7,
        "width": 1440,
        "height": 900,
-       "bytes": 4117395
+       "bytes": 4117395,
+       "posterSmall": "r01/saas-landing-page/claude-fable-5-1/desktop-sm.jpg"
       },
       "mobile": {
        "mp4": "r01/saas-landing-page/claude-fable-5-1/mobile.mp4",
@@ -106,7 +107,8 @@
        "seconds": 45.8,
        "width": 780,
        "height": 1688,
-       "bytes": 8615112
+       "bytes": 8615112,
+       "posterSmall": "r01/saas-landing-page/claude-fable-5-1/mobile-sm.jpg"
       }
      },
      "runtime": {
@@ -138,7 +140,8 @@
        "seconds": 22.5,
        "width": 1440,
        "height": 900,
-       "bytes": 2751018
+       "bytes": 2751018,
+       "posterSmall": "r01/saas-landing-page/gpt-6-astra/desktop-sm.jpg"
       },
       "mobile": {
        "mp4": "r01/saas-landing-page/gpt-6-astra/mobile.mp4",
@@ -147,7 +150,8 @@
        "seconds": 28.5,
        "width": 780,
        "height": 1688,
-       "bytes": 5317684
+       "bytes": 5317684,
+       "posterSmall": "r01/saas-landing-page/gpt-6-astra/mobile-sm.jpg"
       }
      },
      "runtime": {
@@ -179,7 +183,8 @@
        "seconds": 24.1,
        "width": 1440,
        "height": 900,
-       "bytes": 2234380
+       "bytes": 2234380,
+       "posterSmall": "r01/saas-landing-page/gpt-6-1-sol/desktop-sm.jpg"
       },
       "mobile": {
        "mp4": "r01/saas-landing-page/gpt-6-1-sol/mobile.mp4",
@@ -188,7 +193,8 @@
        "seconds": 29.7,
        "width": 780,
        "height": 1688,
-       "bytes": 5051449
+       "bytes": 5051449,
+       "posterSmall": "r01/saas-landing-page/gpt-6-1-sol/mobile-sm.jpg"
       }
      },
      "runtime": {
@@ -248,7 +254,8 @@
        "seconds": 35.7,
        "width": 1440,
        "height": 900,
-       "bytes": 1968739
+       "bytes": 1968739,
+       "posterSmall": "r01/analytics-dashboard/gpt-6-astra/desktop-sm.jpg"
       },
       "mobile": {
        "mp4": "r01/analytics-dashboard/gpt-6-astra/mobile.mp4",
@@ -257,7 +264,8 @@
        "seconds": 14.6,
        "width": 780,
        "height": 1688,
-       "bytes": 1894781
+       "bytes": 1894781,
+       "posterSmall": "r01/analytics-dashboard/gpt-6-astra/mobile-sm.jpg"
       }
      },
      "runtime": {
@@ -289,7 +297,8 @@
        "seconds": 35.6,
        "width": 1440,
        "height": 900,
-       "bytes": 2208414
+       "bytes": 2208414,
+       "posterSmall": "r01/analytics-dashboard/gpt-6-1-sol/desktop-sm.jpg"
       },
       "mobile": {
        "mp4": "r01/analytics-dashboard/gpt-6-1-sol/mobile.mp4",
@@ -298,7 +307,8 @@
        "seconds": 15.1,
        "width": 780,
        "height": 1688,
-       "bytes": 2751447
+       "bytes": 2751447,
+       "posterSmall": "r01/analytics-dashboard/gpt-6-1-sol/mobile-sm.jpg"
       }
      },
      "runtime": {
@@ -351,7 +361,8 @@
        "seconds": 20,
        "width": 1440,
        "height": 900,
-       "bytes": 6989470
+       "bytes": 6989470,
+       "posterSmall": "r01/spinning-hexagon-physics/claude-opus-5-5/desktop-sm.jpg"
       }
      },
      "runtime": {
@@ -383,7 +394,8 @@
        "seconds": 20,
        "width": 1440,
        "height": 900,
-       "bytes": 8046068
+       "bytes": 8046068,
+       "posterSmall": "r01/spinning-hexagon-physics/claude-fable-5-1/desktop-sm.jpg"
       }
      },
      "runtime": {
@@ -415,7 +427,8 @@
        "seconds": 20,
        "width": 1440,
        "height": 900,
-       "bytes": 4407859
+       "bytes": 4407859,
+       "posterSmall": "r01/spinning-hexagon-physics/gpt-6-astra/desktop-sm.jpg"
       }
      },
      "runtime": {
@@ -447,7 +460,8 @@
        "seconds": 20,
        "width": 1440,
        "height": 900,
-       "bytes": 3801156
+       "bytes": 3801156,
+       "posterSmall": "r01/spinning-hexagon-physics/gpt-6-1-sol/desktop-sm.jpg"
       }
      },
      "runtime": {
@@ -507,7 +521,8 @@
        "seconds": 40,
        "width": 1440,
        "height": 900,
-       "bytes": 13577853
+       "bytes": 13577853,
+       "posterSmall": "r01/first-person-shooter/gpt-6-astra/desktop-sm.jpg"
       }
      },
      "runtime": {
@@ -541,7 +556,8 @@
        "seconds": 40,
        "width": 1440,
        "height": 900,
-       "bytes": 19977102
+       "bytes": 19977102,
+       "posterSmall": "r01/first-person-shooter/gpt-6-1-sol/desktop-sm.jpg"
       }
      },
      "runtime": {

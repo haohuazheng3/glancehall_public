@@ -20,7 +20,7 @@ export function TaskCard({ task, models, index }: { task: Task; models: Model[];
       <div className={s.thumbs}>
         {models.map((m) => {
           const run = task.runs[m.key];
-          const poster = mediaUrl(run?.media?.desktop?.poster);
+          const poster = mediaUrl(run?.media?.desktop?.posterSmall ?? run?.media?.desktop?.poster);
           return (
             <div key={m.key} className={`${s.thumb} m-${m.accent}`}>
               {poster ? (

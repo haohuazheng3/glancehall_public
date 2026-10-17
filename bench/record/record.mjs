@@ -582,7 +582,8 @@ async function recordView(browser, task, model, view, buildUrl, outDir) {
     ffmpeg(["-i", `${base}-poster.png`, "-vf", `scale=${mobile ? 780 : 1280}:-2`, "-q:v", "3", `${base}.jpg`]);
     fs.rmSync(`${base}-poster.png`, { force: true });
   }
-  // Lightweight preview for grids.
+  // Lightweight preview and poster for grids.
+  ffmpeg(["-i", `${base}.jpg`, "-vf", `scale=${mobile ? 390 : 640}:-2`, "-q:v", "4", `${base}-sm.jpg`]);
   const previewW = mobile ? 390 : 720;
   ffmpeg(["-i", `${base}.mp4`, "-vf", `fps=30,scale=${previewW}:-2:flags=lanczos`, "-c:v", "libx264", "-preset", "slow", "-crf", "27", "-an", "-movflags", "+faststart", `${base}-preview.mp4`]);
   await context.close();
@@ -592,6 +593,7 @@ async function recordView(browser, task, model, view, buildUrl, outDir) {
       mp4: `${ROUND}/${task.slug}/${model.key}/${view}.mp4`,
       preview: `${ROUND}/${task.slug}/${model.key}/${view}-preview.mp4`,
       poster: `${ROUND}/${task.slug}/${model.key}/${view}.jpg`,
+      posterSmall: `${ROUND}/${task.slug}/${model.key}/${view}-sm.jpg`,
       seconds: probeSeconds(`${base}.mp4`),
       width: size.width * dpr,
       height: size.height * dpr,

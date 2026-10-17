@@ -38,7 +38,7 @@ export function VideoTile({
   const [loaded, setLoaded] = useState(false);
   const variant = run?.media?.[view];
   const src = mediaUrl(quality === "preview" ? variant?.preview : variant?.mp4) ?? mediaUrl(variant?.mp4);
-  const poster = mediaUrl(variant?.poster);
+  const poster = mediaUrl(quality === "preview" ? variant?.posterSmall ?? variant?.poster : variant?.poster);
   const name = label ?? model.name;
   const isPhone = view === "mobile";
 

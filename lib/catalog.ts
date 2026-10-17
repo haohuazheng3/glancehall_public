@@ -6,6 +6,7 @@ export type MediaVariant = {
   mp4?: string;
   preview?: string;
   poster?: string;
+  posterSmall?: string;
   seconds?: number;
   width?: number;
   height?: number;

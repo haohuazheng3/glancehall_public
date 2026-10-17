@@ -1,0 +1,17 @@
+{
+  "slug": "spinning-hexagon-physics",
+  "order": 3,
+  "title": "Balls in a spinning hexagon",
+  "category": "Simulation",
+  "summary": "Twenty numbered balls under gravity inside a hexagon that turns once every ten seconds. Physics written from scratch: moving-wall collisions, ball-to-ball contact, friction and visible spin. No libraries.",
+  "watchFor": [
+    "Do any balls tunnel through a wall or escape?",
+    "Does the rotating wall push the balls in a believable way?",
+    "Do the numbers spin with the balls?",
+    "Does the pile settle, jitter or sink into itself?"
+  ],
+  "views": [
+    "desktop"
+  ],
+  "interaction": "No input: the first 20 seconds after page load, recorded frame by frame."
+}

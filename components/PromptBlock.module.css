@@ -1,0 +1,51 @@
+.box {
+  padding: clamp(18px, 3vw, 30px);
+}
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.head p {
+  margin: 6px 0 0;
+  font-size: 13.5px;
+}
+.actions {
+  display: flex;
+  gap: 8px;
+}
+.body {
+  position: relative;
+  max-height: 180px;
+  overflow: hidden;
+  border-radius: var(--r-md);
+  transition: max-height 0.5s var(--ease);
+}
+.open {
+  max-height: 4000px;
+}
+.pre {
+  margin: 0;
+  padding: 18px 20px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--text-2);
+}
+.fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 90px;
+  background: linear-gradient(transparent, var(--panel));
+  cursor: pointer;
+}

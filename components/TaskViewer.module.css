@@ -1,0 +1,400 @@
+.viewer {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.toolbarWrap {
+  position: sticky;
+  top: 84px;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+.toolbar {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  border-radius: var(--r-pill);
+  background: var(--glass);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  border: 1px solid var(--line);
+  box-shadow: var(--float-hover);
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.toolbar::-webkit-scrollbar {
+  display: none;
+}
+.toolbar :global(.seg) {
+  flex: none;
+}
+.toolbar :global(.seg button:disabled) {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.switch {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  height: 44px;
+  padding: 0 16px 0 10px;
+  border-radius: var(--r-pill);
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  font-size: 13.5px;
+  font-weight: 560;
+  color: var(--text-2);
+  -webkit-tap-highlight-color: transparent;
+}
+.knob {
+  position: relative;
+  width: 34px;
+  height: 20px;
+  border-radius: 999px;
+  background: var(--panel-3);
+  border: 1px solid var(--line-strong);
+  transition: background 0.2s;
+}
+.knob::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--text-2);
+  transition: transform 0.25s var(--ease), background 0.2s;
+}
+.switchOn {
+  color: var(--text);
+}
+.switchOn .knob {
+  background: var(--accent);
+  border-color: transparent;
+}
+.switchOn .knob::after {
+  transform: translateX(14px);
+  background: var(--accent-ink);
+}
+
+.iconBtn {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 14px;
+  border-radius: var(--r-pill);
+  color: var(--text-2);
+  font-size: 13.5px;
+  font-weight: 540;
+}
+.iconBtn:hover {
+  color: var(--text);
+}
+
+.blindBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 12px 18px;
+  border-radius: var(--r-pill);
+  background: color-mix(in srgb, var(--accent) 12%, var(--panel));
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  font-size: 14.5px;
+  text-align: center;
+  animation: pop 0.35s var(--ease);
+}
+.blindDone {
+  background: var(--panel);
+  border-color: var(--line);
+}
+.revealFloat {
+  position: fixed;
+  left: 50%;
+  bottom: max(20px, env(safe-area-inset-bottom));
+  z-index: 40;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 8px 8px 20px;
+  border-radius: var(--r-pill);
+  background: var(--glass);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line));
+  box-shadow: var(--float-hover);
+  font-size: 14.5px;
+  white-space: nowrap;
+  animation: floatIn 0.4s var(--ease);
+}
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 16px);
+  }
+}
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.gridPhone {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  border-radius: calc(var(--r-lg) + 10px);
+  transition: box-shadow 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.picked {
+  box-shadow: 0 0 0 2px var(--accent), var(--float-hover);
+}
+.cardHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 40px;
+  padding: 0 4px 0 8px;
+}
+.who {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.whoName {
+  font-weight: 620;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.effort {
+  font-size: 12px;
+  color: var(--text-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cardFoot {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 4px 2px 8px;
+  font-size: 13px;
+  flex-wrap: wrap;
+}
+.stat {
+  display: inline-flex;
+  gap: 6px;
+  font-variant-numeric: tabular-nums;
+}
+.actions {
+  margin-left: auto;
+  display: inline-flex;
+  gap: 6px;
+}
+
+.duelPickers {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.duelPickers :global(.seg) {
+  overflow-x: auto;
+  max-width: 100%;
+  scrollbar-width: none;
+}
+.duelPickers :global(.seg button:disabled) {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.duel {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.duelPhone {
+  max-width: 820px;
+  margin: 0 auto;
+  width: 100%;
+}
+.single {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+.singlePhone {
+  max-width: 440px;
+}
+
+.facts {
+  margin-top: 26px;
+  padding: clamp(18px, 3vw, 30px);
+}
+.factsHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.factsHead p {
+  margin: 0;
+  font-size: 13.5px;
+}
+.tableScroll {
+  overflow-x: auto;
+  margin: 0 -6px;
+  padding: 0 6px;
+}
+.table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.table th,
+.table td {
+  text-align: left;
+  padding: 12px 10px;
+  border-top: 1px solid var(--line);
+  vertical-align: top;
+}
+.table thead th {
+  border-top: 0;
+  font-weight: 600;
+  font-size: 13.5px;
+}
+.table tbody th {
+  font-weight: 500;
+  color: var(--text-2);
+  width: 26%;
+}
+.table td {
+  font-variant-numeric: tabular-nums;
+}
+.th {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.hint {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-3);
+  max-width: 260px;
+}
+
+.notes {
+  margin-top: 18px;
+  display: grid;
+  gap: 8px;
+}
+.note {
+  border-radius: var(--r-md);
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+}
+.note summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 560;
+  flex-wrap: wrap;
+}
+.note summary::-webkit-details-marker {
+  display: none;
+}
+.note ul {
+  margin: 0;
+  padding: 0 16px 14px 16px;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--text-2);
+  word-break: break-word;
+}
+.tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: var(--panel-3);
+  color: var(--text-3);
+  margin-right: 6px;
+}
+
+@media (max-width: 900px) {
+  .gridPhone {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .iconLabel {
+    display: none;
+  }
+}
+@media (max-width: 720px) {
+  .grid:not(.gridPhone),
+  .duel:not(.duelPhone) {
+    grid-template-columns: 1fr;
+  }
+  /* On phones every control stays visible: wrap instead of scrolling sideways, and don't pin. */
+  .toolbarWrap {
+    position: static;
+  }
+  .toolbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 28px;
+    overflow: visible;
+    width: 100%;
+  }
+  .toolbar :global(.seg) {
+    flex: 1 1 100%;
+    justify-content: space-between;
+  }
+  .toolbar :global(.seg button) {
+    flex: 1;
+    padding: 0 8px;
+  }
+  .duelPickers :global(.seg) {
+    flex: 1 1 100%;
+  }
+}

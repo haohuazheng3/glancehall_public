@@ -1,0 +1,238 @@
+{
+ "spinning-hexagon-physics": {
+  "gpt-6-1-sol": {
+   "recordedFor": "2026-10-17T06:36:36.201252+00:00",
+   "media": {
+    "desktop": {
+     "mp4": "r01/spinning-hexagon-physics/gpt-6-1-sol/desktop.mp4",
+     "preview": "r01/spinning-hexagon-physics/gpt-6-1-sol/desktop-preview.mp4",
+     "poster": "r01/spinning-hexagon-physics/gpt-6-1-sol/desktop.jpg",
+     "seconds": 20,
+     "width": 1440,
+     "height": 900,
+     "bytes": 3801156
+    }
+   },
+   "runtime": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": []
+   }
+  },
+  "claude-fable-5-1": {
+   "recordedFor": "2026-10-17T06:53:59.840448+00:00",
+   "media": {
+    "desktop": {
+     "mp4": "r01/spinning-hexagon-physics/claude-fable-5-1/desktop.mp4",
+     "preview": "r01/spinning-hexagon-physics/claude-fable-5-1/desktop-preview.mp4",
+     "poster": "r01/spinning-hexagon-physics/claude-fable-5-1/desktop.jpg",
+     "seconds": 20,
+     "width": 1440,
+     "height": 900,
+     "bytes": 8046068
+    }
+   },
+   "runtime": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": []
+   }
+  },
+  "gpt-6-astra": {
+   "recordedFor": "2026-10-17T06:36:55.547234+00:00",
+   "media": {
+    "desktop": {
+     "mp4": "r01/spinning-hexagon-physics/gpt-6-astra/desktop.mp4",
+     "preview": "r01/spinning-hexagon-physics/gpt-6-astra/desktop-preview.mp4",
+     "poster": "r01/spinning-hexagon-physics/gpt-6-astra/desktop.jpg",
+     "seconds": 20,
+     "width": 1440,
+     "height": 900,
+     "bytes": 4407859
+    }
+   },
+   "runtime": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": []
+   }
+  },
+  "claude-opus-5-5": {
+   "recordedFor": "2026-10-17T07:08:54.207073+00:00",
+   "media": {
+    "desktop": {
+     "mp4": "r01/spinning-hexagon-physics/claude-opus-5-5/desktop.mp4",
+     "preview": "r01/spinning-hexagon-physics/claude-opus-5-5/desktop-preview.mp4",
+     "poster": "r01/spinning-hexagon-physics/claude-opus-5-5/desktop.jpg",
+     "seconds": 20,
+     "width": 1440,
+     "height": 900,
+     "bytes": 6989470
+    }
+   },
+   "runtime": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": []
+   }
+  }
+ },
+ "saas-landing-page": {
+  "gpt-6-1-sol": {
+   "recordedFor": "2026-10-17T06:45:43.868202+00:00",
+   "media": {
+    "desktop": {
+     "mp4": "r01/saas-landing-page/gpt-6-1-sol/desktop.mp4",
+     "preview": "r01/saas-landing-page/gpt-6-1-sol/desktop-preview.mp4",
+     "poster": "r01/saas-landing-page/gpt-6-1-sol/desktop.jpg",
+     "seconds": 24.1,
+     "width": 1440,
+     "height": 900,
+     "bytes": 2234380
+    },
+    "mobile": {
+     "mp4": "r01/saas-landing-page/gpt-6-1-sol/mobile.mp4",
+     "preview": "r01/saas-landing-page/gpt-6-1-sol/mobile-preview.mp4",
+     "poster": "r01/saas-landing-page/gpt-6-1-sol/mobile.jpg",
+     "seconds": 29.7,
+     "width": 780,
+     "height": 1688,
+     "bytes": 5051449
+    }
+   },
+   "runtime": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": []
+   }
+  },
+  "gpt-6-astra": {
+   "recordedFor": "2026-10-17T06:46:53.793077+00:00",
+   "media": {
+    "desktop": {
+     "mp4": "r01/saas-landing-page/gpt-6-astra/desktop.mp4",
+     "preview": "r01/saas-landing-page/gpt-6-astra/desktop-preview.mp4",
+     "poster": "r01/saas-landing-page/gpt-6-astra/desktop.jpg",
+     "seconds": 22.5,
+     "width": 1440,
+     "height": 900,
+     "bytes": 2751018
+    },
+    "mobile": {
+     "mp4": "r01/saas-landing-page/gpt-6-astra/mobile.mp4",
+     "preview": "r01/saas-landing-page/gpt-6-astra/mobile-preview.mp4",
+     "poster": "r01/saas-landing-page/gpt-6-astra/mobile.jpg",
+     "seconds": 28.5,
+     "width": 780,
+     "height": 1688,
+     "bytes": 5317684
+    }
+   },
+   "runtime": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": []
+   }
+  }
+ },
+ "analytics-dashboard": {
+  "gpt-6-astra": {
+   "recordedFor": "2026-10-17T06:57:21.146185+00:00",
+   "media": {
+    "desktop": {
+     "mp4": "r01/analytics-dashboard/gpt-6-astra/desktop.mp4",
+     "preview": "r01/analytics-dashboard/gpt-6-astra/desktop-preview.mp4",
+     "poster": "r01/analytics-dashboard/gpt-6-astra/desktop.jpg",
+     "seconds": 35.7,
+     "width": 1440,
+     "height": 900,
+     "bytes": 1968739
+    },
+    "mobile": {
+     "mp4": "r01/analytics-dashboard/gpt-6-astra/mobile.mp4",
+     "preview": "r01/analytics-dashboard/gpt-6-astra/mobile-preview.mp4",
+     "poster": "r01/analytics-dashboard/gpt-6-astra/mobile.jpg",
+     "seconds": 14.6,
+     "width": 780,
+     "height": 1688,
+     "bytes": 1894781
+    }
+   },
+   "runtime": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": []
+   }
+  },
+  "gpt-6-1-sol": {
+   "recordedFor": "2026-10-17T06:53:10.150948+00:00",
+   "media": {
+    "desktop": {
+     "mp4": "r01/analytics-dashboard/gpt-6-1-sol/desktop.mp4",
+     "preview": "r01/analytics-dashboard/gpt-6-1-sol/desktop-preview.mp4",
+     "poster": "r01/analytics-dashboard/gpt-6-1-sol/desktop.jpg",
+     "seconds": 35.6,
+     "width": 1440,
+     "height": 900,
+     "bytes": 2208414
+    },
+    "mobile": {
+     "mp4": "r01/analytics-dashboard/gpt-6-1-sol/mobile.mp4",
+     "preview": "r01/analytics-dashboard/gpt-6-1-sol/mobile-preview.mp4",
+     "poster": "r01/analytics-dashboard/gpt-6-1-sol/mobile.jpg",
+     "seconds": 15.1,
+     "width": 780,
+     "height": 1688,
+     "bytes": 2751447
+    }
+   },
+   "runtime": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": []
+   }
+  }
+ },
+ "first-person-shooter": {
+  "gpt-6-1-sol": {
+   "recordedFor": "2026-10-17T07:06:28.949364+00:00",
+   "media": {
+    "desktop": {
+     "mp4": "r01/first-person-shooter/gpt-6-1-sol/desktop.mp4",
+     "preview": "r01/first-person-shooter/gpt-6-1-sol/desktop-preview.mp4",
+     "poster": "r01/first-person-shooter/gpt-6-1-sol/desktop.jpg",
+     "seconds": 40,
+     "width": 1440,
+     "height": 900,
+     "bytes": 19977102
+    }
+   },
+   "runtime": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": [
+     "desktop: Game over at 35.5s; pressed Restart"
+    ]
+   }
+  },
+  "gpt-6-astra": {
+   "recordedFor": "2026-10-17T07:17:04.119575+00:00",
+   "media": {
+    "desktop": {
+     "mp4": "r01/first-person-shooter/gpt-6-astra/desktop.mp4",
+     "preview": "r01/first-person-shooter/gpt-6-astra/desktop-preview.mp4",
+     "poster": "r01/first-person-shooter/gpt-6-astra/desktop.jpg",
+     "seconds": 40,
+     "width": 1440,
+     "height": 900,
+     "bytes": 13577853
+    }
+   },
+   "runtime": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": []
+   }
+  }
+ }
+}

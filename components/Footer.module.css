@@ -1,0 +1,68 @@
+.footer {
+  margin-top: clamp(110px, 14vw, 190px);
+  padding: 0 0 max(36px, env(safe-area-inset-bottom));
+  color: var(--text-2);
+  font-size: 14.5px;
+}
+.top {
+  display: grid;
+  grid-template-columns: 1.6fr repeat(3, 1fr);
+  gap: 32px;
+  padding-top: 40px;
+  border-top: 1px solid var(--line);
+}
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+}
+.logo {
+  color: var(--text);
+}
+.tag {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 26px;
+  line-height: 1.1;
+  color: var(--text);
+  max-width: 260px;
+}
+.mail {
+  color: var(--text-2);
+}
+.mail:hover {
+  color: var(--text);
+}
+.col ul {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 2px;
+}
+.col a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+}
+.col a:hover {
+  color: var(--text);
+}
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 48px;
+  font-size: 13px;
+  color: var(--text-3);
+}
+@media (max-width: 760px) {
+  .top {
+    grid-template-columns: 1fr 1fr;
+  }
+  .brand {
+    grid-column: 1 / -1;
+  }
+}

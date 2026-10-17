@@ -1,0 +1,74 @@
+.pair {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 24px;
+  min-height: 190px;
+}
+.side {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-serif);
+  font-size: 26px;
+  line-height: 1.15;
+}
+.vs {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  padding-left: 18px;
+}
+.go {
+  margin-top: auto;
+  padding-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 560;
+  color: var(--text-2);
+}
+.pair:hover .go {
+  color: var(--text);
+}
+.task {
+  padding: 10px;
+  border-radius: calc(var(--r-lg) + 10px);
+}
+.taskHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 10px 14px;
+  flex-wrap: wrap;
+}
+.taskTitle {
+  margin: 4px 0 0;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.1;
+}
+.duo {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.duoPhone {
+  grid-template-columns: repeat(2, minmax(0, 220px));
+  justify-content: center;
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+@media (max-width: 640px) {
+  .duo:not(.duoPhone) {
+    grid-template-columns: 1fr;
+  }
+}

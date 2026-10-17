@@ -1,0 +1,18 @@
+{
+  "slug": "saas-landing-page",
+  "order": 1,
+  "title": "SaaS landing page",
+  "category": "Website UI",
+  "summary": "A full marketing site for a fictional scheduling app: hero, testimonials, features, pricing with a monthly/yearly toggle, FAQ and footer. Fonts from Google Fonts allowed, nothing else from the network.",
+  "watchFor": [
+    "Typography and spacing: does it feel designed or assembled?",
+    "The hero product visual: is it convincing or a grey box?",
+    "Does the Monthly / Yearly toggle really change every price?",
+    "On the phone video: does the layout reflow, or just shrink?"
+  ],
+  "views": [
+    "desktop",
+    "mobile"
+  ],
+  "interaction": "Scroll the whole page, open the menu on mobile, switch pricing to Yearly, open an FAQ answer."
+}

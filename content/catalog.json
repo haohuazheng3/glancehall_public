@@ -1,0 +1,520 @@
+{
+ "round": {
+  "id": "r01",
+  "title": "Round 01",
+  "date": "2026-10-17"
+ },
+ "models": [
+  {
+   "key": "claude-opus-5-5",
+   "name": "Claude Opus 5.5",
+   "vendor": "Anthropic",
+   "family": "Claude",
+   "model_id": "claude-opus-5-5",
+   "effort": "max",
+   "effortLabel": "Max effort",
+   "harness": "Claude Code",
+   "accent": "amber"
+  },
+  {
+   "key": "claude-fable-5-1",
+   "name": "Claude Fable 5.1",
+   "vendor": "Anthropic",
+   "family": "Claude",
+   "model_id": "claude-fable-5-1",
+   "effort": "max",
+   "effortLabel": "Max effort",
+   "harness": "Claude Code",
+   "accent": "rose"
+  },
+  {
+   "key": "gpt-6-astra",
+   "name": "GPT-6 Astra",
+   "vendor": "OpenAI",
+   "family": "GPT",
+   "model_id": "gpt-6-astra",
+   "effort": "xhigh",
+   "effortLabel": "Extra high reasoning",
+   "harness": "Codex CLI",
+   "accent": "cyan"
+  },
+  {
+   "key": "gpt-6-1-sol",
+   "name": "GPT-6.1 Sol",
+   "vendor": "OpenAI",
+   "family": "GPT",
+   "model_id": "gpt-6.1-sol",
+   "effort": "xhigh",
+   "effortLabel": "Extra high reasoning",
+   "harness": "Codex CLI",
+   "accent": "lime"
+  }
+ ],
+ "tasks": [
+  {
+   "slug": "saas-landing-page",
+   "order": 1,
+   "title": "SaaS landing page",
+   "category": "Website UI",
+   "summary": "A full marketing site for a fictional scheduling app: hero, testimonials, features, pricing with a monthly/yearly toggle, FAQ and footer. Fonts from Google Fonts allowed, nothing else from the network.",
+   "watchFor": [
+    "Typography and spacing: does it feel designed or assembled?",
+    "The hero product visual: is it convincing or a grey box?",
+    "Does the Monthly / Yearly toggle really change every price?",
+    "On the phone video: does the layout reflow, or just shrink?"
+   ],
+   "views": [
+    "desktop",
+    "mobile"
+   ],
+   "interaction": "Scroll the whole page, open the menu on mobile, switch pricing to Yearly, open an FAQ answer.",
+   "dir": "01-saas-landing",
+   "prompt": "Design and build the marketing landing page for Driftwood, a (fictional) scheduling app for freelancers and independent consultants.\n\nABOUT THE PRODUCT\nDriftwood gives freelancers one booking link that respects their focus time: clients pick a slot, Driftwood protects deep-work blocks, adds buffers around calls, and can collect payment when a session is booked.\n\nFeatures (present all four):\n1. Booking links: one link, several meeting types, automatic time-zone detection.\n2. Focus guard: defends deep-work blocks and caps the number of meetings per day.\n3. Smart buffers: prep and travel time added before and after calls.\n4. Paid sessions: clients pay when they book (via Stripe), with automatic receipts.\n\nIntegrations to show: Google Calendar, Outlook, iCloud Calendar, Zoom, Stripe, Notion.\n\nPricing, with a Monthly / Yearly toggle (yearly = two months free):\n- Solo: $0. 1 booking link, 2 connected calendars, Driftwood branding on the booking page.\n- Pro: $12/month, or $10/month billed yearly. Unlimited links, focus guard, smart buffers, paid sessions, no branding. Mark this plan as the most popular.\n- Studio: $29/month, or $24/month billed yearly. Everything in Pro for up to 5 teammates, round-robin booking, shared analytics.\n\nFAQ: use exactly these five questions, in this order, and write the answers yourself:\n1. Is there really a free plan?\n2. Which calendars does Driftwood work with?\n3. Can clients book across time zones?\n4. How do paid sessions work?\n5. Can I cancel anytime?\n\nPAGE REQUIREMENTS\n- Sections, in this order: navigation bar; hero; testimonials (three short quotes from invented freelancers, each with a name and profession); features; how it works (three steps); pricing; FAQ; final call to action; footer.\n- The hero has a headline and a supporting line that you write, a primary button labeled \"Start free\" and a secondary button labeled \"See how it works\" that scrolls to the how-it-works section.\n- The hero includes a visual of the product itself (for example a mock booking interface) built with HTML, CSS or SVG.\n- The pricing toggle switches all prices between monthly and yearly, using the labels \"Monthly\" and \"Yearly\".\n- Each FAQ answer expands and collapses when its question is clicked.\n- Fully responsive. It must look intentional at 1440x900 on desktop and at 390x844 on a phone; on the phone the navigation collapses into a menu.\n- Visual design, layout, colour palette, typography, illustration and motion are entirely up to you. Aim for the quality of the website of a top-tier product company.\n\nDELIVERY RULES\n- Work autonomously. Nobody will answer questions, so make reasonable assumptions and keep going until the page is finished.\n- Deliver a single file, ./index.html, with all HTML, CSS and JavaScript inline. No build step, no frameworks loaded from the network.\n- The only network resource allowed is fonts from Google Fonts. No other CDNs, no external images, no APIs. Every image or illustration must be made with HTML, CSS, inline SVG or canvas.\n- The page must work when index.html is opened directly in a current version of Chrome, and when it is served over HTTP.",
+   "runs": {
+    "claude-opus-5-5": {
+     "status": "pending"
+    },
+    "claude-fable-5-1": {
+     "status": "pending"
+    },
+    "gpt-6-astra": {
+     "status": "ok",
+     "seconds": 598.3,
+     "startedAt": "2026-10-17T06:36:55.556932+00:00",
+     "finishedAt": "2026-10-17T06:46:53.793077+00:00",
+     "cliVersion": "codex-cli 0.163.0",
+     "attempts": 1,
+     "inputTokens": 744063,
+     "outputTokens": 33522,
+     "turns": 1,
+     "files": [
+      "index.html"
+     ],
+     "sourceBytes": 65297,
+     "artifact": "r01/saas-landing-page/gpt-6-astra/build/index.html",
+     "media": {
+      "desktop": {
+       "mp4": "r01/saas-landing-page/gpt-6-astra/desktop.mp4",
+       "preview": "r01/saas-landing-page/gpt-6-astra/desktop-preview.mp4",
+       "poster": "r01/saas-landing-page/gpt-6-astra/desktop.jpg",
+       "seconds": 22.5,
+       "width": 1440,
+       "height": 900,
+       "bytes": 2751018
+      },
+      "mobile": {
+       "mp4": "r01/saas-landing-page/gpt-6-astra/mobile.mp4",
+       "preview": "r01/saas-landing-page/gpt-6-astra/mobile-preview.mp4",
+       "poster": "r01/saas-landing-page/gpt-6-astra/mobile.jpg",
+       "seconds": 28.5,
+       "width": 780,
+       "height": 1688,
+       "bytes": 5317684
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": []
+     }
+    },
+    "gpt-6-1-sol": {
+     "status": "ok",
+     "seconds": 547.7,
+     "startedAt": "2026-10-17T06:36:36.214981+00:00",
+     "finishedAt": "2026-10-17T06:45:43.868202+00:00",
+     "cliVersion": "codex-cli 0.163.0",
+     "attempts": 1,
+     "inputTokens": 1290774,
+     "outputTokens": 44520,
+     "turns": 1,
+     "files": [
+      "index.html"
+     ],
+     "sourceBytes": 74767,
+     "artifact": "r01/saas-landing-page/gpt-6-1-sol/build/index.html",
+     "media": {
+      "desktop": {
+       "mp4": "r01/saas-landing-page/gpt-6-1-sol/desktop.mp4",
+       "preview": "r01/saas-landing-page/gpt-6-1-sol/desktop-preview.mp4",
+       "poster": "r01/saas-landing-page/gpt-6-1-sol/desktop.jpg",
+       "seconds": 24.1,
+       "width": 1440,
+       "height": 900,
+       "bytes": 2234380
+      },
+      "mobile": {
+       "mp4": "r01/saas-landing-page/gpt-6-1-sol/mobile.mp4",
+       "preview": "r01/saas-landing-page/gpt-6-1-sol/mobile-preview.mp4",
+       "poster": "r01/saas-landing-page/gpt-6-1-sol/mobile.jpg",
+       "seconds": 29.7,
+       "width": 780,
+       "height": 1688,
+       "bytes": 5051449
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": []
+     }
+    }
+   }
+  },
+  {
+   "slug": "analytics-dashboard",
+   "order": 2,
+   "title": "Analytics dashboard",
+   "category": "Software UI",
+   "summary": "An e-commerce admin dashboard built on one fixed dataset: KPI cards, a hand-drawn revenue chart with tooltips, channel split, top products and a sortable, filterable, paginated orders table, plus a full dark mode.",
+   "watchFor": [
+    "Are the KPI numbers actually computed from the same data?",
+    "Chart craft: axes, tooltip, hover state",
+    "Table details: sorting, filters, empty states, pagination",
+    "Is dark mode designed, or just inverted?"
+   ],
+   "views": [
+    "desktop",
+    "mobile"
+   ],
+   "interaction": "Hover the revenue chart, sort by Amount, filter to Pending, page through, search, then switch to dark mode.",
+   "dir": "02-analytics-dashboard",
+   "prompt": "Design and build the admin dashboard of Lumen & Oak, a (fictional) online store that sells home goods.\n\nDATA\nThe dataset is in ./data.json. Use exactly this data, and embed it inline in index.html (the page must work when opened directly from disk, so do not fetch the file).\n\nLAYOUT AND FEATURES\n- Sidebar navigation with these items: Overview (active), Orders, Products, Customers, Analytics, Settings. Show the store name and the signed-in user (an avatar with initials is fine).\n- Top bar with: the page title \"Overview\", a search field, a date-range indicator reading \"Last 30 days\", and a dark-mode toggle button with aria-label=\"Toggle dark mode\".\n- Four KPI cards computed from the data: Revenue, Orders, Conversion rate (orders / sessions) and Average order value. Each card shows the change against the previous 30 days, using previous_period_totals.\n- Revenue chart: daily revenue for the 30 days, drawn by you with SVG or canvas (no chart libraries). Hovering over the chart shows a tooltip with the date and the revenue of the nearest day.\n- Sales by channel, from the channels data, shown in whatever form you think works best.\n- Top products, from the top_products data.\n- Recent orders table with exactly these columns: Order, Customer, Date, Status, Amount.\n  - Status filter tabs labeled exactly: All, Paid, Pending, Refunded.\n  - Clicking a column header sorts by that column; clicking it again reverses the order.\n  - Pagination with 8 rows per page and buttons labeled \"Previous\" and \"Next\".\n  - Typing in the top-bar search field filters the table by customer name or order id.\n- Dark mode: a complete, deliberately designed dark theme (not an inverted filter), switched with the toggle button.\n- Responsive: at 390px wide the sidebar collapses behind a menu button with aria-label=\"Open menu\", and the content reflows properly for a phone.\n- Visual design is entirely up to you. Aim for the craft of a best-in-class SaaS product.\n\nDELIVERY RULES\n- Work autonomously. Nobody will answer questions, so make reasonable assumptions and keep going until the dashboard is finished.\n- Deliver a single file, ./index.html, with all HTML, CSS, JavaScript and data inline. No build step, no frameworks or chart libraries.\n- The only network resource allowed is fonts from Google Fonts. No other CDNs, no external images, no APIs.\n- The page must work when index.html is opened directly in a current version of Chrome, and when it is served over HTTP. It will be viewed at 1440x900 on desktop and 390x844 on a phone.",
+   "runs": {
+    "claude-opus-5-5": {
+     "status": "pending"
+    },
+    "claude-fable-5-1": {
+     "status": "pending"
+    },
+    "gpt-6-astra": {
+     "status": "ok",
+     "seconds": 627.4,
+     "startedAt": "2026-10-17T06:46:53.799206+00:00",
+     "finishedAt": "2026-10-17T06:57:21.146185+00:00",
+     "cliVersion": "codex-cli 0.163.0",
+     "attempts": 1,
+     "inputTokens": 570877,
+     "outputTokens": 34875,
+     "turns": 1,
+     "files": [
+      "index.html"
+     ],
+     "sourceBytes": 70083,
+     "artifact": "r01/analytics-dashboard/gpt-6-astra/build/index.html",
+     "media": {
+      "desktop": {
+       "mp4": "r01/analytics-dashboard/gpt-6-astra/desktop.mp4",
+       "preview": "r01/analytics-dashboard/gpt-6-astra/desktop-preview.mp4",
+       "poster": "r01/analytics-dashboard/gpt-6-astra/desktop.jpg",
+       "seconds": 35.7,
+       "width": 1440,
+       "height": 900,
+       "bytes": 1968739
+      },
+      "mobile": {
+       "mp4": "r01/analytics-dashboard/gpt-6-astra/mobile.mp4",
+       "preview": "r01/analytics-dashboard/gpt-6-astra/mobile-preview.mp4",
+       "poster": "r01/analytics-dashboard/gpt-6-astra/mobile.jpg",
+       "seconds": 14.6,
+       "width": 780,
+       "height": 1688,
+       "bytes": 1894781
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": []
+     }
+    },
+    "gpt-6-1-sol": {
+     "status": "ok",
+     "seconds": 446.3,
+     "startedAt": "2026-10-17T06:45:43.876453+00:00",
+     "finishedAt": "2026-10-17T06:53:10.150948+00:00",
+     "cliVersion": "codex-cli 0.163.0",
+     "attempts": 1,
+     "inputTokens": 730642,
+     "outputTokens": 36498,
+     "turns": 1,
+     "files": [
+      "index.html"
+     ],
+     "sourceBytes": 69017,
+     "artifact": "r01/analytics-dashboard/gpt-6-1-sol/build/index.html",
+     "media": {
+      "desktop": {
+       "mp4": "r01/analytics-dashboard/gpt-6-1-sol/desktop.mp4",
+       "preview": "r01/analytics-dashboard/gpt-6-1-sol/desktop-preview.mp4",
+       "poster": "r01/analytics-dashboard/gpt-6-1-sol/desktop.jpg",
+       "seconds": 35.6,
+       "width": 1440,
+       "height": 900,
+       "bytes": 2208414
+      },
+      "mobile": {
+       "mp4": "r01/analytics-dashboard/gpt-6-1-sol/mobile.mp4",
+       "preview": "r01/analytics-dashboard/gpt-6-1-sol/mobile-preview.mp4",
+       "poster": "r01/analytics-dashboard/gpt-6-1-sol/mobile.jpg",
+       "seconds": 15.1,
+       "width": 780,
+       "height": 1688,
+       "bytes": 2751447
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": []
+     }
+    }
+   }
+  },
+  {
+   "slug": "spinning-hexagon-physics",
+   "order": 3,
+   "title": "Balls in a spinning hexagon",
+   "category": "Simulation",
+   "summary": "Twenty numbered balls under gravity inside a hexagon that turns once every ten seconds. Physics written from scratch: moving-wall collisions, ball-to-ball contact, friction and visible spin. No libraries.",
+   "watchFor": [
+    "Do any balls tunnel through a wall or escape?",
+    "Does the rotating wall push the balls in a believable way?",
+    "Do the numbers spin with the balls?",
+    "Does the pile settle, jitter or sink into itself?"
+   ],
+   "views": [
+    "desktop"
+   ],
+   "interaction": "No input: the first 20 seconds after page load, recorded frame by frame.",
+   "dir": "03-hexagon-physics",
+   "prompt": "Build a physics simulation in the browser: 20 balls bouncing inside a spinning hexagon.\n\nREQUIREMENTS\n- A regular hexagon, centred in the viewport and as large as comfortably fits, rotating continuously at a constant speed of one full turn every 10 seconds.\n- 20 balls of equal size, numbered 1 to 20, each with a distinct colour. They start near the centre and fall under gravity.\n- Implement the physics yourself, with no libraries: gravity, air damping, restitution when bouncing, ball-to-ball collisions, and collisions with the moving walls. Because the walls rotate, the velocity of the wall at the point of contact must affect each bounce.\n- Friction between balls and walls makes the balls spin. Show each ball's rotation by drawing its number rotating with it.\n- Balls must never escape the hexagon or pass through a wall, and must not sink into each other when they pile up.\n- Use time-based updates (based on the elapsed time between frames) so the simulation behaves the same at any frame rate. Render with canvas 2D, driven by requestAnimationFrame.\n- Fill the window and stay correct when the window is resized. It will be viewed at 1440x900 on desktop and 390x844 on a phone.\n- Start automatically when the page loads; no interaction is required. The visual style is up to you.\n\nDELIVERY RULES\n- Work autonomously. Nobody will answer questions, so make reasonable assumptions and keep going until the simulation is finished.\n- Deliver a single file, ./index.html, with all HTML, CSS and JavaScript inline. No build step, no libraries, no network requests of any kind.\n- The page must work when index.html is opened directly in a current version of Chrome, and when it is served over HTTP.",
+   "runs": {
+    "claude-opus-5-5": {
+     "status": "ok",
+     "seconds": 2411.1,
+     "startedAt": "2026-10-17T06:28:43.020746+00:00",
+     "finishedAt": "2026-10-17T07:08:54.207073+00:00",
+     "cliVersion": "2.1.302 (Claude Code)",
+     "attempts": 1,
+     "inputTokens": 11531222,
+     "outputTokens": 211066,
+     "turns": 83,
+     "files": [
+      "index.html"
+     ],
+     "sourceBytes": 32152,
+     "artifact": "r01/spinning-hexagon-physics/claude-opus-5-5/build/index.html",
+     "media": {
+      "desktop": {
+       "mp4": "r01/spinning-hexagon-physics/claude-opus-5-5/desktop.mp4",
+       "preview": "r01/spinning-hexagon-physics/claude-opus-5-5/desktop-preview.mp4",
+       "poster": "r01/spinning-hexagon-physics/claude-opus-5-5/desktop.jpg",
+       "seconds": 20,
+       "width": 1440,
+       "height": 900,
+       "bytes": 6989470
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": []
+     }
+    },
+    "claude-fable-5-1": {
+     "status": "ok",
+     "seconds": 1517.1,
+     "startedAt": "2026-10-17T06:28:42.798941+00:00",
+     "finishedAt": "2026-10-17T06:53:59.840448+00:00",
+     "cliVersion": "2.1.302 (Claude Code)",
+     "attempts": 1,
+     "inputTokens": 2545720,
+     "outputTokens": 105848,
+     "turns": 43,
+     "files": [
+      "index.html"
+     ],
+     "sourceBytes": 15579,
+     "artifact": "r01/spinning-hexagon-physics/claude-fable-5-1/build/index.html",
+     "media": {
+      "desktop": {
+       "mp4": "r01/spinning-hexagon-physics/claude-fable-5-1/desktop.mp4",
+       "preview": "r01/spinning-hexagon-physics/claude-fable-5-1/desktop-preview.mp4",
+       "poster": "r01/spinning-hexagon-physics/claude-fable-5-1/desktop.jpg",
+       "seconds": 20,
+       "width": 1440,
+       "height": 900,
+       "bytes": 8046068
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": []
+     }
+    },
+    "gpt-6-astra": {
+     "status": "ok",
+     "seconds": 493.5,
+     "startedAt": "2026-10-17T06:28:42.111015+00:00",
+     "finishedAt": "2026-10-17T06:36:55.547234+00:00",
+     "cliVersion": "codex-cli 0.163.0",
+     "attempts": 1,
+     "inputTokens": 583950,
+     "outputTokens": 23749,
+     "turns": 1,
+     "files": [
+      "index.html"
+     ],
+     "sourceBytes": 24858,
+     "artifact": "r01/spinning-hexagon-physics/gpt-6-astra/build/index.html",
+     "media": {
+      "desktop": {
+       "mp4": "r01/spinning-hexagon-physics/gpt-6-astra/desktop.mp4",
+       "preview": "r01/spinning-hexagon-physics/gpt-6-astra/desktop-preview.mp4",
+       "poster": "r01/spinning-hexagon-physics/gpt-6-astra/desktop.jpg",
+       "seconds": 20,
+       "width": 1440,
+       "height": 900,
+       "bytes": 4407859
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": []
+     }
+    },
+    "gpt-6-1-sol": {
+     "status": "ok",
+     "seconds": 474.1,
+     "startedAt": "2026-10-17T06:28:42.111503+00:00",
+     "finishedAt": "2026-10-17T06:36:36.201252+00:00",
+     "cliVersion": "codex-cli 0.163.0",
+     "attempts": 1,
+     "inputTokens": 1065588,
+     "outputTokens": 43071,
+     "turns": 1,
+     "files": [
+      "index.html"
+     ],
+     "sourceBytes": 25956,
+     "artifact": "r01/spinning-hexagon-physics/gpt-6-1-sol/build/index.html",
+     "media": {
+      "desktop": {
+       "mp4": "r01/spinning-hexagon-physics/gpt-6-1-sol/desktop.mp4",
+       "preview": "r01/spinning-hexagon-physics/gpt-6-1-sol/desktop-preview.mp4",
+       "poster": "r01/spinning-hexagon-physics/gpt-6-1-sol/desktop.jpg",
+       "seconds": 20,
+       "width": 1440,
+       "height": 900,
+       "bytes": 3801156
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": []
+     }
+    }
+   }
+  },
+  {
+   "slug": "first-person-shooter",
+   "order": 4,
+   "title": "First-person shooter",
+   "category": "3D game",
+   "summary": "A small browser FPS in three.js: an arena with obstacles, waves of enemies that path around cover, recoil, muzzle flash, hit feedback, HUD, start and game-over screens. Every model, texture and sound generated in code.",
+   "watchFor": [
+    "Atmosphere: lighting, fog, materials, sound design (open it live)",
+    "Weapon feel: recoil, muzzle flash, hit markers",
+    "Enemy behaviour: do they navigate obstacles or get stuck?",
+    "Completeness: HUD, reload, waves, game over"
+   ],
+   "views": [
+    "desktop"
+   ],
+   "interaction": "The same scripted input for every model: press Play, move, strafe, turn and fire for 40 seconds.",
+   "dir": "04-fps-arena",
+   "prompt": "Build a small first-person shooter that runs in the browser.\n\nTECHNOLOGY\n- three.js r186 is provided in this folder as an ES module: ./three.module.js (it imports ./three.core.js; keep both files and do not modify or rename them). Load it from a <script type=\"module\"> with: import * as THREE from './three.module.js';\n- No other libraries and no network requests. There are no asset files: every model, texture and sound must be generated in code (procedural geometry, textures drawn on canvas, sound synthesised with the Web Audio API).\n\nTHE GAME\n- A 3D arena, indoor or outdoor, with walls and obstacles that the player collides with.\n- Enemies arrive in waves, move toward the player, find their way around obstacles instead of getting stuck, and attack when they are close.\n- Shooting has clear feedback: muzzle flash, weapon recoil, a hit marker or hit reaction on the enemy, and a death effect.\n- HUD with a crosshair, health, ammo with reloading, score and the current wave.\n- A start screen with a button labeled \"Play\", and a game-over screen that shows the score and has a button labeled \"Restart\".\n- Controls: W A S D to move, the mouse to look around (pointer lock after clicking Play), left mouse button or F to shoot, R to reload. The left and right arrow keys must also turn the view, for players without a mouse.\n- The game must remain playable if pointer lock is unavailable (keyboard turning still works).\n- Aim for 60 frames per second on a laptop, and adapt to any window size. It will be played at 1440x900.\n- Art direction, atmosphere, lighting and sound design are up to you. Make it look good and feel good to play.\n\nDELIVERY RULES\n- Work autonomously. Nobody will answer questions, so make reasonable assumptions and keep going until the game is finished.\n- Deliver ./index.html (JavaScript may be inline or in additional .js files in this folder, loaded with relative paths). No build step.\n- The game must work when this folder is served over HTTP and opened in a current version of Chrome.",
+   "runs": {
+    "claude-opus-5-5": {
+     "status": "pending"
+    },
+    "claude-fable-5-1": {
+     "status": "pending"
+    },
+    "gpt-6-astra": {
+     "status": "ok",
+     "seconds": 1182.8,
+     "startedAt": "2026-10-17T06:57:21.158473+00:00",
+     "finishedAt": "2026-10-17T07:17:04.119575+00:00",
+     "cliVersion": "codex-cli 0.163.0",
+     "attempts": 1,
+     "inputTokens": 1746099,
+     "outputTokens": 64440,
+     "turns": 1,
+     "files": [
+      "game.js",
+      "index.html"
+     ],
+     "sourceBytes": 64317,
+     "artifact": "r01/first-person-shooter/gpt-6-astra/build/index.html",
+     "media": {
+      "desktop": {
+       "mp4": "r01/first-person-shooter/gpt-6-astra/desktop.mp4",
+       "preview": "r01/first-person-shooter/gpt-6-astra/desktop-preview.mp4",
+       "poster": "r01/first-person-shooter/gpt-6-astra/desktop.jpg",
+       "seconds": 40,
+       "width": 1440,
+       "height": 900,
+       "bytes": 13577853
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": []
+     }
+    },
+    "gpt-6-1-sol": {
+     "status": "ok",
+     "seconds": 798.6,
+     "startedAt": "2026-10-17T06:53:10.163120+00:00",
+     "finishedAt": "2026-10-17T07:06:28.949364+00:00",
+     "cliVersion": "codex-cli 0.163.0",
+     "attempts": 1,
+     "inputTokens": 2451064,
+     "outputTokens": 61163,
+     "turns": 1,
+     "files": [
+      "game.js",
+      "index.html",
+      "styles.css"
+     ],
+     "sourceBytes": 66139,
+     "artifact": "r01/first-person-shooter/gpt-6-1-sol/build/index.html",
+     "media": {
+      "desktop": {
+       "mp4": "r01/first-person-shooter/gpt-6-1-sol/desktop.mp4",
+       "preview": "r01/first-person-shooter/gpt-6-1-sol/desktop-preview.mp4",
+       "poster": "r01/first-person-shooter/gpt-6-1-sol/desktop.jpg",
+       "seconds": 40,
+       "width": 1440,
+       "height": 900,
+       "bytes": 19977102
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": [
+       "desktop: Game over at 35.5s; pressed Restart"
+      ]
+     }
+    }
+   }
+  }
+ ]
+}

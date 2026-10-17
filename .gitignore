@@ -1,0 +1,25 @@
+# secrets never enter git
+.env
+.env.*
+!.env.example
+
+# dependencies and build output
+node_modules/
+.next/
+out/
+dist/
+.vercel/
+*.tsbuildinfo
+next-env.d.ts
+
+# recorder working files
+bench/record/node_modules/
+bench/record/.frames/
+media-out/
+
+# runtime locks / temp / logs
+.flow/ops.lock
+.runner.lock
+.stamp-*
+logs/
+.DS_Store

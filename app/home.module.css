@@ -1,0 +1,221 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: clamp(40px, 8vw, 96px);
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 36px;
+  padding: 0 14px 0 12px;
+  border-radius: var(--r-pill);
+  font-size: 13px;
+  font-weight: 520;
+  color: var(--text-2);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: var(--float);
+  transition: color 0.2s, transform 0.3s var(--ease);
+}
+.pill:hover {
+  color: var(--text);
+  transform: translateY(-1px);
+}
+.live {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ok);
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--ok) 60%, transparent);
+  animation: ping 2.4s infinite;
+}
+@keyframes ping {
+  70% {
+    box-shadow: 0 0 0 8px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+.title {
+  margin-top: 30px;
+  font-size: clamp(56px, 10.4vw, 156px);
+}
+.title em {
+  font-style: italic;
+  padding-right: 0.04em;
+}
+.lede {
+  margin-top: 28px;
+  max-width: 600px;
+}
+.ctas {
+  display: flex;
+  gap: 10px;
+  margin-top: 34px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.stageWrap {
+  margin-top: clamp(56px, 8vw, 96px);
+  max-width: calc(1360px + var(--gutter) * 2);
+}
+
+.secHead {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 36px;
+  max-width: 760px;
+}
+
+.rules {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+.rule {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.rule p {
+  margin: 0;
+  font-size: 14.5px;
+}
+.ruleN {
+  font-size: 12px;
+  color: var(--text-3);
+  margin-bottom: 18px;
+}
+
+.tasks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.blind {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
+  padding: clamp(28px, 4vw, 56px);
+  align-items: center;
+  overflow: hidden;
+}
+.blindText {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: flex-start;
+}
+.blindArt {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  perspective: 900px;
+}
+.blindCard {
+  position: relative;
+  aspect-ratio: 16 / 11;
+  border-radius: var(--r-lg);
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  box-shadow: var(--float);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(calc(var(--i) * 3px - 4px)) rotateX(6deg);
+  animation: float 6s var(--ease) infinite;
+  animation-delay: calc(var(--i) * -1.4s);
+}
+@keyframes float {
+  50% {
+    transform: translateY(calc(var(--i) * 3px - 10px)) rotateX(6deg);
+  }
+}
+.blindLetter {
+  position: absolute;
+  left: 14px;
+  top: 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-3);
+}
+.blindQ {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 54px;
+  color: var(--text-3);
+}
+
+.models {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.why {
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  align-items: center;
+}
+.whyQuote {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(28px, 3.6vw, 46px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--text-2);
+}
+.whyQuote em {
+  color: var(--text);
+}
+
+.sub {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 32px;
+  align-items: end;
+  padding: clamp(28px, 4vw, 56px);
+}
+.sub > div {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+@media (max-width: 1080px) {
+  .rules,
+  .models {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 760px) {
+  .tasks,
+  .blind,
+  .sub {
+    grid-template-columns: 1fr;
+  }
+  .blindArt {
+    max-width: 360px;
+  }
+}
+@media (max-width: 520px) {
+  .rules,
+  .models {
+    grid-template-columns: 1fr;
+  }
+  .ctas > * {
+    flex: 1 1 auto;
+  }
+}

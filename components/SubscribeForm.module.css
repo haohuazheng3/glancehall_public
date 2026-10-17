@@ -1,0 +1,53 @@
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  max-width: 480px;
+}
+.input {
+  flex: 1 1 220px;
+}
+.btn {
+  height: 48px;
+  min-width: 132px;
+}
+.spinner {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.error {
+  flex-basis: 100%;
+  margin: 2px 0 0 18px;
+  color: var(--bad);
+  font-size: 13.5px;
+}
+.done {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  color: var(--text);
+  font-size: 15.5px;
+}
+.check {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--ok) 22%, transparent);
+  color: var(--ok);
+  font-size: 13px;
+  flex: none;
+}

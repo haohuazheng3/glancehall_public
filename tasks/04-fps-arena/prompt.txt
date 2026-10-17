@@ -1,0 +1,21 @@
+Build a small first-person shooter that runs in the browser.
+
+TECHNOLOGY
+- three.js r186 is provided in this folder as an ES module: ./three.module.js (it imports ./three.core.js; keep both files and do not modify or rename them). Load it from a <script type="module"> with: import * as THREE from './three.module.js';
+- No other libraries and no network requests. There are no asset files: every model, texture and sound must be generated in code (procedural geometry, textures drawn on canvas, sound synthesised with the Web Audio API).
+
+THE GAME
+- A 3D arena, indoor or outdoor, with walls and obstacles that the player collides with.
+- Enemies arrive in waves, move toward the player, find their way around obstacles instead of getting stuck, and attack when they are close.
+- Shooting has clear feedback: muzzle flash, weapon recoil, a hit marker or hit reaction on the enemy, and a death effect.
+- HUD with a crosshair, health, ammo with reloading, score and the current wave.
+- A start screen with a button labeled "Play", and a game-over screen that shows the score and has a button labeled "Restart".
+- Controls: W A S D to move, the mouse to look around (pointer lock after clicking Play), left mouse button or F to shoot, R to reload. The left and right arrow keys must also turn the view, for players without a mouse.
+- The game must remain playable if pointer lock is unavailable (keyboard turning still works).
+- Aim for 60 frames per second on a laptop, and adapt to any window size. It will be played at 1440x900.
+- Art direction, atmosphere, lighting and sound design are up to you. Make it look good and feel good to play.
+
+DELIVERY RULES
+- Work autonomously. Nobody will answer questions, so make reasonable assumptions and keep going until the game is finished.
+- Deliver ./index.html (JavaScript may be inline or in additional .js files in this folder, loaded with relative paths). No build step.
+- The game must work when this folder is served over HTTP and opened in a current version of Chrome.

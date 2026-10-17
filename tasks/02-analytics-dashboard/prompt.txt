@@ -1,0 +1,26 @@
+Design and build the admin dashboard of Lumen & Oak, a (fictional) online store that sells home goods.
+
+DATA
+The dataset is in ./data.json. Use exactly this data, and embed it inline in index.html (the page must work when opened directly from disk, so do not fetch the file).
+
+LAYOUT AND FEATURES
+- Sidebar navigation with these items: Overview (active), Orders, Products, Customers, Analytics, Settings. Show the store name and the signed-in user (an avatar with initials is fine).
+- Top bar with: the page title "Overview", a search field, a date-range indicator reading "Last 30 days", and a dark-mode toggle button with aria-label="Toggle dark mode".
+- Four KPI cards computed from the data: Revenue, Orders, Conversion rate (orders / sessions) and Average order value. Each card shows the change against the previous 30 days, using previous_period_totals.
+- Revenue chart: daily revenue for the 30 days, drawn by you with SVG or canvas (no chart libraries). Hovering over the chart shows a tooltip with the date and the revenue of the nearest day.
+- Sales by channel, from the channels data, shown in whatever form you think works best.
+- Top products, from the top_products data.
+- Recent orders table with exactly these columns: Order, Customer, Date, Status, Amount.
+  - Status filter tabs labeled exactly: All, Paid, Pending, Refunded.
+  - Clicking a column header sorts by that column; clicking it again reverses the order.
+  - Pagination with 8 rows per page and buttons labeled "Previous" and "Next".
+  - Typing in the top-bar search field filters the table by customer name or order id.
+- Dark mode: a complete, deliberately designed dark theme (not an inverted filter), switched with the toggle button.
+- Responsive: at 390px wide the sidebar collapses behind a menu button with aria-label="Open menu", and the content reflows properly for a phone.
+- Visual design is entirely up to you. Aim for the craft of a best-in-class SaaS product.
+
+DELIVERY RULES
+- Work autonomously. Nobody will answer questions, so make reasonable assumptions and keep going until the dashboard is finished.
+- Deliver a single file, ./index.html, with all HTML, CSS, JavaScript and data inline. No build step, no frameworks or chart libraries.
+- The only network resource allowed is fonts from Google Fonts. No other CDNs, no external images, no APIs.
+- The page must work when index.html is opened directly in a current version of Chrome, and when it is served over HTTP. It will be viewed at 1440x900 on desktop and 390x844 on a phone.

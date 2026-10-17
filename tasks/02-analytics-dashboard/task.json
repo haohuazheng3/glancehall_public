@@ -1,0 +1,18 @@
+{
+  "slug": "analytics-dashboard",
+  "order": 2,
+  "title": "Analytics dashboard",
+  "category": "Software UI",
+  "summary": "An e-commerce admin dashboard built on one fixed dataset: KPI cards, a hand-drawn revenue chart with tooltips, channel split, top products and a sortable, filterable, paginated orders table, plus a full dark mode.",
+  "watchFor": [
+    "Are the KPI numbers actually computed from the same data?",
+    "Chart craft: axes, tooltip, hover state",
+    "Table details: sorting, filters, empty states, pagination",
+    "Is dark mode designed, or just inverted?"
+  ],
+  "views": [
+    "desktop",
+    "mobile"
+  ],
+  "interaction": "Hover the revenue chart, sort by Amount, filter to Pending, page through, search, then switch to dark mode."
+}

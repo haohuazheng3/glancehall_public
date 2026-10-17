@@ -1,0 +1,17 @@
+{
+  "slug": "first-person-shooter",
+  "order": 4,
+  "title": "First-person shooter",
+  "category": "3D game",
+  "summary": "A small browser FPS in three.js: an arena with obstacles, waves of enemies that path around cover, recoil, muzzle flash, hit feedback, HUD, start and game-over screens. Every model, texture and sound generated in code.",
+  "watchFor": [
+    "Atmosphere: lighting, fog, materials, sound design (open it live)",
+    "Weapon feel: recoil, muzzle flash, hit markers",
+    "Enemy behaviour: do they navigate obstacles or get stuck?",
+    "Completeness: HUD, reload, waves, game over"
+  ],
+  "views": [
+    "desktop"
+  ],
+  "interaction": "The same scripted input for every model: press Play, move, strafe, turn and fire for 40 seconds."
+}

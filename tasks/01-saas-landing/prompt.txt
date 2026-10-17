@@ -1,0 +1,39 @@
+Design and build the marketing landing page for Driftwood, a (fictional) scheduling app for freelancers and independent consultants.
+
+ABOUT THE PRODUCT
+Driftwood gives freelancers one booking link that respects their focus time: clients pick a slot, Driftwood protects deep-work blocks, adds buffers around calls, and can collect payment when a session is booked.
+
+Features (present all four):
+1. Booking links: one link, several meeting types, automatic time-zone detection.
+2. Focus guard: defends deep-work blocks and caps the number of meetings per day.
+3. Smart buffers: prep and travel time added before and after calls.
+4. Paid sessions: clients pay when they book (via Stripe), with automatic receipts.
+
+Integrations to show: Google Calendar, Outlook, iCloud Calendar, Zoom, Stripe, Notion.
+
+Pricing, with a Monthly / Yearly toggle (yearly = two months free):
+- Solo: $0. 1 booking link, 2 connected calendars, Driftwood branding on the booking page.
+- Pro: $12/month, or $10/month billed yearly. Unlimited links, focus guard, smart buffers, paid sessions, no branding. Mark this plan as the most popular.
+- Studio: $29/month, or $24/month billed yearly. Everything in Pro for up to 5 teammates, round-robin booking, shared analytics.
+
+FAQ: use exactly these five questions, in this order, and write the answers yourself:
+1. Is there really a free plan?
+2. Which calendars does Driftwood work with?
+3. Can clients book across time zones?
+4. How do paid sessions work?
+5. Can I cancel anytime?
+
+PAGE REQUIREMENTS
+- Sections, in this order: navigation bar; hero; testimonials (three short quotes from invented freelancers, each with a name and profession); features; how it works (three steps); pricing; FAQ; final call to action; footer.
+- The hero has a headline and a supporting line that you write, a primary button labeled "Start free" and a secondary button labeled "See how it works" that scrolls to the how-it-works section.
+- The hero includes a visual of the product itself (for example a mock booking interface) built with HTML, CSS or SVG.
+- The pricing toggle switches all prices between monthly and yearly, using the labels "Monthly" and "Yearly".
+- Each FAQ answer expands and collapses when its question is clicked.
+- Fully responsive. It must look intentional at 1440x900 on desktop and at 390x844 on a phone; on the phone the navigation collapses into a menu.
+- Visual design, layout, colour palette, typography, illustration and motion are entirely up to you. Aim for the quality of the website of a top-tier product company.
+
+DELIVERY RULES
+- Work autonomously. Nobody will answer questions, so make reasonable assumptions and keep going until the page is finished.
+- Deliver a single file, ./index.html, with all HTML, CSS and JavaScript inline. No build step, no frameworks loaded from the network.
+- The only network resource allowed is fonts from Google Fonts. No other CDNs, no external images, no APIs. Every image or illustration must be made with HTML, CSS, inline SVG or canvas.
+- The page must work when index.html is opened directly in a current version of Chrome, and when it is served over HTTP.

@@ -1,0 +1,471 @@
+{
+ "store": "Lumen & Oak",
+ "currency": "USD",
+ "period": {
+  "start": "2026-09-16",
+  "end": "2026-10-15"
+ },
+ "daily": [
+  {
+   "date": "2026-09-16",
+   "revenue": 3941.86,
+   "orders": 54,
+   "sessions": 1725
+  },
+  {
+   "date": "2026-09-17",
+   "revenue": 4219.61,
+   "orders": 55,
+   "sessions": 1641
+  },
+  {
+   "date": "2026-09-18",
+   "revenue": 4301.82,
+   "orders": 58,
+   "sessions": 1906
+  },
+  {
+   "date": "2026-09-19",
+   "revenue": 4847.93,
+   "orders": 69,
+   "sessions": 2066
+  },
+  {
+   "date": "2026-09-20",
+   "revenue": 5154.04,
+   "orders": 70,
+   "sessions": 2623
+  },
+  {
+   "date": "2026-09-21",
+   "revenue": 4646.96,
+   "orders": 67,
+   "sessions": 2349
+  },
+  {
+   "date": "2026-09-22",
+   "revenue": 4365.32,
+   "orders": 59,
+   "sessions": 1863
+  },
+  {
+   "date": "2026-09-23",
+   "revenue": 3846.18,
+   "orders": 49,
+   "sessions": 1513
+  },
+  {
+   "date": "2026-09-24",
+   "revenue": 4573.45,
+   "orders": 60,
+   "sessions": 2099
+  },
+  {
+   "date": "2026-09-25",
+   "revenue": 4553.08,
+   "orders": 62,
+   "sessions": 1836
+  },
+  {
+   "date": "2026-09-26",
+   "revenue": 5809.33,
+   "orders": 82,
+   "sessions": 2869
+  },
+  {
+   "date": "2026-09-27",
+   "revenue": 5298.02,
+   "orders": 74,
+   "sessions": 2604
+  },
+  {
+   "date": "2026-09-28",
+   "revenue": 4095.99,
+   "orders": 54,
+   "sessions": 1766
+  },
+  {
+   "date": "2026-09-29",
+   "revenue": 5142.47,
+   "orders": 68,
+   "sessions": 2032
+  },
+  {
+   "date": "2026-09-30",
+   "revenue": 4621.54,
+   "orders": 64,
+   "sessions": 2261
+  },
+  {
+   "date": "2026-10-01",
+   "revenue": 4495.08,
+   "orders": 64,
+   "sessions": 1913
+  },
+  {
+   "date": "2026-10-02",
+   "revenue": 4709.78,
+   "orders": 62,
+   "sessions": 2087
+  },
+  {
+   "date": "2026-10-03",
+   "revenue": 8002.73,
+   "orders": 110,
+   "sessions": 3885
+  },
+  {
+   "date": "2026-10-04",
+   "revenue": 9601.78,
+   "orders": 123,
+   "sessions": 3634
+  },
+  {
+   "date": "2026-10-05",
+   "revenue": 4408.61,
+   "orders": 58,
+   "sessions": 1995
+  },
+  {
+   "date": "2026-10-06",
+   "revenue": 4739.87,
+   "orders": 63,
+   "sessions": 1923
+  },
+  {
+   "date": "2026-10-07",
+   "revenue": 4379.3,
+   "orders": 59,
+   "sessions": 1768
+  },
+  {
+   "date": "2026-10-08",
+   "revenue": 5700.26,
+   "orders": 83,
+   "sessions": 3122
+  },
+  {
+   "date": "2026-10-09",
+   "revenue": 5146.05,
+   "orders": 75,
+   "sessions": 2735
+  },
+  {
+   "date": "2026-10-10",
+   "revenue": 6351.22,
+   "orders": 86,
+   "sessions": 3198
+  },
+  {
+   "date": "2026-10-11",
+   "revenue": 6511.54,
+   "orders": 84,
+   "sessions": 2961
+  },
+  {
+   "date": "2026-10-12",
+   "revenue": 5190.2,
+   "orders": 67,
+   "sessions": 2028
+  },
+  {
+   "date": "2026-10-13",
+   "revenue": 5410.15,
+   "orders": 77,
+   "sessions": 2952
+  },
+  {
+   "date": "2026-10-14",
+   "revenue": 5842.79,
+   "orders": 79,
+   "sessions": 2362
+  },
+  {
+   "date": "2026-10-15",
+   "revenue": 5242.84,
+   "orders": 74,
+   "sessions": 2570
+  }
+ ],
+ "previous_period_totals": {
+  "revenue": 138033.63,
+  "orders": 1951,
+  "sessions": 67453
+ },
+ "channels": [
+  {
+   "channel": "Online store",
+   "revenue": 80677.9
+  },
+  {
+   "channel": "Instagram Shop",
+   "revenue": 32581.46
+  },
+  {
+   "channel": "Marketplace",
+   "revenue": 26375.47
+  },
+  {
+   "channel": "Wholesale",
+   "revenue": 15514.97
+  }
+ ],
+ "top_products": [
+  {
+   "name": "Linen Throw Blanket",
+   "category": "Textiles",
+   "units": 412,
+   "revenue": 36668.0
+  },
+  {
+   "name": "Stoneware Mug Set (4)",
+   "category": "Kitchen",
+   "units": 538,
+   "revenue": 25286.0
+  },
+  {
+   "name": "Oak Serving Board",
+   "category": "Kitchen",
+   "units": 301,
+   "revenue": 19565.0
+  },
+  {
+   "name": "Beeswax Taper Candles",
+   "category": "Decor",
+   "units": 744,
+   "revenue": 14136.0
+  },
+  {
+   "name": "Woven Storage Basket",
+   "category": "Storage",
+   "units": 267,
+   "revenue": 12549.0
+  }
+ ],
+ "orders": [
+  {
+   "id": "LO-10482",
+   "customer": "Maya Patel",
+   "date": "2026-10-14",
+   "status": "Pending",
+   "amount": 72.91
+  },
+  {
+   "id": "LO-10481",
+   "customer": "Liam Novak",
+   "date": "2026-10-15",
+   "status": "Paid",
+   "amount": 27.99
+  },
+  {
+   "id": "LO-10480",
+   "customer": "Sofia Costa",
+   "date": "2026-10-14",
+   "status": "Paid",
+   "amount": 161.39
+  },
+  {
+   "id": "LO-10479",
+   "customer": "Noah Weiss",
+   "date": "2026-10-14",
+   "status": "Pending",
+   "amount": 144.23
+  },
+  {
+   "id": "LO-10478",
+   "customer": "Aisha Byrne",
+   "date": "2026-10-13",
+   "status": "Refunded",
+   "amount": 162.66
+  },
+  {
+   "id": "LO-10477",
+   "customer": "Ethan Moreau",
+   "date": "2026-10-12",
+   "status": "Paid",
+   "amount": 166.03
+  },
+  {
+   "id": "LO-10476",
+   "customer": "Chloe Brennan",
+   "date": "2026-10-12",
+   "status": "Paid",
+   "amount": 58.34
+  },
+  {
+   "id": "LO-10475",
+   "customer": "Mateo Larsen",
+   "date": "2026-10-12",
+   "status": "Refunded",
+   "amount": 205.99
+  },
+  {
+   "id": "LO-10474",
+   "customer": "Hana Dubois",
+   "date": "2026-10-11",
+   "status": "Paid",
+   "amount": 144.91
+  },
+  {
+   "id": "LO-10473",
+   "customer": "Oliver Eze",
+   "date": "2026-10-11",
+   "status": "Pending",
+   "amount": 61.57
+  },
+  {
+   "id": "LO-10472",
+   "customer": "Zara Fischer",
+   "date": "2026-10-09",
+   "status": "Paid",
+   "amount": 312.99
+  },
+  {
+   "id": "LO-10471",
+   "customer": "Lucas Mehta",
+   "date": "2026-10-10",
+   "status": "Paid",
+   "amount": 167.04
+  },
+  {
+   "id": "LO-10470",
+   "customer": "Priya Abara",
+   "date": "2026-10-09",
+   "status": "Paid",
+   "amount": 415.89
+  },
+  {
+   "id": "LO-10469",
+   "customer": "Jonas Iyer",
+   "date": "2026-10-09",
+   "status": "Pending",
+   "amount": 171.23
+  },
+  {
+   "id": "LO-10468",
+   "customer": "Elena Lindqvist",
+   "date": "2026-10-08",
+   "status": "Paid",
+   "amount": 148.89
+  },
+  {
+   "id": "LO-10467",
+   "customer": "Kai Kowalski",
+   "date": "2026-10-07",
+   "status": "Paid",
+   "amount": 41.8
+  },
+  {
+   "id": "LO-10466",
+   "customer": "Amara Duarte",
+   "date": "2026-10-07",
+   "status": "Paid",
+   "amount": 468.46
+  },
+  {
+   "id": "LO-10465",
+   "customer": "Felix Sato",
+   "date": "2026-10-07",
+   "status": "Refunded",
+   "amount": 89.36
+  },
+  {
+   "id": "LO-10464",
+   "customer": "Nora Varga",
+   "date": "2026-10-06",
+   "status": "Paid",
+   "amount": 396.0
+  },
+  {
+   "id": "LO-10463",
+   "customer": "Diego Reyes",
+   "date": "2026-10-06",
+   "status": "Refunded",
+   "amount": 70.79
+  },
+  {
+   "id": "LO-10462",
+   "customer": "Ines Andersen",
+   "date": "2026-10-04",
+   "status": "Paid",
+   "amount": 50.78
+  },
+  {
+   "id": "LO-10461",
+   "customer": "Theo Kim",
+   "date": "2026-10-05",
+   "status": "Paid",
+   "amount": 224.63
+  },
+  {
+   "id": "LO-10460",
+   "customer": "Leila Hughes",
+   "date": "2026-10-04",
+   "status": "Paid",
+   "amount": 412.28
+  },
+  {
+   "id": "LO-10459",
+   "customer": "Rowan Okafor",
+   "date": "2026-10-04",
+   "status": "Paid",
+   "amount": 327.06
+  },
+  {
+   "id": "LO-10458",
+   "customer": "Yuki Haddad",
+   "date": "2026-10-03",
+   "status": "Paid",
+   "amount": 98.43
+  },
+  {
+   "id": "LO-10457",
+   "customer": "Omar Nakamura",
+   "date": "2026-10-02",
+   "status": "Paid",
+   "amount": 25.36
+  },
+  {
+   "id": "LO-10456",
+   "customer": "Freya Quinn",
+   "date": "2026-10-02",
+   "status": "Pending",
+   "amount": 238.36
+  },
+  {
+   "id": "LO-10455",
+   "customer": "Arjun Laurent",
+   "date": "2026-10-02",
+   "status": "Paid",
+   "amount": 275.9
+  },
+  {
+   "id": "LO-10454",
+   "customer": "Clara Tanaka",
+   "date": "2026-10-01",
+   "status": "Paid",
+   "amount": 127.11
+  },
+  {
+   "id": "LO-10453",
+   "customer": "Ravi Silva",
+   "date": "2026-10-01",
+   "status": "Paid",
+   "amount": 68.64
+  },
+  {
+   "id": "LO-10452",
+   "customer": "Isla Rossi",
+   "date": "2026-09-29",
+   "status": "Pending",
+   "amount": 199.64
+  },
+  {
+   "id": "LO-10451",
+   "customer": "Emeka Ortega",
+   "date": "2026-09-30",
+   "status": "Pending",
+   "amount": 163.6
+  }
+ ]
+}

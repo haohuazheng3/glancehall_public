@@ -1,0 +1,16 @@
+Build a physics simulation in the browser: 20 balls bouncing inside a spinning hexagon.
+
+REQUIREMENTS
+- A regular hexagon, centred in the viewport and as large as comfortably fits, rotating continuously at a constant speed of one full turn every 10 seconds.
+- 20 balls of equal size, numbered 1 to 20, each with a distinct colour. They start near the centre and fall under gravity.
+- Implement the physics yourself, with no libraries: gravity, air damping, restitution when bouncing, ball-to-ball collisions, and collisions with the moving walls. Because the walls rotate, the velocity of the wall at the point of contact must affect each bounce.
+- Friction between balls and walls makes the balls spin. Show each ball's rotation by drawing its number rotating with it.
+- Balls must never escape the hexagon or pass through a wall, and must not sink into each other when they pile up.
+- Use time-based updates (based on the elapsed time between frames) so the simulation behaves the same at any frame rate. Render with canvas 2D, driven by requestAnimationFrame.
+- Fill the window and stay correct when the window is resized. It will be viewed at 1440x900 on desktop and 390x844 on a phone.
+- Start automatically when the page loads; no interaction is required. The visual style is up to you.
+
+DELIVERY RULES
+- Work autonomously. Nobody will answer questions, so make reasonable assumptions and keep going until the simulation is finished.
+- Deliver a single file, ./index.html, with all HTML, CSS and JavaScript inline. No build step, no libraries, no network requests of any kind.
+- The page must work when index.html is opened directly in a current version of Chrome, and when it is served over HTTP.

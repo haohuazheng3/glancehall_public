@@ -1,0 +1,46 @@
+[
+  {
+    "key": "claude-opus-5-5",
+    "name": "Claude Opus 5.5",
+    "vendor": "Anthropic",
+    "family": "Claude",
+    "model_id": "claude-opus-5-5",
+    "effort": "max",
+    "effortLabel": "Max effort",
+    "harness": "Claude Code",
+    "accent": "amber"
+  },
+  {
+    "key": "claude-fable-5-1",
+    "name": "Claude Fable 5.1",
+    "vendor": "Anthropic",
+    "family": "Claude",
+    "model_id": "claude-fable-5-1",
+    "effort": "max",
+    "effortLabel": "Max effort",
+    "harness": "Claude Code",
+    "accent": "rose"
+  },
+  {
+    "key": "gpt-6-astra",
+    "name": "GPT-6 Astra",
+    "vendor": "OpenAI",
+    "family": "GPT",
+    "model_id": "gpt-6-astra",
+    "effort": "xhigh",
+    "effortLabel": "Extra high reasoning",
+    "harness": "Codex CLI",
+    "accent": "cyan"
+  },
+  {
+    "key": "gpt-6-1-sol",
+    "name": "GPT-6.1 Sol",
+    "vendor": "OpenAI",
+    "family": "GPT",
+    "model_id": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "effortLabel": "Extra high reasoning",
+    "harness": "Codex CLI",
+    "accent": "lime"
+  }
+]

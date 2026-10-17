@@ -133,6 +133,34 @@
     "pageErrors": [],
     "notes": []
    }
+  },
+  "claude-fable-5-1": {
+   "recordedFor": "2026-10-17T07:22:14.134654+00:00",
+   "media": {
+    "desktop": {
+     "mp4": "r01/saas-landing-page/claude-fable-5-1/desktop.mp4",
+     "preview": "r01/saas-landing-page/claude-fable-5-1/desktop-preview.mp4",
+     "poster": "r01/saas-landing-page/claude-fable-5-1/desktop.jpg",
+     "seconds": 29.7,
+     "width": 1440,
+     "height": 900,
+     "bytes": 4117395
+    },
+    "mobile": {
+     "mp4": "r01/saas-landing-page/claude-fable-5-1/mobile.mp4",
+     "preview": "r01/saas-landing-page/claude-fable-5-1/mobile-preview.mp4",
+     "poster": "r01/saas-landing-page/claude-fable-5-1/mobile.jpg",
+     "seconds": 45.8,
+     "width": 780,
+     "height": 1688,
+     "bytes": 8615112
+    }
+   },
+   "runtime": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": []
+   }
   }
  },
  "analytics-dashboard": {

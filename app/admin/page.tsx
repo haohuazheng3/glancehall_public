@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { isAdmin } from "@/lib/admin";
 import { db, dbConfigured } from "@/lib/db";
 import { AdminClientErrorButton } from "@/components/AdminClientErrorButton";
+import { OwnerIdentify } from "@/components/OwnerIdentify";
 import s from "./admin.module.css";
 
 export const dynamic = "force-dynamic";
@@ -35,6 +36,7 @@ export default async function Admin({ searchParams }: { searchParams: Promise<{ 
   ])) as [ErrRow[], MsgRow[], { n: number; week: number }[]];
   return (
     <div className="wrap">
+      {process.env.OWNER_EMAIL && <OwnerIdentify email={process.env.OWNER_EMAIL} />}
       <div className={s.top}>
         <h1 className="h2">Admin</h1>
         <form method="post" action="/api/admin/logout">

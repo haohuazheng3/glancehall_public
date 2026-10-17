@@ -7,12 +7,13 @@ const mediaOrigin = MEDIA ? new URL(MEDIA).origin : "";
 const csp = [
   "default-src 'self'",
   // React dev tooling needs eval(); production never does.
-  `script-src 'self' 'unsafe-inline' ${process.env.NODE_ENV === "production" ? "" : "'unsafe-eval'"} https://flowglance.com`,
+  `script-src 'self' 'unsafe-inline' ${process.env.NODE_ENV === "production" ? "" : "'unsafe-eval'"} https://flowglance.com https://*.flowglance.com`,
   "style-src 'self' 'unsafe-inline'",
-  `img-src 'self' data: blob: ${mediaOrigin} https://flowglance.com`,
+  `img-src 'self' data: blob: ${mediaOrigin} https://flowglance.com https://*.flowglance.com`,
   `media-src 'self' blob: ${mediaOrigin}`,
   "font-src 'self'",
-  `connect-src 'self' https://flowglance.com`,
+  // FlowGlance loads from flowglance.com and reports to collect.flowglance.com.
+  `connect-src 'self' https://flowglance.com https://*.flowglance.com`,
   `frame-src 'self' ${mediaOrigin}`,
   "frame-ancestors 'self'",
   "base-uri 'self'",

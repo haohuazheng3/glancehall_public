@@ -80,7 +80,8 @@ codex exec --ignore-user-config --skip-git-repo-check --ephemeral \\
         <code>--safe-mode</code> and <code>--ignore-user-config</code> switch off personal instruction files, plugins, MCP
         servers and hooks, so each agent starts with only its built-in tools. Runs happen in neutral folders outside any
         project, so no repository instructions can leak in. The only retry we allow is for an infrastructure failure (a rate
-        limit or an outage) that stopped a run before it produced anything; if that happens it is listed on the build.
+        limit or an outage) that stopped a run before the model finished. When that happens, the interrupted attempt is
+        listed on the build with its reason, and whatever it left on disk is kept as evidence but never published.
       </p>
 
       <h2>How the videos are recorded</h2>

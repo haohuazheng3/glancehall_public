@@ -12,6 +12,18 @@ type ErrInput = {
   extra?: Record<string, unknown>;
 };
 
+// Browser-side noise that no code change can fix: dropped connections, aborted navigations, extension errors.
+const CLIENT_NOISE = /network ?error|load failed|failed to fetch|resizeobserver loop|^script error|operation was aborted|aborterror|loading chunk|chunkloaderror/i;
+
+// Only "error" severity flips /api/health and pages the owner; "warning" still lands in the inbox.
+function classify(input: ErrInput, name: string, message: string, frame: string): "error" | "warning" {
+  if (input.severity) return input.severity;
+  if (input.source !== "client") return "error";
+  if (CLIENT_NOISE.test(name) || CLIENT_NOISE.test(message)) return "warning";
+  if (!frame) return "warning"; // nothing to act on without a stack frame
+  return "error";
+}
+
 function firstFrame(stack?: string) {
   if (!stack) return "";
   const line = stack.split("\n").find((l) => /^\s*at\s|@/.test(l)) ?? "";
@@ -26,13 +38,14 @@ export async function recordError(input: ErrInput) {
   const stack = (input.stack ?? err?.stack ?? "").slice(0, 6000);
   const route = (input.route ?? "").slice(0, 300);
   const frame = firstFrame(stack);
+  const severity = classify(input, name, message, frame);
   const fingerprint = createHash("sha256").update(`${input.source}|${name}|${frame || message.slice(0, 120)}|${route}`).digest("hex").slice(0, 32);
-  console.error(`[${input.source}] ${name}: ${message}${route ? ` (${route})` : ""}`);
+  console.error(`[${input.source}] ${severity}: ${name}: ${message}${route ? ` (${route})` : ""}`);
   if (!dbConfigured()) return;
   try {
     await db()`
       insert into error_groups (fingerprint, source, name, message, first_frame, route, severity, sample)
-      values (${fingerprint}, ${input.source}, ${name}, ${message}, ${frame}, ${route}, ${input.severity ?? "error"},
+      values (${fingerprint}, ${input.source}, ${name}, ${message}, ${frame}, ${route}, ${severity},
               ${JSON.stringify({ stack, ...(input.extra ?? {}) })})
       on conflict (fingerprint) do update set
         count = error_groups.count + 1,

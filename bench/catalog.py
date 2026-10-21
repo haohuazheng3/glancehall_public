@@ -42,13 +42,18 @@ def main():
             files_dir = ROOT / "content" / "runs" / tdir.name / m["key"] / "files"
             files = sorted(str(p.relative_to(files_dir)) for p in files_dir.rglob("*") if p.is_file()) if files_dir.exists() else []
             u = meta.get("usage") or {}
+            attempts = meta.get("attempts") or []
+            # blocked = every attempt so far died on infrastructure (rate limit, outage); the model never finished.
+            blocked = meta.get("status") == "blocked"
             runs[m["key"]] = {
-                "status": meta.get("status"),
+                "status": "pending" if blocked else meta.get("status"),
+                "blocked": blocked,
                 "seconds": meta.get("seconds"),
                 "startedAt": meta.get("started_at"),
                 "finishedAt": meta.get("finished_at"),
                 "cliVersion": meta.get("cli_version"),
-                "attempts": len(meta.get("attempts") or []),
+                "attempts": len(attempts),
+                "attemptNotes": [f"Attempt {a.get('attempt')}: {a.get('reason')}" for a in attempts if a.get("infra_failure")],
                 "inputTokens": u.get("input_tokens"),
                 "outputTokens": u.get("output_tokens"),
                 "turns": u.get("num_turns") or u.get("turns"),

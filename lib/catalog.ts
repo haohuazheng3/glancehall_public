@@ -20,6 +20,8 @@ export type Run = {
   finishedAt?: string;
   cliVersion?: string;
   attempts?: number;
+  attemptNotes?: string[];
+  blocked?: boolean;
   inputTokens?: number;
   outputTokens?: number;
   turns?: number;

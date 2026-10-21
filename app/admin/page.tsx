@@ -8,7 +8,7 @@ import s from "./admin.module.css";
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = { title: "Admin", robots: { index: false, follow: false } };
 
-type ErrRow = { fingerprint: string; source: string; name: string; message: string; route: string; count: number; last_seen: string; first_frame: string };
+type ErrRow = { fingerprint: string; source: string; severity: string; name: string; message: string; route: string; count: number; last_seen: string; first_frame: string };
 type MsgRow = { id: number; name: string | null; email: string; topic: string | null; message: string; created_at: string; notified: boolean };
 
 export default async function Admin({ searchParams }: { searchParams: Promise<{ e?: string }> }) {
@@ -30,7 +30,7 @@ export default async function Admin({ searchParams }: { searchParams: Promise<{ 
   if (!dbConfigured()) return <div className="wrap">DATABASE_URL is not configured.</div>;
   const sql = db();
   const [errors, messages, subs] = (await Promise.all([
-    sql`select fingerprint, source, name, message, route, count, last_seen, first_frame from error_groups where resolved_at is null order by last_seen desc limit 100`,
+    sql`select fingerprint, source, severity, name, message, route, count, last_seen, first_frame from error_groups where resolved_at is null order by severity, last_seen desc limit 100`,
     sql`select id, name, email, topic, message, created_at, notified from contact_messages order by created_at desc limit 50`,
     sql`select count(*)::int as n, count(*) filter (where created_at > now() - interval '7 days')::int as week from subscribers where unsubscribed_at is null`,
   ])) as [ErrRow[], MsgRow[], { n: number; week: number }[]];
@@ -84,7 +84,9 @@ export default async function Admin({ searchParams }: { searchParams: Promise<{ 
               <li key={e.fingerprint} className={s.item}>
                 <div className={s.itemMain}>
                   <p className={s.itemTitle}>
-                    <span className="chip">{e.source}</span> <strong>{e.name}</strong>: {e.message}
+                    <span className="chip">{e.source}</span>{" "}
+                    <span className="chip" style={{ color: e.severity === "error" ? "var(--bad)" : "var(--warn)" }}>{e.severity}</span>{" "}
+                    <strong>{e.name}</strong>: {e.message}
                   </p>
                   <p className="mono faint" style={{ margin: 0, fontSize: 12 }}>
                     {e.route} · {e.first_frame || "no stack"} · ×{e.count} · last {new Date(e.last_seen).toLocaleString("en-US")}

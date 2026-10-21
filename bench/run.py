@@ -51,7 +51,11 @@ PROVIDED = {
 }
 
 INFRA_ERRORS = ("rate limit", "rate_limit", "overloaded", "429", "503", "502", "500 internal",
-                "econnreset", "etimedout", "network", "authenticate", "oauth", "usage limit")
+                "econnreset", "etimedout", "network", "authenticate", "oauth", "usage limit", "session limit")
+
+# Waits between attempts after an infrastructure failure. A subscription's session limit takes hours
+# to reset, so the backoff grows instead of hammering the API three times in six minutes.
+INFRA_BACKOFF_S = [120, 900, 1800, 3600, 3600]
 
 print_lock = threading.Lock()
 
@@ -137,14 +141,34 @@ def parse_usage(cfg, log_path):
     return usage
 
 
-def looks_like_infra_failure(log_path, err_path):
+def tail_text(log_path, err_path):
     text = ""
     for p in (log_path, err_path):
         try:
-            text += p.read_text(errors="replace")[-6000:].lower()
+            text += p.read_text(errors="replace")[-6000:]
         except FileNotFoundError:
             pass
+    return text
+
+
+def looks_like_infra_failure(log_path, err_path):
+    text = tail_text(log_path, err_path).lower()
     return any(s in text for s in INFRA_ERRORS)
+
+
+def infra_reason(log_path, err_path):
+    """A short human-readable reason, taken from the CLI's own final message when possible."""
+    text = tail_text(log_path, err_path)
+    for line in reversed(text.splitlines()):
+        if '"type": "result"' in line or '"type":"result"' in line:
+            try:
+                return str(json.loads(line).get("result", ""))[:200]
+            except ValueError:
+                break
+    for s in INFRA_ERRORS:
+        if s in text.lower():
+            return f"infrastructure failure ({s})"
+    return "infrastructure failure"
 
 
 def run_one(model_key, task, versions):
@@ -152,12 +176,17 @@ def run_one(model_key, task, versions):
     task_dir = TASKS_DIR / task
     prompt = (task_dir / "prompt.txt").read_text()
     out = OUT_DIR / task / model_key
-    if (out / "meta.json").exists() and json.loads((out / "meta.json").read_text()).get("status") == "ok":
+    if (out / "meta.json").exists() and json.loads((out / "meta.json").read_text()).get("status") in ("ok", "failed"):
         log(f"skip {task} / {model_key} (already done)")
         return
 
-    attempts = []
-    for attempt in range(1, 4):
+    # Attempts from an earlier invocation that were cut short by infrastructure (kept with their evidence).
+    prior_path = out / "prior-attempts.json"
+    prior = json.loads(prior_path.read_text()) if prior_path.exists() else []
+    attempts = list(prior)
+    max_attempts = 1 + len(INFRA_BACKOFF_S)
+    infra = False
+    for attempt in range(1, max_attempts + 1):
         run_dir = RUNS_TMP / task / secrets.token_hex(4)
         run_dir.mkdir(parents=True, exist_ok=True)
         for rel in PROVIDED.get(task, []):
@@ -184,20 +213,28 @@ def run_one(model_key, task, versions):
         elapsed = round(time.monotonic() - t0, 1)
         finished = dt.datetime.now(dt.timezone.utc)
         has_index = (run_dir / "index.html").exists()
-        attempts.append({"attempt": attempt, "exit": code, "seconds": elapsed, "run_dir": str(run_dir),
-                         "has_index": has_index})
-        log(f"done  {task} / {model_key} exit={code} {elapsed}s index={has_index}")
+        # A run that ended in an API error is an infrastructure failure even if files were left behind.
+        infra = code not in (0, "timeout") and looks_like_infra_failure(log_path, err_path)
+        attempts.append({"attempt": len(prior) + attempt, "started_at": started.isoformat(), "exit": code,
+                         "seconds": elapsed, "run_dir": str(run_dir), "has_index": has_index,
+                         "infra_failure": infra, "reason": infra_reason(log_path, err_path) if infra else None})
+        log(f"done  {task} / {model_key} exit={code} {elapsed}s index={has_index} infra={infra}")
 
-        if not has_index and code != "timeout" and looks_like_infra_failure(log_path, err_path) and attempt < 3:
-            log(f"infra failure suspected for {task} / {model_key}; retrying in 120s")
-            time.sleep(120)
+        if infra and attempt < max_attempts:
+            wait = INFRA_BACKOFF_S[attempt - 1]
+            log(f"infra failure for {task} / {model_key} ({attempts[-1]['reason']}); retrying in {wait}s")
+            time.sleep(wait)
             continue
         break
 
     # Persist the model's output (never the files we provided) plus the raw transcript.
-    if out.exists():
-        shutil.rmtree(out)
-    (out / "files").mkdir(parents=True)
+    for stale in ("files", "transcript.jsonl", "stderr.txt", "final-message.txt", "meta.json"):
+        p = out / stale
+        if p.is_dir():
+            shutil.rmtree(p)
+        elif p.exists():
+            p.unlink()
+    (out / "files").mkdir(parents=True, exist_ok=True)
     for p in run_dir.rglob("*"):
         if p.is_file() and p.name not in provided_names and ".git" not in p.parts and "node_modules" not in p.parts:
             dest = out / "files" / p.relative_to(run_dir)
@@ -221,7 +258,8 @@ def run_one(model_key, task, versions):
         "finished_at": finished.isoformat(),
         "seconds": elapsed,
         "exit": code,
-        "status": "ok" if has_index else "failed",
+        # blocked = every attempt died on infrastructure; the model never got to finish, so it is not a failure.
+        "status": "ok" if (has_index and not infra) else ("blocked" if infra else "failed"),
         "attempts": attempts,
         "usage": parse_usage(cfg, log_path),
     }

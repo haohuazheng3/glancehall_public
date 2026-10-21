@@ -322,8 +322,14 @@ function BuildCard({
 
 function FactsTable({ task, models, hidden }: { task: Task; models: Model[]; hidden: boolean }) {
   if (hidden) return null;
-  const rows: { label: string; get: (r: Run | undefined) => string; hint?: string }[] = [
+  const rows: { label: string; get: (r: Run | undefined) => string; note?: (r: Run | undefined) => string | undefined; hint?: string }[] = [
     { label: "Time to build", get: (r) => formatDuration(r?.seconds) },
+    {
+      label: "Attempts",
+      get: (r) => (r?.attempts ? String(r.attempts) : "—"),
+      note: (r) => r?.attemptNotes?.join(" "),
+      hint: "Only an infrastructure failure (a rate limit or an outage) earns a retry. Every interrupted attempt is listed, and nothing from it is published.",
+    },
     { label: "Delivered source", get: (r) => kb(r?.sourceBytes) },
     { label: "Files", get: (r) => (r?.files?.length ? String(r.files.length) : "—") },
     { label: "Tokens in / out", get: (r) => (r?.inputTokens ? `${formatTokens(r.inputTokens)} / ${formatTokens(r.outputTokens)}` : "—"), hint: "As reported by each CLI. Tokenizers differ between vendors, so compare within a vendor." },
@@ -362,11 +368,15 @@ function FactsTable({ task, models, hidden }: { task: Task; models: Model[]; hid
                   {row.label}
                   {row.hint && <span className={s.hint}>{row.hint}</span>}
                 </th>
-                {models.map((m) => (
-                  <td key={m.key} className="mono">
-                    {row.get(task.runs[m.key])}
-                  </td>
-                ))}
+                {models.map((m) => {
+                  const note = row.note?.(task.runs[m.key]);
+                  return (
+                    <td key={m.key} className="mono">
+                      {row.get(task.runs[m.key])}
+                      {note && <span className={`${s.hint} ${s.cellNote}`}>{note}</span>}
+                    </td>
+                  );
+                })}
               </tr>
             ))}
           </tbody>

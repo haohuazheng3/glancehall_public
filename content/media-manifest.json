@@ -171,6 +171,36 @@
     "pageErrors": [],
     "notes": []
    }
+  },
+  "claude-opus-5-5": {
+   "recordedFor": "2026-10-17T07:52:14.506895+00:00",
+   "media": {
+    "desktop": {
+     "mp4": "r01/saas-landing-page/claude-opus-5-5/desktop.mp4",
+     "preview": "r01/saas-landing-page/claude-opus-5-5/desktop-preview.mp4",
+     "poster": "r01/saas-landing-page/claude-opus-5-5/desktop.jpg",
+     "posterSmall": "r01/saas-landing-page/claude-opus-5-5/desktop-sm.jpg",
+     "seconds": 32.2,
+     "width": 1440,
+     "height": 900,
+     "bytes": 5065218
+    },
+    "mobile": {
+     "mp4": "r01/saas-landing-page/claude-opus-5-5/mobile.mp4",
+     "preview": "r01/saas-landing-page/claude-opus-5-5/mobile-preview.mp4",
+     "poster": "r01/saas-landing-page/claude-opus-5-5/mobile.jpg",
+     "posterSmall": "r01/saas-landing-page/claude-opus-5-5/mobile-sm.jpg",
+     "seconds": 52.3,
+     "width": 780,
+     "height": 1688,
+     "bytes": 11418090
+    }
+   },
+   "runtime": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": []
+   }
   }
  },
  "analytics-dashboard": {
@@ -226,6 +256,36 @@
      "height": 1688,
      "bytes": 2751447,
      "posterSmall": "r01/analytics-dashboard/gpt-6-1-sol/mobile-sm.jpg"
+    }
+   },
+   "runtime": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": []
+   }
+  },
+  "claude-fable-5-1": {
+   "recordedFor": "2026-10-17T08:00:56.965137+00:00",
+   "media": {
+    "desktop": {
+     "mp4": "r01/analytics-dashboard/claude-fable-5-1/desktop.mp4",
+     "preview": "r01/analytics-dashboard/claude-fable-5-1/desktop-preview.mp4",
+     "poster": "r01/analytics-dashboard/claude-fable-5-1/desktop.jpg",
+     "posterSmall": "r01/analytics-dashboard/claude-fable-5-1/desktop-sm.jpg",
+     "seconds": 33.8,
+     "width": 1440,
+     "height": 900,
+     "bytes": 2468280
+    },
+    "mobile": {
+     "mp4": "r01/analytics-dashboard/claude-fable-5-1/mobile.mp4",
+     "preview": "r01/analytics-dashboard/claude-fable-5-1/mobile-preview.mp4",
+     "poster": "r01/analytics-dashboard/claude-fable-5-1/mobile.jpg",
+     "posterSmall": "r01/analytics-dashboard/claude-fable-5-1/mobile-sm.jpg",
+     "seconds": 16.4,
+     "width": 780,
+     "height": 1688,
+     "bytes": 3719856
     }
    },
    "runtime": {

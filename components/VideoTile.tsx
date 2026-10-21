@@ -73,7 +73,7 @@ export function VideoTile({
       <div className={frameClass}>
         <div className={`skeleton ${s.fill}`} />
         <div className={s.center}>
-          <span className={s.pending}>{run?.status === "ok" ? "Recording the video" : "Being built right now"}</span>
+          <span className={s.pending}>{run?.status === "ok" ? "Recording the video" : run?.blocked ? "Interrupted by an outage; a fresh attempt is queued" : "Being built right now"}</span>
         </div>
         {showLabel && <Label name={name} tone={hideIdentity ? "" : tone} />}
       </div>

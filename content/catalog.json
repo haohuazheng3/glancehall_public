@@ -72,15 +72,59 @@
    "prompt": "Design and build the marketing landing page for Driftwood, a (fictional) scheduling app for freelancers and independent consultants.\n\nABOUT THE PRODUCT\nDriftwood gives freelancers one booking link that respects their focus time: clients pick a slot, Driftwood protects deep-work blocks, adds buffers around calls, and can collect payment when a session is booked.\n\nFeatures (present all four):\n1. Booking links: one link, several meeting types, automatic time-zone detection.\n2. Focus guard: defends deep-work blocks and caps the number of meetings per day.\n3. Smart buffers: prep and travel time added before and after calls.\n4. Paid sessions: clients pay when they book (via Stripe), with automatic receipts.\n\nIntegrations to show: Google Calendar, Outlook, iCloud Calendar, Zoom, Stripe, Notion.\n\nPricing, with a Monthly / Yearly toggle (yearly = two months free):\n- Solo: $0. 1 booking link, 2 connected calendars, Driftwood branding on the booking page.\n- Pro: $12/month, or $10/month billed yearly. Unlimited links, focus guard, smart buffers, paid sessions, no branding. Mark this plan as the most popular.\n- Studio: $29/month, or $24/month billed yearly. Everything in Pro for up to 5 teammates, round-robin booking, shared analytics.\n\nFAQ: use exactly these five questions, in this order, and write the answers yourself:\n1. Is there really a free plan?\n2. Which calendars does Driftwood work with?\n3. Can clients book across time zones?\n4. How do paid sessions work?\n5. Can I cancel anytime?\n\nPAGE REQUIREMENTS\n- Sections, in this order: navigation bar; hero; testimonials (three short quotes from invented freelancers, each with a name and profession); features; how it works (three steps); pricing; FAQ; final call to action; footer.\n- The hero has a headline and a supporting line that you write, a primary button labeled \"Start free\" and a secondary button labeled \"See how it works\" that scrolls to the how-it-works section.\n- The hero includes a visual of the product itself (for example a mock booking interface) built with HTML, CSS or SVG.\n- The pricing toggle switches all prices between monthly and yearly, using the labels \"Monthly\" and \"Yearly\".\n- Each FAQ answer expands and collapses when its question is clicked.\n- Fully responsive. It must look intentional at 1440x900 on desktop and at 390x844 on a phone; on the phone the navigation collapses into a menu.\n- Visual design, layout, colour palette, typography, illustration and motion are entirely up to you. Aim for the quality of the website of a top-tier product company.\n\nDELIVERY RULES\n- Work autonomously. Nobody will answer questions, so make reasonable assumptions and keep going until the page is finished.\n- Deliver a single file, ./index.html, with all HTML, CSS and JavaScript inline. No build step, no frameworks loaded from the network.\n- The only network resource allowed is fonts from Google Fonts. No other CDNs, no external images, no APIs. Every image or illustration must be made with HTML, CSS, inline SVG or canvas.\n- The page must work when index.html is opened directly in a current version of Chrome, and when it is served over HTTP.",
    "runs": {
     "claude-opus-5-5": {
-     "status": "pending"
+     "status": "ok",
+     "blocked": false,
+     "seconds": 2600.2,
+     "startedAt": "2026-10-17T07:08:54.249291+00:00",
+     "finishedAt": "2026-10-17T07:52:14.506895+00:00",
+     "cliVersion": "2.1.302 (Claude Code)",
+     "attempts": 1,
+     "attemptNotes": [],
+     "inputTokens": 10135348,
+     "outputTokens": 144068,
+     "turns": 91,
+     "files": [
+      "index.html"
+     ],
+     "sourceBytes": 135108,
+     "artifact": "r01/saas-landing-page/claude-opus-5-5/build/index.html",
+     "media": {
+      "desktop": {
+       "mp4": "r01/saas-landing-page/claude-opus-5-5/desktop.mp4",
+       "preview": "r01/saas-landing-page/claude-opus-5-5/desktop-preview.mp4",
+       "poster": "r01/saas-landing-page/claude-opus-5-5/desktop.jpg",
+       "posterSmall": "r01/saas-landing-page/claude-opus-5-5/desktop-sm.jpg",
+       "seconds": 32.2,
+       "width": 1440,
+       "height": 900,
+       "bytes": 5065218
+      },
+      "mobile": {
+       "mp4": "r01/saas-landing-page/claude-opus-5-5/mobile.mp4",
+       "preview": "r01/saas-landing-page/claude-opus-5-5/mobile-preview.mp4",
+       "poster": "r01/saas-landing-page/claude-opus-5-5/mobile.jpg",
+       "posterSmall": "r01/saas-landing-page/claude-opus-5-5/mobile-sm.jpg",
+       "seconds": 52.3,
+       "width": 780,
+       "height": 1688,
+       "bytes": 11418090
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": []
+     }
     },
     "claude-fable-5-1": {
      "status": "ok",
+     "blocked": false,
      "seconds": 1694.1,
      "startedAt": "2026-10-17T06:53:59.859535+00:00",
      "finishedAt": "2026-10-17T07:22:14.134654+00:00",
      "cliVersion": "2.1.302 (Claude Code)",
      "attempts": 1,
+     "attemptNotes": [],
      "inputTokens": 2574801,
      "outputTokens": 130942,
      "turns": 57,
@@ -119,11 +163,13 @@
     },
     "gpt-6-astra": {
      "status": "ok",
+     "blocked": false,
      "seconds": 598.3,
      "startedAt": "2026-10-17T06:36:55.556932+00:00",
      "finishedAt": "2026-10-17T06:46:53.793077+00:00",
      "cliVersion": "codex-cli 0.163.0",
      "attempts": 1,
+     "attemptNotes": [],
      "inputTokens": 744063,
      "outputTokens": 33522,
      "turns": 1,
@@ -162,11 +208,13 @@
     },
     "gpt-6-1-sol": {
      "status": "ok",
+     "blocked": false,
      "seconds": 547.7,
      "startedAt": "2026-10-17T06:36:36.214981+00:00",
      "finishedAt": "2026-10-17T06:45:43.868202+00:00",
      "cliVersion": "codex-cli 0.163.0",
      "attempts": 1,
+     "attemptNotes": [],
      "inputTokens": 1290774,
      "outputTokens": 44520,
      "turns": 1,
@@ -229,15 +277,59 @@
      "status": "pending"
     },
     "claude-fable-5-1": {
-     "status": "pending"
+     "status": "ok",
+     "blocked": false,
+     "seconds": 2322.7,
+     "startedAt": "2026-10-17T07:22:14.187108+00:00",
+     "finishedAt": "2026-10-17T08:00:56.965137+00:00",
+     "cliVersion": "2.1.302 (Claude Code)",
+     "attempts": 1,
+     "attemptNotes": [],
+     "inputTokens": 4526810,
+     "outputTokens": 142193,
+     "turns": 65,
+     "files": [
+      "index.html"
+     ],
+     "sourceBytes": 78746,
+     "artifact": "r01/analytics-dashboard/claude-fable-5-1/build/index.html",
+     "media": {
+      "desktop": {
+       "mp4": "r01/analytics-dashboard/claude-fable-5-1/desktop.mp4",
+       "preview": "r01/analytics-dashboard/claude-fable-5-1/desktop-preview.mp4",
+       "poster": "r01/analytics-dashboard/claude-fable-5-1/desktop.jpg",
+       "posterSmall": "r01/analytics-dashboard/claude-fable-5-1/desktop-sm.jpg",
+       "seconds": 33.8,
+       "width": 1440,
+       "height": 900,
+       "bytes": 2468280
+      },
+      "mobile": {
+       "mp4": "r01/analytics-dashboard/claude-fable-5-1/mobile.mp4",
+       "preview": "r01/analytics-dashboard/claude-fable-5-1/mobile-preview.mp4",
+       "poster": "r01/analytics-dashboard/claude-fable-5-1/mobile.jpg",
+       "posterSmall": "r01/analytics-dashboard/claude-fable-5-1/mobile-sm.jpg",
+       "seconds": 16.4,
+       "width": 780,
+       "height": 1688,
+       "bytes": 3719856
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": []
+     }
     },
     "gpt-6-astra": {
      "status": "ok",
+     "blocked": false,
      "seconds": 627.4,
      "startedAt": "2026-10-17T06:46:53.799206+00:00",
      "finishedAt": "2026-10-17T06:57:21.146185+00:00",
      "cliVersion": "codex-cli 0.163.0",
      "attempts": 1,
+     "attemptNotes": [],
      "inputTokens": 570877,
      "outputTokens": 34875,
      "turns": 1,
@@ -276,11 +368,13 @@
     },
     "gpt-6-1-sol": {
      "status": "ok",
+     "blocked": false,
      "seconds": 446.3,
      "startedAt": "2026-10-17T06:45:43.876453+00:00",
      "finishedAt": "2026-10-17T06:53:10.150948+00:00",
      "cliVersion": "codex-cli 0.163.0",
      "attempts": 1,
+     "attemptNotes": [],
      "inputTokens": 730642,
      "outputTokens": 36498,
      "turns": 1,
@@ -340,11 +434,13 @@
    "runs": {
     "claude-opus-5-5": {
      "status": "ok",
+     "blocked": false,
      "seconds": 2411.1,
      "startedAt": "2026-10-17T06:28:43.020746+00:00",
      "finishedAt": "2026-10-17T07:08:54.207073+00:00",
      "cliVersion": "2.1.302 (Claude Code)",
      "attempts": 1,
+     "attemptNotes": [],
      "inputTokens": 11531222,
      "outputTokens": 211066,
      "turns": 83,
@@ -373,11 +469,13 @@
     },
     "claude-fable-5-1": {
      "status": "ok",
+     "blocked": false,
      "seconds": 1517.1,
      "startedAt": "2026-10-17T06:28:42.798941+00:00",
      "finishedAt": "2026-10-17T06:53:59.840448+00:00",
      "cliVersion": "2.1.302 (Claude Code)",
      "attempts": 1,
+     "attemptNotes": [],
      "inputTokens": 2545720,
      "outputTokens": 105848,
      "turns": 43,
@@ -406,11 +504,13 @@
     },
     "gpt-6-astra": {
      "status": "ok",
+     "blocked": false,
      "seconds": 493.5,
      "startedAt": "2026-10-17T06:28:42.111015+00:00",
      "finishedAt": "2026-10-17T06:36:55.547234+00:00",
      "cliVersion": "codex-cli 0.163.0",
      "attempts": 1,
+     "attemptNotes": [],
      "inputTokens": 583950,
      "outputTokens": 23749,
      "turns": 1,
@@ -439,11 +539,13 @@
     },
     "gpt-6-1-sol": {
      "status": "ok",
+     "blocked": false,
      "seconds": 474.1,
      "startedAt": "2026-10-17T06:28:42.111503+00:00",
      "finishedAt": "2026-10-17T06:36:36.201252+00:00",
      "cliVersion": "codex-cli 0.163.0",
      "attempts": 1,
+     "attemptNotes": [],
      "inputTokens": 1065588,
      "outputTokens": 43071,
      "turns": 1,
@@ -499,11 +601,13 @@
     },
     "gpt-6-astra": {
      "status": "ok",
+     "blocked": false,
      "seconds": 1182.8,
      "startedAt": "2026-10-17T06:57:21.158473+00:00",
      "finishedAt": "2026-10-17T07:17:04.119575+00:00",
      "cliVersion": "codex-cli 0.163.0",
      "attempts": 1,
+     "attemptNotes": [],
      "inputTokens": 1746099,
      "outputTokens": 64440,
      "turns": 1,
@@ -533,11 +637,13 @@
     },
     "gpt-6-1-sol": {
      "status": "ok",
+     "blocked": false,
      "seconds": 798.6,
      "startedAt": "2026-10-17T06:53:10.163120+00:00",
      "finishedAt": "2026-10-17T07:06:28.949364+00:00",
      "cliVersion": "codex-cli 0.163.0",
      "attempts": 1,
+     "attemptNotes": [],
      "inputTokens": 2451064,
      "outputTokens": 61163,
      "turns": 1,

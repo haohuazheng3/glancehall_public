@@ -315,6 +315,11 @@
   max-width: 260px;
 }
 
+.cellNote {
+  font-family: var(--font-sans);
+  max-width: 320px;
+}
+
 .notes {
   margin-top: 18px;
   display: grid;

@@ -441,6 +441,170 @@
     "pageErrors": [],
     "notes": []
    }
+  },
+  "gpt-6-astra": {
+   "recordedFor": "2026-10-21T20:52:20.741945+00:00",
+   "media": {
+    "desktop": {
+     "mp4": "r01/open-brief/gpt-6-astra/desktop.mp4",
+     "preview": "r01/open-brief/gpt-6-astra/desktop-preview.mp4",
+     "poster": "r01/open-brief/gpt-6-astra/desktop.jpg",
+     "posterSmall": "r01/open-brief/gpt-6-astra/desktop-sm.jpg",
+     "seconds": 15,
+     "width": 1440,
+     "height": 900,
+     "bytes": 2701599
+    },
+    "mobile": {
+     "mp4": "r01/open-brief/gpt-6-astra/mobile.mp4",
+     "preview": "r01/open-brief/gpt-6-astra/mobile-preview.mp4",
+     "poster": "r01/open-brief/gpt-6-astra/mobile.jpg",
+     "posterSmall": "r01/open-brief/gpt-6-astra/mobile-sm.jpg",
+     "seconds": 20,
+     "width": 780,
+     "height": 1688,
+     "bytes": 5165026
+    }
+   },
+   "runtime": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": []
+   }
+  },
+  "claude-fable-5-1": {
+   "recordedFor": "2026-10-21T21:04:41.431817+00:00",
+   "media": {
+    "desktop": {
+     "mp4": "r01/open-brief/claude-fable-5-1/desktop.mp4",
+     "preview": "r01/open-brief/claude-fable-5-1/desktop-preview.mp4",
+     "poster": "r01/open-brief/claude-fable-5-1/desktop.jpg",
+     "posterSmall": "r01/open-brief/claude-fable-5-1/desktop-sm.jpg",
+     "seconds": 23.6,
+     "width": 1440,
+     "height": 900,
+     "bytes": 1806036
+    },
+    "mobile": {
+     "mp4": "r01/open-brief/claude-fable-5-1/mobile.mp4",
+     "preview": "r01/open-brief/claude-fable-5-1/mobile-preview.mp4",
+     "poster": "r01/open-brief/claude-fable-5-1/mobile.jpg",
+     "posterSmall": "r01/open-brief/claude-fable-5-1/mobile-sm.jpg",
+     "seconds": 35.4,
+     "width": 780,
+     "height": 1688,
+     "bytes": 8489417
+    }
+   },
+   "runtime": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": []
+   }
+  }
+ },
+ "mobile-finance-app": {
+  "gpt-6-astra": {
+   "recordedFor": "2026-10-21T21:01:21.085054+00:00",
+   "media": {
+    "mobile": {
+     "mp4": "r01/mobile-finance-app/gpt-6-astra/mobile.mp4",
+     "preview": "r01/mobile-finance-app/gpt-6-astra/mobile-preview.mp4",
+     "poster": "r01/mobile-finance-app/gpt-6-astra/mobile.jpg",
+     "posterSmall": "r01/mobile-finance-app/gpt-6-astra/mobile-sm.jpg",
+     "seconds": 22.4,
+     "width": 780,
+     "height": 1688,
+     "bytes": 2418546
+    }
+   },
+   "runtime": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": []
+   }
+  },
+  "gpt-6-1-sol": {
+   "recordedFor": "2026-10-21T21:03:46.196699+00:00",
+   "media": {
+    "mobile": {
+     "mp4": "r01/mobile-finance-app/gpt-6-1-sol/mobile.mp4",
+     "preview": "r01/mobile-finance-app/gpt-6-1-sol/mobile-preview.mp4",
+     "poster": "r01/mobile-finance-app/gpt-6-1-sol/mobile.jpg",
+     "posterSmall": "r01/mobile-finance-app/gpt-6-1-sol/mobile-sm.jpg",
+     "seconds": 22.8,
+     "width": 780,
+     "height": 1688,
+     "bytes": 2304101
+    }
+   },
+   "runtime": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": []
+   }
+  }
+ },
+ "kanban-board": {
+  "gpt-6-astra": {
+   "recordedFor": "2026-10-21T21:13:51.745502+00:00",
+   "media": {
+    "desktop": {
+     "mp4": "r01/kanban-board/gpt-6-astra/desktop.mp4",
+     "preview": "r01/kanban-board/gpt-6-astra/desktop-preview.mp4",
+     "poster": "r01/kanban-board/gpt-6-astra/desktop.jpg",
+     "posterSmall": "r01/kanban-board/gpt-6-astra/desktop-sm.jpg",
+     "seconds": 25.7,
+     "width": 1440,
+     "height": 900,
+     "bytes": 835647
+    },
+    "mobile": {
+     "mp4": "r01/kanban-board/gpt-6-astra/mobile.mp4",
+     "preview": "r01/kanban-board/gpt-6-astra/mobile-preview.mp4",
+     "poster": "r01/kanban-board/gpt-6-astra/mobile.jpg",
+     "posterSmall": "r01/kanban-board/gpt-6-astra/mobile-sm.jpg",
+     "seconds": 13.6,
+     "width": 780,
+     "height": 1688,
+     "bytes": 557797
+    }
+   },
+   "runtime": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": []
+   }
+  },
+  "gpt-6-1-sol": {
+   "recordedFor": "2026-10-21T21:18:17.114912+00:00",
+   "media": {
+    "desktop": {
+     "mp4": "r01/kanban-board/gpt-6-1-sol/desktop.mp4",
+     "preview": "r01/kanban-board/gpt-6-1-sol/desktop-preview.mp4",
+     "poster": "r01/kanban-board/gpt-6-1-sol/desktop.jpg",
+     "posterSmall": "r01/kanban-board/gpt-6-1-sol/desktop-sm.jpg",
+     "seconds": 26.5,
+     "width": 1440,
+     "height": 900,
+     "bytes": 952064
+    },
+    "mobile": {
+     "mp4": "r01/kanban-board/gpt-6-1-sol/mobile.mp4",
+     "preview": "r01/kanban-board/gpt-6-1-sol/mobile-preview.mp4",
+     "poster": "r01/kanban-board/gpt-6-1-sol/mobile.jpg",
+     "posterSmall": "r01/kanban-board/gpt-6-1-sol/mobile-sm.jpg",
+     "seconds": 14,
+     "width": 780,
+     "height": 1688,
+     "bytes": 676302
+    }
+   },
+   "runtime": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": []
+   }
   }
  }
 }

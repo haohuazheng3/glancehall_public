@@ -606,5 +606,27 @@
     "notes": []
    }
   }
+ },
+ "moba-lane": {
+  "gpt-6-astra": {
+   "recordedFor": "2026-10-21T21:38:38.361590+00:00",
+   "media": {
+    "desktop": {
+     "mp4": "r01/moba-lane/gpt-6-astra/desktop.mp4",
+     "preview": "r01/moba-lane/gpt-6-astra/desktop-preview.mp4",
+     "poster": "r01/moba-lane/gpt-6-astra/desktop.jpg",
+     "posterSmall": "r01/moba-lane/gpt-6-astra/desktop-sm.jpg",
+     "seconds": 60,
+     "width": 1440,
+     "height": 900,
+     "bytes": 29699872
+    }
+   },
+   "runtime": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": []
+   }
+  }
  }
 }

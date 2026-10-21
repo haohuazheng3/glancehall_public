@@ -78,7 +78,9 @@ codex exec --ignore-user-config --skip-git-repo-check --ephemeral \\
   -m ${gpt?.model_id ?? "gpt-6.1-sol"} -c model_reasoning_effort="xhigh" --json "<prompt>"`}</pre>
       <p>
         <code>--safe-mode</code> and <code>--ignore-user-config</code> switch off personal instruction files, plugins, MCP
-        servers and hooks, so each agent starts with only its built-in tools. Runs happen in neutral folders outside any
+        servers and hooks, so each agent starts with only its built-in tools. Every attempt has the same wall-clock limit
+        of 150 minutes of running time; a model still working at that point is stopped, and whatever it has on disk is
+        published and flagged on the build. Runs happen in neutral folders outside any
         project, so no repository instructions can leak in. The only retry we allow is for an infrastructure failure (a rate
         limit or an outage) that stopped a run before the model finished. When that happens, the interrupted attempt is
         listed on the build with its reason, and whatever it left on disk is kept as evidence but never published.

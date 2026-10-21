@@ -89,21 +89,21 @@
      "mp4": "r01/saas-landing-page/gpt-6-1-sol/desktop.mp4",
      "preview": "r01/saas-landing-page/gpt-6-1-sol/desktop-preview.mp4",
      "poster": "r01/saas-landing-page/gpt-6-1-sol/desktop.jpg",
-     "seconds": 24.1,
+     "posterSmall": "r01/saas-landing-page/gpt-6-1-sol/desktop-sm.jpg",
+     "seconds": 23.1,
      "width": 1440,
      "height": 900,
-     "bytes": 2234380,
-     "posterSmall": "r01/saas-landing-page/gpt-6-1-sol/desktop-sm.jpg"
+     "bytes": 2674392
     },
     "mobile": {
      "mp4": "r01/saas-landing-page/gpt-6-1-sol/mobile.mp4",
      "preview": "r01/saas-landing-page/gpt-6-1-sol/mobile-preview.mp4",
      "poster": "r01/saas-landing-page/gpt-6-1-sol/mobile.jpg",
-     "seconds": 29.7,
+     "posterSmall": "r01/saas-landing-page/gpt-6-1-sol/mobile-sm.jpg",
+     "seconds": 29.6,
      "width": 780,
      "height": 1688,
-     "bytes": 5051449,
-     "posterSmall": "r01/saas-landing-page/gpt-6-1-sol/mobile-sm.jpg"
+     "bytes": 4984190
     }
    },
    "runtime": {
@@ -119,21 +119,21 @@
      "mp4": "r01/saas-landing-page/gpt-6-astra/desktop.mp4",
      "preview": "r01/saas-landing-page/gpt-6-astra/desktop-preview.mp4",
      "poster": "r01/saas-landing-page/gpt-6-astra/desktop.jpg",
-     "seconds": 22.5,
+     "posterSmall": "r01/saas-landing-page/gpt-6-astra/desktop-sm.jpg",
+     "seconds": 21.9,
      "width": 1440,
      "height": 900,
-     "bytes": 2751018,
-     "posterSmall": "r01/saas-landing-page/gpt-6-astra/desktop-sm.jpg"
+     "bytes": 2368897
     },
     "mobile": {
      "mp4": "r01/saas-landing-page/gpt-6-astra/mobile.mp4",
      "preview": "r01/saas-landing-page/gpt-6-astra/mobile-preview.mp4",
      "poster": "r01/saas-landing-page/gpt-6-astra/mobile.jpg",
-     "seconds": 28.5,
+     "posterSmall": "r01/saas-landing-page/gpt-6-astra/mobile-sm.jpg",
+     "seconds": 28.6,
      "width": 780,
      "height": 1688,
-     "bytes": 5317684,
-     "posterSmall": "r01/saas-landing-page/gpt-6-astra/mobile-sm.jpg"
+     "bytes": 5549528
     }
    },
    "runtime": {
@@ -149,21 +149,21 @@
      "mp4": "r01/saas-landing-page/claude-fable-5-1/desktop.mp4",
      "preview": "r01/saas-landing-page/claude-fable-5-1/desktop-preview.mp4",
      "poster": "r01/saas-landing-page/claude-fable-5-1/desktop.jpg",
-     "seconds": 29.7,
+     "posterSmall": "r01/saas-landing-page/claude-fable-5-1/desktop-sm.jpg",
+     "seconds": 30,
      "width": 1440,
      "height": 900,
-     "bytes": 4117395,
-     "posterSmall": "r01/saas-landing-page/claude-fable-5-1/desktop-sm.jpg"
+     "bytes": 4170133
     },
     "mobile": {
      "mp4": "r01/saas-landing-page/claude-fable-5-1/mobile.mp4",
      "preview": "r01/saas-landing-page/claude-fable-5-1/mobile-preview.mp4",
      "poster": "r01/saas-landing-page/claude-fable-5-1/mobile.jpg",
-     "seconds": 45.8,
+     "posterSmall": "r01/saas-landing-page/claude-fable-5-1/mobile-sm.jpg",
+     "seconds": 45.9,
      "width": 780,
      "height": 1688,
-     "bytes": 8615112,
-     "posterSmall": "r01/saas-landing-page/claude-fable-5-1/mobile-sm.jpg"
+     "bytes": 8542200
     }
    },
    "runtime": {
@@ -183,17 +183,17 @@
      "seconds": 32.2,
      "width": 1440,
      "height": 900,
-     "bytes": 5065218
+     "bytes": 5405632
     },
     "mobile": {
      "mp4": "r01/saas-landing-page/claude-opus-5-5/mobile.mp4",
      "preview": "r01/saas-landing-page/claude-opus-5-5/mobile-preview.mp4",
      "poster": "r01/saas-landing-page/claude-opus-5-5/mobile.jpg",
      "posterSmall": "r01/saas-landing-page/claude-opus-5-5/mobile-sm.jpg",
-     "seconds": 52.3,
+     "seconds": 52,
      "width": 780,
      "height": 1688,
-     "bytes": 11418090
+     "bytes": 11656731
     }
    },
    "runtime": {
@@ -211,21 +211,21 @@
      "mp4": "r01/analytics-dashboard/gpt-6-astra/desktop.mp4",
      "preview": "r01/analytics-dashboard/gpt-6-astra/desktop-preview.mp4",
      "poster": "r01/analytics-dashboard/gpt-6-astra/desktop.jpg",
-     "seconds": 35.7,
+     "posterSmall": "r01/analytics-dashboard/gpt-6-astra/desktop-sm.jpg",
+     "seconds": 35.9,
      "width": 1440,
      "height": 900,
-     "bytes": 1968739,
-     "posterSmall": "r01/analytics-dashboard/gpt-6-astra/desktop-sm.jpg"
+     "bytes": 2052077
     },
     "mobile": {
      "mp4": "r01/analytics-dashboard/gpt-6-astra/mobile.mp4",
      "preview": "r01/analytics-dashboard/gpt-6-astra/mobile-preview.mp4",
      "poster": "r01/analytics-dashboard/gpt-6-astra/mobile.jpg",
+     "posterSmall": "r01/analytics-dashboard/gpt-6-astra/mobile-sm.jpg",
      "seconds": 14.6,
      "width": 780,
      "height": 1688,
-     "bytes": 1894781,
-     "posterSmall": "r01/analytics-dashboard/gpt-6-astra/mobile-sm.jpg"
+     "bytes": 1855710
     }
    },
    "runtime": {
@@ -241,21 +241,21 @@
      "mp4": "r01/analytics-dashboard/gpt-6-1-sol/desktop.mp4",
      "preview": "r01/analytics-dashboard/gpt-6-1-sol/desktop-preview.mp4",
      "poster": "r01/analytics-dashboard/gpt-6-1-sol/desktop.jpg",
-     "seconds": 35.6,
+     "posterSmall": "r01/analytics-dashboard/gpt-6-1-sol/desktop-sm.jpg",
+     "seconds": 36.3,
      "width": 1440,
      "height": 900,
-     "bytes": 2208414,
-     "posterSmall": "r01/analytics-dashboard/gpt-6-1-sol/desktop-sm.jpg"
+     "bytes": 2200054
     },
     "mobile": {
      "mp4": "r01/analytics-dashboard/gpt-6-1-sol/mobile.mp4",
      "preview": "r01/analytics-dashboard/gpt-6-1-sol/mobile-preview.mp4",
      "poster": "r01/analytics-dashboard/gpt-6-1-sol/mobile.jpg",
-     "seconds": 15.1,
+     "posterSmall": "r01/analytics-dashboard/gpt-6-1-sol/mobile-sm.jpg",
+     "seconds": 15.2,
      "width": 780,
      "height": 1688,
-     "bytes": 2751447,
-     "posterSmall": "r01/analytics-dashboard/gpt-6-1-sol/mobile-sm.jpg"
+     "bytes": 2750629
     }
    },
    "runtime": {
@@ -272,10 +272,10 @@
      "preview": "r01/analytics-dashboard/claude-fable-5-1/desktop-preview.mp4",
      "poster": "r01/analytics-dashboard/claude-fable-5-1/desktop.jpg",
      "posterSmall": "r01/analytics-dashboard/claude-fable-5-1/desktop-sm.jpg",
-     "seconds": 33.8,
+     "seconds": 36.5,
      "width": 1440,
      "height": 900,
-     "bytes": 2468280
+     "bytes": 2472584
     },
     "mobile": {
      "mp4": "r01/analytics-dashboard/claude-fable-5-1/mobile.mp4",
@@ -285,7 +285,37 @@
      "seconds": 16.4,
      "width": 780,
      "height": 1688,
-     "bytes": 3719856
+     "bytes": 3552475
+    }
+   },
+   "runtime": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": []
+   }
+  },
+  "claude-opus-5-5": {
+   "recordedFor": "2026-10-21T07:41:07.394900+00:00",
+   "media": {
+    "desktop": {
+     "mp4": "r01/analytics-dashboard/claude-opus-5-5/desktop.mp4",
+     "preview": "r01/analytics-dashboard/claude-opus-5-5/desktop-preview.mp4",
+     "poster": "r01/analytics-dashboard/claude-opus-5-5/desktop.jpg",
+     "posterSmall": "r01/analytics-dashboard/claude-opus-5-5/desktop-sm.jpg",
+     "seconds": 35.6,
+     "width": 1440,
+     "height": 900,
+     "bytes": 2811424
+    },
+    "mobile": {
+     "mp4": "r01/analytics-dashboard/claude-opus-5-5/mobile.mp4",
+     "preview": "r01/analytics-dashboard/claude-opus-5-5/mobile-preview.mp4",
+     "poster": "r01/analytics-dashboard/claude-opus-5-5/mobile.jpg",
+     "posterSmall": "r01/analytics-dashboard/claude-opus-5-5/mobile-sm.jpg",
+     "seconds": 16.2,
+     "width": 780,
+     "height": 1688,
+     "bytes": 3858383
     }
    },
    "runtime": {
@@ -336,6 +366,48 @@
     "consoleErrors": [],
     "pageErrors": [],
     "notes": []
+   }
+  },
+  "claude-fable-5-1": {
+   "recordedFor": "2026-10-21T07:34:42.862671+00:00",
+   "media": {
+    "desktop": {
+     "mp4": "r01/first-person-shooter/claude-fable-5-1/desktop.mp4",
+     "preview": "r01/first-person-shooter/claude-fable-5-1/desktop-preview.mp4",
+     "poster": "r01/first-person-shooter/claude-fable-5-1/desktop.jpg",
+     "posterSmall": "r01/first-person-shooter/claude-fable-5-1/desktop-sm.jpg",
+     "seconds": 40,
+     "width": 1440,
+     "height": 900,
+     "bytes": 34957949
+    }
+   },
+   "runtime": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": []
+   }
+  },
+  "claude-opus-5-5": {
+   "recordedFor": "2026-10-21T10:28:00.806353+00:00",
+   "media": {
+    "desktop": {
+     "mp4": "r01/first-person-shooter/claude-opus-5-5/desktop.mp4",
+     "preview": "r01/first-person-shooter/claude-opus-5-5/desktop-preview.mp4",
+     "poster": "r01/first-person-shooter/claude-opus-5-5/desktop.jpg",
+     "posterSmall": "r01/first-person-shooter/claude-opus-5-5/desktop-sm.jpg",
+     "seconds": 40,
+     "width": 1440,
+     "height": 900,
+     "bytes": 54034316
+    }
+   },
+   "runtime": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": [
+     "desktop: Game over at 25.5s; pressed Restart"
+    ]
    }
   }
  }

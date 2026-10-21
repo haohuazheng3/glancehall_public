@@ -53,7 +53,11 @@ def main():
                 "finishedAt": meta.get("finished_at"),
                 "cliVersion": meta.get("cli_version"),
                 "attempts": len(attempts),
-                "attemptNotes": [f"Attempt {a.get('attempt')}: {a.get('reason')}" for a in attempts if a.get("infra_failure")],
+                "attemptNotes": [
+                    f"Attempt {a.get('attempt')}: {a.get('reason')}" if a.get("infra_failure")
+                    else f"Attempt {a.get('attempt')}: stopped at the 150-minute limit; the files on disk at that moment are what is published."
+                    for a in attempts if a.get("infra_failure") or a.get("exit") == "timeout"
+                ],
                 "inputTokens": u.get("input_tokens"),
                 "outputTokens": u.get("output_tokens"),
                 "turns": u.get("num_turns") or u.get("turns"),

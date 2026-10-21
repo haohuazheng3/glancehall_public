@@ -2,11 +2,14 @@
 // content types and immutable caching. Skips files whose size+mtime haven't changed since the last upload.
 //
 // Env: CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID, R2_BUCKET
+//      CLOUDFLARE_ZONE_ID + MEDIA_HOST (optional): purge the CDN cache for every object uploaded this run,
+//      because recordings are served with a one-year immutable cache and a re-recording keeps its key.
 // Usage: node scripts/publish-media.mjs [--round r01] [--force]
 import fs from "node:fs";
 import path from "node:path";
 
-const { CLOUDFLARE_API_TOKEN: TOKEN, CLOUDFLARE_ACCOUNT_ID: ACCOUNT, R2_BUCKET: BUCKET } = process.env;
+const { CLOUDFLARE_API_TOKEN: TOKEN, CLOUDFLARE_ACCOUNT_ID: ACCOUNT, R2_BUCKET: BUCKET, CLOUDFLARE_ZONE_ID: ZONE, MEDIA_HOST } = process.env;
+const uploaded = [];
 if (!TOKEN || !ACCOUNT || !BUCKET) {
   console.error("Set CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID and R2_BUCKET");
   process.exit(1);
@@ -64,6 +67,7 @@ async function put(file) {
     if (res.ok) {
       const st = fs.statSync(file);
       ledger[key] = `${st.size}:${Math.round(st.mtimeMs)}`;
+      uploaded.push(key);
       return;
     }
     const text = await res.text();
@@ -85,3 +89,18 @@ await Promise.all(
 );
 fs.writeFileSync(LEDGER, JSON.stringify(ledger, null, 1));
 console.log("upload complete");
+
+if (ZONE && MEDIA_HOST && uploaded.length) {
+  // Only keys that existed before this run can be stale at the edge, but purging all uploaded keys is cheap.
+  for (let i = 0; i < uploaded.length; i += 30) {
+    const files = uploaded.slice(i, i + 30).map((k) => `https://${MEDIA_HOST}/${k}`);
+    const r = await fetch(`https://api.cloudflare.com/client/v4/zones/${ZONE}/purge_cache`, {
+      method: "POST",
+      headers: { authorization: `Bearer ${TOKEN}`, "content-type": "application/json" },
+      body: JSON.stringify({ files }),
+    });
+    const d = await r.json();
+    if (!d.success) throw new Error(`purge failed: ${JSON.stringify(d.errors).slice(0, 300)}`);
+  }
+  console.log(`purged ${uploaded.length} URLs from the CDN cache`);
+}

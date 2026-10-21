@@ -97,17 +97,17 @@
        "seconds": 32.2,
        "width": 1440,
        "height": 900,
-       "bytes": 5065218
+       "bytes": 5405632
       },
       "mobile": {
        "mp4": "r01/saas-landing-page/claude-opus-5-5/mobile.mp4",
        "preview": "r01/saas-landing-page/claude-opus-5-5/mobile-preview.mp4",
        "poster": "r01/saas-landing-page/claude-opus-5-5/mobile.jpg",
        "posterSmall": "r01/saas-landing-page/claude-opus-5-5/mobile-sm.jpg",
-       "seconds": 52.3,
+       "seconds": 52,
        "width": 780,
        "height": 1688,
-       "bytes": 11418090
+       "bytes": 11656731
       }
      },
      "runtime": {
@@ -138,21 +138,21 @@
        "mp4": "r01/saas-landing-page/claude-fable-5-1/desktop.mp4",
        "preview": "r01/saas-landing-page/claude-fable-5-1/desktop-preview.mp4",
        "poster": "r01/saas-landing-page/claude-fable-5-1/desktop.jpg",
-       "seconds": 29.7,
+       "posterSmall": "r01/saas-landing-page/claude-fable-5-1/desktop-sm.jpg",
+       "seconds": 30,
        "width": 1440,
        "height": 900,
-       "bytes": 4117395,
-       "posterSmall": "r01/saas-landing-page/claude-fable-5-1/desktop-sm.jpg"
+       "bytes": 4170133
       },
       "mobile": {
        "mp4": "r01/saas-landing-page/claude-fable-5-1/mobile.mp4",
        "preview": "r01/saas-landing-page/claude-fable-5-1/mobile-preview.mp4",
        "poster": "r01/saas-landing-page/claude-fable-5-1/mobile.jpg",
-       "seconds": 45.8,
+       "posterSmall": "r01/saas-landing-page/claude-fable-5-1/mobile-sm.jpg",
+       "seconds": 45.9,
        "width": 780,
        "height": 1688,
-       "bytes": 8615112,
-       "posterSmall": "r01/saas-landing-page/claude-fable-5-1/mobile-sm.jpg"
+       "bytes": 8542200
       }
      },
      "runtime": {
@@ -183,21 +183,21 @@
        "mp4": "r01/saas-landing-page/gpt-6-astra/desktop.mp4",
        "preview": "r01/saas-landing-page/gpt-6-astra/desktop-preview.mp4",
        "poster": "r01/saas-landing-page/gpt-6-astra/desktop.jpg",
-       "seconds": 22.5,
+       "posterSmall": "r01/saas-landing-page/gpt-6-astra/desktop-sm.jpg",
+       "seconds": 21.9,
        "width": 1440,
        "height": 900,
-       "bytes": 2751018,
-       "posterSmall": "r01/saas-landing-page/gpt-6-astra/desktop-sm.jpg"
+       "bytes": 2368897
       },
       "mobile": {
        "mp4": "r01/saas-landing-page/gpt-6-astra/mobile.mp4",
        "preview": "r01/saas-landing-page/gpt-6-astra/mobile-preview.mp4",
        "poster": "r01/saas-landing-page/gpt-6-astra/mobile.jpg",
-       "seconds": 28.5,
+       "posterSmall": "r01/saas-landing-page/gpt-6-astra/mobile-sm.jpg",
+       "seconds": 28.6,
        "width": 780,
        "height": 1688,
-       "bytes": 5317684,
-       "posterSmall": "r01/saas-landing-page/gpt-6-astra/mobile-sm.jpg"
+       "bytes": 5549528
       }
      },
      "runtime": {
@@ -228,21 +228,21 @@
        "mp4": "r01/saas-landing-page/gpt-6-1-sol/desktop.mp4",
        "preview": "r01/saas-landing-page/gpt-6-1-sol/desktop-preview.mp4",
        "poster": "r01/saas-landing-page/gpt-6-1-sol/desktop.jpg",
-       "seconds": 24.1,
+       "posterSmall": "r01/saas-landing-page/gpt-6-1-sol/desktop-sm.jpg",
+       "seconds": 23.1,
        "width": 1440,
        "height": 900,
-       "bytes": 2234380,
-       "posterSmall": "r01/saas-landing-page/gpt-6-1-sol/desktop-sm.jpg"
+       "bytes": 2674392
       },
       "mobile": {
        "mp4": "r01/saas-landing-page/gpt-6-1-sol/mobile.mp4",
        "preview": "r01/saas-landing-page/gpt-6-1-sol/mobile-preview.mp4",
        "poster": "r01/saas-landing-page/gpt-6-1-sol/mobile.jpg",
-       "seconds": 29.7,
+       "posterSmall": "r01/saas-landing-page/gpt-6-1-sol/mobile-sm.jpg",
+       "seconds": 29.6,
        "width": 780,
        "height": 1688,
-       "bytes": 5051449,
-       "posterSmall": "r01/saas-landing-page/gpt-6-1-sol/mobile-sm.jpg"
+       "bytes": 4984190
       }
      },
      "runtime": {
@@ -274,7 +274,51 @@
    "prompt": "Design and build the admin dashboard of Lumen & Oak, a (fictional) online store that sells home goods.\n\nDATA\nThe dataset is in ./data.json. Use exactly this data, and embed it inline in index.html (the page must work when opened directly from disk, so do not fetch the file).\n\nLAYOUT AND FEATURES\n- Sidebar navigation with these items: Overview (active), Orders, Products, Customers, Analytics, Settings. Show the store name and the signed-in user (an avatar with initials is fine).\n- Top bar with: the page title \"Overview\", a search field, a date-range indicator reading \"Last 30 days\", and a dark-mode toggle button with aria-label=\"Toggle dark mode\".\n- Four KPI cards computed from the data: Revenue, Orders, Conversion rate (orders / sessions) and Average order value. Each card shows the change against the previous 30 days, using previous_period_totals.\n- Revenue chart: daily revenue for the 30 days, drawn by you with SVG or canvas (no chart libraries). Hovering over the chart shows a tooltip with the date and the revenue of the nearest day.\n- Sales by channel, from the channels data, shown in whatever form you think works best.\n- Top products, from the top_products data.\n- Recent orders table with exactly these columns: Order, Customer, Date, Status, Amount.\n  - Status filter tabs labeled exactly: All, Paid, Pending, Refunded.\n  - Clicking a column header sorts by that column; clicking it again reverses the order.\n  - Pagination with 8 rows per page and buttons labeled \"Previous\" and \"Next\".\n  - Typing in the top-bar search field filters the table by customer name or order id.\n- Dark mode: a complete, deliberately designed dark theme (not an inverted filter), switched with the toggle button.\n- Responsive: at 390px wide the sidebar collapses behind a menu button with aria-label=\"Open menu\", and the content reflows properly for a phone.\n- Visual design is entirely up to you. Aim for the craft of a best-in-class SaaS product.\n\nDELIVERY RULES\n- Work autonomously. Nobody will answer questions, so make reasonable assumptions and keep going until the dashboard is finished.\n- Deliver a single file, ./index.html, with all HTML, CSS, JavaScript and data inline. No build step, no frameworks or chart libraries.\n- The only network resource allowed is fonts from Google Fonts. No other CDNs, no external images, no APIs.\n- The page must work when index.html is opened directly in a current version of Chrome, and when it is served over HTTP. It will be viewed at 1440x900 on desktop and 390x844 on a phone.",
    "runs": {
     "claude-opus-5-5": {
-     "status": "pending"
+     "status": "ok",
+     "blocked": false,
+     "seconds": 4861.4,
+     "startedAt": "2026-10-21T06:20:05.990392+00:00",
+     "finishedAt": "2026-10-21T07:41:07.394900+00:00",
+     "cliVersion": "2.1.302 (Claude Code)",
+     "attempts": 2,
+     "attemptNotes": [
+      "Attempt 1: Stopped by the operator 36 minutes in, when the account's Claude session limit was reached (the other Claude run had just been rejected with HTTP 429). An unfinished index.html was on disk and the agent was still editing and testing it; it was not published. The model got a fresh attempt once the limit had reset."
+     ],
+     "inputTokens": 22661818,
+     "outputTokens": 284884,
+     "turns": 118,
+     "files": [
+      "index.html"
+     ],
+     "sourceBytes": 117936,
+     "artifact": "r01/analytics-dashboard/claude-opus-5-5/build/index.html",
+     "media": {
+      "desktop": {
+       "mp4": "r01/analytics-dashboard/claude-opus-5-5/desktop.mp4",
+       "preview": "r01/analytics-dashboard/claude-opus-5-5/desktop-preview.mp4",
+       "poster": "r01/analytics-dashboard/claude-opus-5-5/desktop.jpg",
+       "posterSmall": "r01/analytics-dashboard/claude-opus-5-5/desktop-sm.jpg",
+       "seconds": 35.6,
+       "width": 1440,
+       "height": 900,
+       "bytes": 2811424
+      },
+      "mobile": {
+       "mp4": "r01/analytics-dashboard/claude-opus-5-5/mobile.mp4",
+       "preview": "r01/analytics-dashboard/claude-opus-5-5/mobile-preview.mp4",
+       "poster": "r01/analytics-dashboard/claude-opus-5-5/mobile.jpg",
+       "posterSmall": "r01/analytics-dashboard/claude-opus-5-5/mobile-sm.jpg",
+       "seconds": 16.2,
+       "width": 780,
+       "height": 1688,
+       "bytes": 3858383
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": []
+     }
     },
     "claude-fable-5-1": {
      "status": "ok",
@@ -299,10 +343,10 @@
        "preview": "r01/analytics-dashboard/claude-fable-5-1/desktop-preview.mp4",
        "poster": "r01/analytics-dashboard/claude-fable-5-1/desktop.jpg",
        "posterSmall": "r01/analytics-dashboard/claude-fable-5-1/desktop-sm.jpg",
-       "seconds": 33.8,
+       "seconds": 36.5,
        "width": 1440,
        "height": 900,
-       "bytes": 2468280
+       "bytes": 2472584
       },
       "mobile": {
        "mp4": "r01/analytics-dashboard/claude-fable-5-1/mobile.mp4",
@@ -312,7 +356,7 @@
        "seconds": 16.4,
        "width": 780,
        "height": 1688,
-       "bytes": 3719856
+       "bytes": 3552475
       }
      },
      "runtime": {
@@ -343,21 +387,21 @@
        "mp4": "r01/analytics-dashboard/gpt-6-astra/desktop.mp4",
        "preview": "r01/analytics-dashboard/gpt-6-astra/desktop-preview.mp4",
        "poster": "r01/analytics-dashboard/gpt-6-astra/desktop.jpg",
-       "seconds": 35.7,
+       "posterSmall": "r01/analytics-dashboard/gpt-6-astra/desktop-sm.jpg",
+       "seconds": 35.9,
        "width": 1440,
        "height": 900,
-       "bytes": 1968739,
-       "posterSmall": "r01/analytics-dashboard/gpt-6-astra/desktop-sm.jpg"
+       "bytes": 2052077
       },
       "mobile": {
        "mp4": "r01/analytics-dashboard/gpt-6-astra/mobile.mp4",
        "preview": "r01/analytics-dashboard/gpt-6-astra/mobile-preview.mp4",
        "poster": "r01/analytics-dashboard/gpt-6-astra/mobile.jpg",
+       "posterSmall": "r01/analytics-dashboard/gpt-6-astra/mobile-sm.jpg",
        "seconds": 14.6,
        "width": 780,
        "height": 1688,
-       "bytes": 1894781,
-       "posterSmall": "r01/analytics-dashboard/gpt-6-astra/mobile-sm.jpg"
+       "bytes": 1855710
       }
      },
      "runtime": {
@@ -388,21 +432,21 @@
        "mp4": "r01/analytics-dashboard/gpt-6-1-sol/desktop.mp4",
        "preview": "r01/analytics-dashboard/gpt-6-1-sol/desktop-preview.mp4",
        "poster": "r01/analytics-dashboard/gpt-6-1-sol/desktop.jpg",
-       "seconds": 35.6,
+       "posterSmall": "r01/analytics-dashboard/gpt-6-1-sol/desktop-sm.jpg",
+       "seconds": 36.3,
        "width": 1440,
        "height": 900,
-       "bytes": 2208414,
-       "posterSmall": "r01/analytics-dashboard/gpt-6-1-sol/desktop-sm.jpg"
+       "bytes": 2200054
       },
       "mobile": {
        "mp4": "r01/analytics-dashboard/gpt-6-1-sol/mobile.mp4",
        "preview": "r01/analytics-dashboard/gpt-6-1-sol/mobile-preview.mp4",
        "poster": "r01/analytics-dashboard/gpt-6-1-sol/mobile.jpg",
-       "seconds": 15.1,
+       "posterSmall": "r01/analytics-dashboard/gpt-6-1-sol/mobile-sm.jpg",
+       "seconds": 15.2,
        "width": 780,
        "height": 1688,
-       "bytes": 2751447,
-       "posterSmall": "r01/analytics-dashboard/gpt-6-1-sol/mobile-sm.jpg"
+       "bytes": 2750629
       }
      },
      "runtime": {
@@ -594,10 +638,98 @@
    "prompt": "Build a small first-person shooter that runs in the browser.\n\nTECHNOLOGY\n- three.js r186 is provided in this folder as an ES module: ./three.module.js (it imports ./three.core.js; keep both files and do not modify or rename them). Load it from a <script type=\"module\"> with: import * as THREE from './three.module.js';\n- No other libraries and no network requests. There are no asset files: every model, texture and sound must be generated in code (procedural geometry, textures drawn on canvas, sound synthesised with the Web Audio API).\n\nTHE GAME\n- A 3D arena, indoor or outdoor, with walls and obstacles that the player collides with.\n- Enemies arrive in waves, move toward the player, find their way around obstacles instead of getting stuck, and attack when they are close.\n- Shooting has clear feedback: muzzle flash, weapon recoil, a hit marker or hit reaction on the enemy, and a death effect.\n- HUD with a crosshair, health, ammo with reloading, score and the current wave.\n- A start screen with a button labeled \"Play\", and a game-over screen that shows the score and has a button labeled \"Restart\".\n- Controls: W A S D to move, the mouse to look around (pointer lock after clicking Play), left mouse button or F to shoot, R to reload. The left and right arrow keys must also turn the view, for players without a mouse.\n- The game must remain playable if pointer lock is unavailable (keyboard turning still works).\n- Aim for 60 frames per second on a laptop, and adapt to any window size. It will be played at 1440x900.\n- Art direction, atmosphere, lighting and sound design are up to you. Make it look good and feel good to play.\n\nDELIVERY RULES\n- Work autonomously. Nobody will answer questions, so make reasonable assumptions and keep going until the game is finished.\n- Deliver ./index.html (JavaScript may be inline or in additional .js files in this folder, loaded with relative paths). No build step.\n- The game must work when this folder is served over HTTP and opened in a current version of Chrome.",
    "runs": {
     "claude-opus-5-5": {
-     "status": "pending"
+     "status": "ok",
+     "blocked": false,
+     "seconds": 9000.0,
+     "startedAt": "2026-10-21T07:41:07.493002+00:00",
+     "finishedAt": "2026-10-21T10:28:00.806353+00:00",
+     "cliVersion": "2.1.302 (Claude Code)",
+     "attempts": 1,
+     "attemptNotes": [
+      "Attempt 1: stopped at the 150-minute limit; the files on disk at that moment are what is published."
+     ],
+     "inputTokens": 71358905,
+     "outputTokens": null,
+     "turns": 162,
+     "files": [
+      "audio.js",
+      "effects.js",
+      "enemies.js",
+      "game.js",
+      "hud.js",
+      "index.html",
+      "nav.js",
+      "post.js",
+      "textures.js",
+      "weapon.js",
+      "world.js"
+     ],
+     "sourceBytes": 257038,
+     "artifact": "r01/first-person-shooter/claude-opus-5-5/build/index.html",
+     "media": {
+      "desktop": {
+       "mp4": "r01/first-person-shooter/claude-opus-5-5/desktop.mp4",
+       "preview": "r01/first-person-shooter/claude-opus-5-5/desktop-preview.mp4",
+       "poster": "r01/first-person-shooter/claude-opus-5-5/desktop.jpg",
+       "posterSmall": "r01/first-person-shooter/claude-opus-5-5/desktop-sm.jpg",
+       "seconds": 40,
+       "width": 1440,
+       "height": 900,
+       "bytes": 54034316
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": [
+       "desktop: Game over at 25.5s; pressed Restart"
+      ]
+     }
     },
     "claude-fable-5-1": {
-     "status": "pending"
+     "status": "ok",
+     "blocked": false,
+     "seconds": 4476.8,
+     "startedAt": "2026-10-21T06:20:05.992144+00:00",
+     "finishedAt": "2026-10-21T07:34:42.862671+00:00",
+     "cliVersion": "2.1.302 (Claude Code)",
+     "attempts": 2,
+     "attemptNotes": [
+      "Attempt 1: The account's Claude session limit was reached (HTTP 429) after 13 turns and 28 minutes. The agent had written five JavaScript modules but no index.html yet. Nothing from this attempt was published; the model got a fresh attempt once the limit had reset."
+     ],
+     "inputTokens": 10961805,
+     "outputTokens": 239312,
+     "turns": 60,
+     "files": [
+      "audio.js",
+      "effects.js",
+      "enemies.js",
+      "index.html",
+      "main.js",
+      "player.js",
+      "textures.js",
+      "weapon.js",
+      "world.js"
+     ],
+     "sourceBytes": 168667,
+     "artifact": "r01/first-person-shooter/claude-fable-5-1/build/index.html",
+     "media": {
+      "desktop": {
+       "mp4": "r01/first-person-shooter/claude-fable-5-1/desktop.mp4",
+       "preview": "r01/first-person-shooter/claude-fable-5-1/desktop-preview.mp4",
+       "poster": "r01/first-person-shooter/claude-fable-5-1/desktop.jpg",
+       "posterSmall": "r01/first-person-shooter/claude-fable-5-1/desktop-sm.jpg",
+       "seconds": 40,
+       "width": 1440,
+       "height": 900,
+       "bytes": 34957949
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": []
+     }
     },
     "gpt-6-astra": {
      "status": "ok",

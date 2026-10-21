@@ -543,6 +543,26 @@
     "pageErrors": [],
     "notes": []
    }
+  },
+  "claude-fable-5-1": {
+   "recordedFor": "2026-10-21T21:39:53.661480+00:00",
+   "media": {
+    "mobile": {
+     "mp4": "r01/mobile-finance-app/claude-fable-5-1/mobile.mp4",
+     "preview": "r01/mobile-finance-app/claude-fable-5-1/mobile-preview.mp4",
+     "poster": "r01/mobile-finance-app/claude-fable-5-1/mobile.jpg",
+     "posterSmall": "r01/mobile-finance-app/claude-fable-5-1/mobile-sm.jpg",
+     "seconds": 22.1,
+     "width": 780,
+     "height": 1688,
+     "bytes": 2294583
+    }
+   },
+   "runtime": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": []
+   }
   }
  },
  "kanban-board": {
@@ -620,6 +640,26 @@
      "width": 1440,
      "height": 900,
      "bytes": 29699872
+    }
+   },
+   "runtime": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": []
+   }
+  },
+  "gpt-6-1-sol": {
+   "recordedFor": "2026-10-21T21:37:58.327742+00:00",
+   "media": {
+    "desktop": {
+     "mp4": "r01/moba-lane/gpt-6-1-sol/desktop.mp4",
+     "preview": "r01/moba-lane/gpt-6-1-sol/desktop-preview.mp4",
+     "poster": "r01/moba-lane/gpt-6-1-sol/desktop.jpg",
+     "posterSmall": "r01/moba-lane/gpt-6-1-sol/desktop-sm.jpg",
+     "seconds": 60,
+     "width": 1440,
+     "height": 900,
+     "bytes": 9318680
     }
    },
    "runtime": {

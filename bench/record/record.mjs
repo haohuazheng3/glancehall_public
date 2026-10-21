@@ -232,18 +232,45 @@ async function firstVisible(locator) {
   return null;
 }
 
+// Letters and digits only, so "▷ Play ⟶" equals "Play" but "How to play" does not.
+const normalizeName = (t) => String(t || "").replace(/[^\p{L}\p{N}]+/gu, " ").trim().toLowerCase();
+
+// A control whose accessible name, stripped of decorative symbols, equals the text.
+async function findNormalized(page, text) {
+  const want = normalizeName(text);
+  for (const role of ["button", "tab", "radio", "link", "menuitem"]) {
+    const all = page.getByRole(role);
+    const n = await all.count().catch(() => 0);
+    for (let i = 0; i < Math.min(n, 400); i++) {
+      const l = all.nth(i);
+      const name = await l.evaluate((el) => el.getAttribute("aria-label") || el.getAttribute("title") || el.textContent || "").catch(() => "");
+      if (normalizeName(name) !== want) continue;
+      if (await l.isVisible().catch(() => false)) {
+        const box = await l.boundingBox().catch(() => null);
+        if (box && box.width > 0 && box.height > 0) return l;
+      }
+    }
+  }
+  return null;
+}
+
 async function findControl(page, text) {
-  const candidates = [
+  const exact = [
     page.getByRole("button", { name: text, exact: true }),
     page.getByRole("tab", { name: text, exact: true }),
     page.getByRole("radio", { name: text, exact: true }),
     page.getByRole("link", { name: text, exact: true }),
     page.getByRole("columnheader", { name: text, exact: true }),
     page.getByText(text, { exact: true }),
-    page.getByRole("button", { name: text }),
-    page.getByText(text),
   ];
-  for (const c of candidates) {
+  for (const c of exact) {
+    const l = await firstVisible(c);
+    if (l) return l;
+  }
+  const normalized = await findNormalized(page, text);
+  if (normalized) return normalized;
+  // Last resort: substring matches (a "Play" that only exists inside "Play now").
+  for (const c of [page.getByRole("button", { name: text }), page.getByText(text)]) {
     const l = await firstVisible(c);
     if (l) return l;
   }

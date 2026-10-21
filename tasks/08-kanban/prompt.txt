@@ -1,0 +1,22 @@
+Design and build a kanban board for Northwind Labs, a (fictional) product team.
+
+DATA
+The board, its columns, people and cards are in ./data.json. Use exactly this data and embed it inline in index.html (the page must work when opened directly from disk, so do not fetch the file). Treat 2026-10-21 as today.
+
+FEATURES
+- Four columns, in this order and with exactly these titles: Backlog, In progress, Review, Done. Each column shows how many cards it holds.
+- Cards show the title, a coloured tag, the assignee's initials and the due date. Cards whose due date is before today are visibly flagged as overdue.
+- Drag and drop cards within a column and between columns, with the mouse and with touch: the dragged card follows the pointer, a placeholder shows where it will land, and the other cards animate out of the way. The order persists in localStorage and survives a reload.
+- Clicking a card opens a detail panel with the title, description, tag, assignee and due date, all editable, and a button labeled "Close".
+- A button labeled "Add card" at the bottom of each column creates a new card inline.
+- Filter chips above the board, labeled exactly: All, Bug, Feature, Design, Research. A search field filters cards by title as you type.
+- A button labeled "Undo" (also Ctrl/Cmd+Z) that reverts the last move or edit.
+- A dark-mode toggle button with aria-label="Toggle dark mode" and a complete, deliberately designed dark theme.
+- Responsive: at 390px wide the columns scroll horizontally one at a time (scroll snap), and everything works by touch.
+- Visual design is entirely up to you. Aim for the craft of a best-in-class product tool.
+
+DELIVERY RULES
+- Work autonomously. Nobody will answer questions, so make reasonable assumptions and keep going until the board is finished.
+- Deliver a single file, ./index.html, with all HTML, CSS, JavaScript and data inline. No build step, no frameworks or drag-and-drop libraries.
+- The only network resource allowed is fonts from Google Fonts. No other CDNs, no external images, no APIs.
+- The page must work when index.html is opened directly in a current version of Chrome, and when it is served over HTTP. It will be viewed at 1440x900 on desktop and 390x844 on a phone.

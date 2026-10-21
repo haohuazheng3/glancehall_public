@@ -1,0 +1,276 @@
+{
+ "app": "Fern",
+ "currency": "USD",
+ "today": "2026-10-21",
+ "user": {
+  "name": "Jordan Lee",
+  "initials": "JL"
+ },
+ "balance": 4826.19,
+ "contacts": [
+  {
+   "id": "c1",
+   "name": "Maya Patel",
+   "initials": "MP",
+   "handle": "@maya"
+  },
+  {
+   "id": "c2",
+   "name": "Liam Okafor",
+   "initials": "LO",
+   "handle": "@liamo"
+  },
+  {
+   "id": "c3",
+   "name": "Sofia Lindqvist",
+   "initials": "SL",
+   "handle": "@sofial"
+  },
+  {
+   "id": "c4",
+   "name": "Noah Moreau",
+   "initials": "NM",
+   "handle": "@noahm"
+  },
+  {
+   "id": "c5",
+   "name": "Aisha Tanaka",
+   "initials": "AT",
+   "handle": "@aisha"
+  },
+  {
+   "id": "c6",
+   "name": "Ethan Reyes",
+   "initials": "ER",
+   "handle": "@ethanr"
+  }
+ ],
+ "transactions": [
+  {
+   "id": "t1",
+   "date": "2026-10-21",
+   "merchant": "Lyft",
+   "category": "Transport",
+   "amount": -19.03
+  },
+  {
+   "id": "t2",
+   "date": "2026-10-21",
+   "merchant": "Blue Bottle Coffee",
+   "category": "Food & drink",
+   "amount": -8.9
+  },
+  {
+   "id": "t3",
+   "date": "2026-10-20",
+   "merchant": "Northwind Labs payroll",
+   "category": "Income",
+   "amount": 2850.0
+  },
+  {
+   "id": "t4",
+   "date": "2026-10-20",
+   "merchant": "Lyft",
+   "category": "Transport",
+   "amount": -13.97
+  },
+  {
+   "id": "t5",
+   "date": "2026-10-19",
+   "merchant": "Target",
+   "category": "Shopping",
+   "amount": -78.86
+  },
+  {
+   "id": "t6",
+   "date": "2026-10-18",
+   "merchant": "Lyft",
+   "category": "Transport",
+   "amount": -8.0
+  },
+  {
+   "id": "t7",
+   "date": "2026-10-18",
+   "merchant": "Target",
+   "category": "Shopping",
+   "amount": -24.14
+  },
+  {
+   "id": "t8",
+   "date": "2026-10-17",
+   "merchant": "Trader Joe's",
+   "category": "Groceries",
+   "amount": -36.17
+  },
+  {
+   "id": "t9",
+   "date": "2026-10-16",
+   "merchant": "Apple",
+   "category": "Subscriptions",
+   "amount": -3.62
+  },
+  {
+   "id": "t10",
+   "date": "2026-10-17",
+   "merchant": "Maya Patel",
+   "category": "Transfers",
+   "amount": -120.0
+  },
+  {
+   "id": "t11",
+   "date": "2026-10-15",
+   "merchant": "CVS Pharmacy",
+   "category": "Health",
+   "amount": -36.61
+  },
+  {
+   "id": "t12",
+   "date": "2026-10-15",
+   "merchant": "Amazon",
+   "category": "Shopping",
+   "amount": -73.37
+  },
+  {
+   "id": "t13",
+   "date": "2026-10-14",
+   "merchant": "Netflix",
+   "category": "Subscriptions",
+   "amount": -15.49
+  },
+  {
+   "id": "t14",
+   "date": "2026-10-13",
+   "merchant": "Trader Joe's",
+   "category": "Groceries",
+   "amount": -35.77
+  },
+  {
+   "id": "t15",
+   "date": "2026-10-12",
+   "merchant": "Trader Joe's",
+   "category": "Groceries",
+   "amount": -77.97
+  },
+  {
+   "id": "t16",
+   "date": "2026-10-12",
+   "merchant": "Amazon",
+   "category": "Shopping",
+   "amount": -25.1
+  },
+  {
+   "id": "t17",
+   "date": "2026-10-11",
+   "merchant": "Blue Bottle Coffee",
+   "category": "Food & drink",
+   "amount": -8.32
+  },
+  {
+   "id": "t18",
+   "date": "2026-10-10",
+   "merchant": "Whole Foods",
+   "category": "Groceries",
+   "amount": -53.66
+  },
+  {
+   "id": "t19",
+   "date": "2026-10-09",
+   "merchant": "Spotify",
+   "category": "Subscriptions",
+   "amount": -11.99
+  },
+  {
+   "id": "t20",
+   "date": "2026-10-09",
+   "merchant": "CVS Pharmacy",
+   "category": "Health",
+   "amount": -38.62
+  },
+  {
+   "id": "t21",
+   "date": "2026-10-08",
+   "merchant": "Uber",
+   "category": "Transport",
+   "amount": -30.4
+  },
+  {
+   "id": "t22",
+   "date": "2026-10-07",
+   "merchant": "Spotify",
+   "category": "Subscriptions",
+   "amount": -11.99
+  },
+  {
+   "id": "t23",
+   "date": "2026-10-06",
+   "merchant": "Lyft",
+   "category": "Transport",
+   "amount": -20.18
+  },
+  {
+   "id": "t24",
+   "date": "2026-10-06",
+   "merchant": "Lyft",
+   "category": "Transport",
+   "amount": -16.05
+  },
+  {
+   "id": "t25",
+   "date": "2026-10-05",
+   "merchant": "Shell",
+   "category": "Transport",
+   "amount": -53.7
+  },
+  {
+   "id": "t26",
+   "date": "2026-10-04",
+   "merchant": "Sweetgreen",
+   "category": "Food & drink",
+   "amount": -14.97
+  },
+  {
+   "id": "t27",
+   "date": "2026-10-03",
+   "merchant": "Amazon",
+   "category": "Shopping",
+   "amount": -61.56
+  },
+  {
+   "id": "t28",
+   "date": "2026-10-03",
+   "merchant": "Blue Bottle Coffee",
+   "category": "Food & drink",
+   "amount": -7.98
+  }
+ ],
+ "monthSpendingByCategory": [
+  {
+   "category": "Shopping",
+   "amount": 263.03
+  },
+  {
+   "category": "Groceries",
+   "amount": 203.57
+  },
+  {
+   "category": "Transport",
+   "amount": 161.33
+  },
+  {
+   "category": "Transfers",
+   "amount": 120.0
+  },
+  {
+   "category": "Health",
+   "amount": 75.23
+  },
+  {
+   "category": "Subscriptions",
+   "amount": 43.09
+  },
+  {
+   "category": "Food & drink",
+   "amount": 40.17
+  }
+ ]
+}

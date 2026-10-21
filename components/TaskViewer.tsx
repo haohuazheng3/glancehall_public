@@ -85,7 +85,7 @@ export function TaskViewer({ task, models }: { task: Task; models: Model[] }) {
   };
 
   const keysInOrder = blind ? order : models.map((m) => m.key);
-  const hasMobile = task.views.includes("mobile");
+  const multiView = task.views.length > 1;
 
   return (
     <div className={s.viewer}>
@@ -102,7 +102,7 @@ export function TaskViewer({ task, models }: { task: Task; models: Model[] }) {
               One at a time
             </button>
           </div>
-          {hasMobile && (
+          {multiView && (
             <div className="seg" aria-label="Device">
               <button aria-pressed={view === "desktop"} onClick={() => setView("desktop")}>
                 Desktop
@@ -334,7 +334,7 @@ function FactsTable({ task, models, hidden }: { task: Task; models: Model[]; hid
     { label: "Files", get: (r) => (r?.files?.length ? String(r.files.length) : "—") },
     { label: "Tokens in / out", get: (r) => (r?.inputTokens ? `${formatTokens(r.inputTokens)} / ${formatTokens(r.outputTokens)}` : "—"), hint: "As reported by each CLI. Tokenizers differ between vendors, so compare within a vendor." },
     { label: "Errors during recording", get: (r) => (r?.runtime ? String((r.runtime.pageErrors?.length ?? 0) + (r.runtime.consoleErrors?.length ?? 0)) : "—") },
-    { label: "Video length", get: (r) => (r?.media?.desktop?.seconds ? `${r.media.desktop.seconds}s` : "—"), hint: "UI recordings scroll at a fixed speed, so a longer page makes a longer video." },
+    { label: "Video length", get: (r) => (r?.media?.[task.views[0]]?.seconds ? `${r.media[task.views[0]]!.seconds}s` : "—"), hint: "UI recordings scroll at a fixed speed, so a longer page makes a longer video." },
   ];
   return (
     <section className={`module ${s.facts}`} aria-labelledby="facts-h">

@@ -30,6 +30,9 @@ def main():
         if not tj.exists():
             continue
         task = load(tj)
+        if task.get("draft"):
+            # Still being built or recorded: kept off the site until every model's build is in.
+            continue
         task["dir"] = tdir.name
         task["prompt"] = (tdir / "prompt.txt").read_text().strip()
         runs = {}

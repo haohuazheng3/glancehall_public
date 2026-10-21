@@ -1,14 +1,12 @@
 #!/bin/bash
-# Records new runs as they finish, until the runner log says everything is done.
+# Records new runs as they finish, for as long as a runner (bench/run.py) is alive; then one final pass.
 cd "$(dirname "$0")/../.."
-while true; do
-  node bench/record/record.mjs >> /private/tmp/sbs-runs/recorder.log 2>&1
-  python3 bench/catalog.py >> /private/tmp/sbs-runs/recorder.log 2>&1
-  if grep -q "all runs finished" /private/tmp/sbs-runs/runner.log; then
-    node bench/record/record.mjs >> /private/tmp/sbs-runs/recorder.log 2>&1
-    python3 bench/catalog.py >> /private/tmp/sbs-runs/recorder.log 2>&1
-    echo "watch: runner finished, final pass done" >> /private/tmp/sbs-runs/recorder.log
-    break
-  fi
+LOG=/private/tmp/sbs-runs/recorder.log
+while pgrep -f "bench/run.py" >/dev/null; do
+  node bench/record/record.mjs >> "$LOG" 2>&1
+  python3 bench/catalog.py >> "$LOG" 2>&1
   sleep 90
 done
+node bench/record/record.mjs >> "$LOG" 2>&1
+python3 bench/catalog.py >> "$LOG" 2>&1
+echo "watch: runner finished, final pass done ($(date +%H:%M:%S))" >> "$LOG"

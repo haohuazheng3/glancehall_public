@@ -1,0 +1,183 @@
+{
+ "board": "Northwind Labs \u00b7 Q4",
+ "today": "2026-10-21",
+ "columns": [
+  {
+   "id": "backlog",
+   "title": "Backlog"
+  },
+  {
+   "id": "progress",
+   "title": "In progress"
+  },
+  {
+   "id": "review",
+   "title": "Review"
+  },
+  {
+   "id": "done",
+   "title": "Done"
+  }
+ ],
+ "tags": [
+  "Bug",
+  "Feature",
+  "Design",
+  "Research"
+ ],
+ "people": [
+  {
+   "id": "p1",
+   "name": "Maya Patel",
+   "initials": "MP"
+  },
+  {
+   "id": "p2",
+   "name": "Liam Okafor",
+   "initials": "LO"
+  },
+  {
+   "id": "p3",
+   "name": "Sofia Lindqvist",
+   "initials": "SL"
+  },
+  {
+   "id": "p4",
+   "name": "Noah Moreau",
+   "initials": "NM"
+  },
+  {
+   "id": "p5",
+   "name": "Aisha Tanaka",
+   "initials": "AT"
+  }
+ ],
+ "cards": [
+  {
+   "id": "k1",
+   "column": "backlog",
+   "title": "Design onboarding flow",
+   "tag": "Design",
+   "assignee": "p1",
+   "due": "2026-10-28",
+   "description": "Three-screen onboarding with progressive disclosure. Needs copy from marketing."
+  },
+  {
+   "id": "k2",
+   "column": "backlog",
+   "title": "Rate limiting on public API",
+   "tag": "Feature",
+   "assignee": "p2",
+   "due": "2026-11-04",
+   "description": "Token bucket per API key, 429 with Retry-After, dashboard counter."
+  },
+  {
+   "id": "k3",
+   "column": "backlog",
+   "title": "Customer interviews: churned accounts",
+   "tag": "Research",
+   "assignee": "p5",
+   "due": "2026-10-30",
+   "description": "Six 30-minute calls with accounts that cancelled in September."
+  },
+  {
+   "id": "k4",
+   "column": "backlog",
+   "title": "Export to CSV",
+   "tag": "Feature",
+   "assignee": "p3",
+   "due": "2026-11-11",
+   "description": "Reports page: export the current filter as CSV, streamed."
+  },
+  {
+   "id": "k5",
+   "column": "backlog",
+   "title": "Empty states for new workspaces",
+   "tag": "Design",
+   "assignee": "p1",
+   "due": "2026-11-06",
+   "description": "Illustrations and copy for projects, members and billing when empty."
+  },
+  {
+   "id": "k6",
+   "column": "progress",
+   "title": "Fix login redirect loop",
+   "tag": "Bug",
+   "assignee": "p2",
+   "due": "2026-10-18",
+   "description": "Users with an expired session bounce between /login and /app. Repro in staging."
+  },
+  {
+   "id": "k7",
+   "column": "progress",
+   "title": "Billing page redesign",
+   "tag": "Design",
+   "assignee": "p1",
+   "due": "2026-10-24",
+   "description": "New plan cards, usage meter and invoice list."
+  },
+  {
+   "id": "k8",
+   "column": "progress",
+   "title": "Webhook retries with backoff",
+   "tag": "Feature",
+   "assignee": "p4",
+   "due": "2026-10-27",
+   "description": "Exponential backoff up to 24h, dead-letter list in admin."
+  },
+  {
+   "id": "k9",
+   "column": "progress",
+   "title": "Pricing survey analysis",
+   "tag": "Research",
+   "assignee": "p5",
+   "due": "2026-10-16",
+   "description": "Summarise 412 responses; segment by company size."
+  },
+  {
+   "id": "k10",
+   "column": "review",
+   "title": "Search: typo tolerance",
+   "tag": "Feature",
+   "assignee": "p3",
+   "due": "2026-10-22",
+   "description": "Trigram index on titles; tolerate one edit for words over 4 chars."
+  },
+  {
+   "id": "k11",
+   "column": "review",
+   "title": "Timezone bug in digest emails",
+   "tag": "Bug",
+   "assignee": "p4",
+   "due": "2026-10-15",
+   "description": "Digest sent at 9am UTC instead of the user's local 9am."
+  },
+  {
+   "id": "k12",
+   "column": "done",
+   "title": "Dark mode",
+   "tag": "Feature",
+   "assignee": "p3",
+   "due": "2026-10-10",
+   "description": "Complete dark theme across the app."
+  },
+  {
+   "id": "k13",
+   "column": "done",
+   "title": "Logo refresh",
+   "tag": "Design",
+   "assignee": "p1",
+   "due": "2026-10-08",
+   "description": "New mark, favicon set and OG image."
+  },
+  {
+   "id": "k14",
+   "column": "done",
+   "title": "Crash on paste in editor",
+   "tag": "Bug",
+   "assignee": "p2",
+   "due": "2026-10-12",
+   "description": "Pasting rich text with nested lists threw in the sanitizer."
+  }
+ ]
+}

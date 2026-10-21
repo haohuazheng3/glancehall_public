@@ -5,7 +5,7 @@ export const FAQ = [
   },
   {
     q: "Which settings did each model use?",
-    a: "Claude Opus 5.5 and Claude Fable 5.1 ran in Claude Code with max effort. GPT-6 Astra and GPT-6.1 Sol ran in Codex CLI with extra high reasoning effort. Each started in an empty folder with user customisations switched off. The exact commands are on the How we test page.",
+    a: "Claude Opus 5.5 and Claude Fable 5.1 ran in Claude Code with max effort. GPT-6 Astra and GPT-6.1 Sol ran in Codex CLI with extra high reasoning effort. Each started in an empty folder with user customisations switched off, and every attempt had the same 150-minute limit. The exact commands are on the How we test page.",
   },
   {
     q: "Did you fix or retouch anything?",
@@ -16,8 +16,8 @@ export const FAQ = [
     a: "Because one attempt is what you get when you ask a model for something. Showing the best of five would make every model look better than it usually is. The trade-off is variance: a second run could come out differently, and we say so.",
   },
   {
-    q: "Why these four briefs?",
-    a: "They cover the work developers most often hand to a model: a marketing website, a product interface, a simulation and a game. Each brief fixes the content, so the differences come from execution rather than from what each model chose to make.",
+    q: "Why these briefs?",
+    a: "They cover the work developers most often hand to a model: a marketing website, a product interface, a simulation, games, a phone app and a team tool. Each brief fixes the content, so the differences come from execution rather than from what each model chose to make. One brief, the open brief, fixes nothing at all, to show what each model makes when nobody tells it what to make.",
   },
   {
     q: "Can I try the builds myself?",

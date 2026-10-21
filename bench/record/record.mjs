@@ -33,7 +33,19 @@ const tasks = fs
   .map((d) => ({ dir: d, ...JSON.parse(fs.readFileSync(path.join(ROOT, "tasks", d, "task.json"), "utf8")) }));
 
 // Files we handed to the model that the build needs at runtime.
-const PROVIDED = { "04-fps-arena": ["assets/three.module.js", "assets/three.core.js"] };
+const PROVIDED = {
+  "04-fps-arena": ["assets/three.module.js", "assets/three.core.js"],
+  "06-moba": ["../04-fps-arena/assets/three.module.js", "../04-fps-arena/assets/three.core.js"],
+};
+// Frame-stepped (virtual clock) tasks and how long each recording runs.
+const STEPPED = { "03-hexagon-physics": { seconds: 20, poster: 6 }, "04-fps-arena": { seconds: 40, poster: 9, restart: "Restart" }, "06-moba": { seconds: 60, poster: 22, restart: "Play again" } };
+const KANBAN_TITLES = (() => {
+  try {
+    return JSON.parse(fs.readFileSync(path.join(ROOT, "tasks/08-kanban/data.json"), "utf8")).cards.map((c) => c.title);
+  } catch {
+    return [];
+  }
+})();
 
 const DESKTOP = { width: 1440, height: 900 };
 const MOBILE = { width: 390, height: 844 };
@@ -453,6 +465,142 @@ async function dashboardScenario(page, mobile, notes) {
   } else notes.push("No dark mode toggle found");
 }
 
+// Touch swipe through CDP (Playwright's touchscreen only taps).
+async function swipe(cdp, from, to, ms = 550) {
+  const steps = 14;
+  await cdp.send("Input.dispatchTouchEvent", { type: "touchStart", touchPoints: [{ x: from.x, y: from.y }] });
+  for (let i = 1; i <= steps; i++) {
+    const t = i / steps;
+    const e = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+    await cdp.send("Input.dispatchTouchEvent", { type: "touchMove", touchPoints: [{ x: from.x + (to.x - from.x) * e, y: from.y + (to.y - from.y) * e }] });
+    await sleep(ms / steps);
+  }
+  await cdp.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] });
+}
+
+// Open brief: nothing to operate, so the recording is the page itself, read at a fixed pace.
+async function openBriefScenario(page, mobile, notes) {
+  await sleep(2000);
+  if (mobile) {
+    const opened = await act(page, true, () => findMobileMenu(page), notes, { pause: 1300 });
+    if (opened) {
+      const again = await findMobileMenu(page);
+      if (again) await again.tap({ timeout: 2000 }).catch(() => page.keyboard.press("Escape"));
+      else await page.keyboard.press("Escape");
+      await sleep(700);
+    }
+  } else {
+    // Hover the first call to action in the hero so its hover state is on film.
+    const cta = await page.evaluate(() => {
+      for (const el of document.querySelectorAll("a, button")) {
+        const r = el.getBoundingClientRect();
+        if (r.top > 120 && r.top < 700 && r.width > 60 && r.width < 420 && r.height > 28 && r.height < 90 && el.textContent.trim()) return { x: r.x + r.width / 2, y: r.y + r.height / 2 };
+      }
+      return null;
+    });
+    if (cta) {
+      await glide(page, cta.x, cta.y, 700);
+      await sleep(900);
+    }
+  }
+  const speed = mobile ? 560 : 640;
+  const max = await page.evaluate(() => window.__rec.maxScroll());
+  await page.evaluate(([y, s]) => window.__rec.scrollTo(y, s), [max, speed]);
+  await sleep(1600);
+  await page.evaluate(([s]) => window.__rec.scrollTo(0, s), [speed * 4]);
+  await sleep(900);
+}
+
+// Mobile finance app: the send-money flow the brief fixes, so every build gets identical taps.
+async function mobileAppScenario(page, mobile, notes) {
+  await sleep(1800);
+  await act(page, true, "Activity", notes, { pause: 1300 });
+  const max = await page.evaluate(() => window.__rec.maxScroll());
+  if (max > 40) {
+    await page.evaluate(([y]) => window.__rec.scrollTo(y, 520), [Math.min(max, 900)]);
+    await sleep(900);
+    await page.evaluate(() => window.__rec.scrollTo(0, 1400));
+    await sleep(600);
+  } else notes.push("Activity list did not scroll (nothing below the fold?)");
+  await act(page, true, "Home", notes, { pause: 1100 });
+  await act(page, true, "Send", notes, { pause: 1100 });
+  await act(page, true, "Maya Patel", notes, { pause: 1000 });
+  for (const k of ["4", "2", ".", "5", "0"]) await act(page, true, k, notes, { pause: 380 });
+  await sleep(400);
+  await act(page, true, "Review", notes, { pause: 1400 });
+  await act(page, true, "Confirm", notes, { pause: 2000 });
+  await act(page, true, "Done", notes, { pause: 1800 });
+}
+
+async function dragCardTo(page, cardText, columnTitle, notes) {
+  const card = await firstVisible(page.getByText(cardText, { exact: true }));
+  const heading = (await firstVisible(page.getByRole("heading", { name: columnTitle, exact: true }))) || (await findControl(page, columnTitle));
+  if (!card || !heading) {
+    notes.push(`Drag skipped: missing "${cardText}" or column "${columnTitle}"`);
+    return false;
+  }
+  const c = await card.boundingBox();
+  const h = await heading.boundingBox();
+  const from = { x: c.x + c.width / 2, y: c.y + c.height / 2 };
+  const to = { x: h.x + h.width / 2, y: h.y + h.height + 230 };
+  await glide(page, from.x, from.y, 500);
+  await page.mouse.down();
+  await sleep(180);
+  const steps = 32;
+  for (let i = 1; i <= steps; i++) {
+    const t = i / steps;
+    const e = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+    await page.mouse.move(from.x + (to.x - from.x) * e, from.y + (to.y - from.y) * e);
+    await sleep(28);
+  }
+  await sleep(350);
+  await page.mouse.up();
+  page.__mouse = to;
+  await sleep(1100);
+  return true;
+}
+
+// Kanban: two cross-column drags, undo, a filter, a card panel and dark mode; on the phone, swipe the columns.
+async function kanbanScenario(page, mobile, notes, cdp) {
+  await sleep(1800);
+  const dark = await firstVisible(page.locator('[aria-label="Toggle dark mode"]'));
+  if (mobile) {
+    const w = page.viewportSize().width;
+    for (let i = 0; i < 2; i++) {
+      await swipe(cdp, { x: w - 36, y: 470 }, { x: 36, y: 470 }, 550);
+      await sleep(1100);
+    }
+    let tapped = false;
+    for (const t of KANBAN_TITLES) {
+      const l = await firstVisible(page.getByText(t, { exact: true }));
+      if (!l) continue;
+      const b = await l.boundingBox();
+      if (b && b.x >= 0 && b.x + b.width <= w && b.y > 0 && b.y < page.viewportSize().height) {
+        await l.tap({ timeout: 3000 }).catch(() => {});
+        tapped = true;
+        break;
+      }
+    }
+    if (tapped) {
+      await sleep(1300);
+      await act(page, true, "Close", notes, { pause: 900 });
+    } else notes.push("No card in view to open");
+    if (dark) await act(page, true, async () => dark, notes, { pause: 1400 });
+    else notes.push("No dark mode toggle found");
+    await swipe(cdp, { x: 36, y: 470 }, { x: w - 36, y: 470 }, 550);
+    await sleep(1000);
+    return;
+  }
+  await dragCardTo(page, "Design onboarding flow", "In progress", notes);
+  await dragCardTo(page, "Fix login redirect loop", "Review", notes);
+  await act(page, false, "Undo", notes, { pause: 1300 });
+  await act(page, false, "Bug", notes, { pause: 1200 });
+  await act(page, false, "All", notes, { pause: 800 });
+  if (await act(page, false, "Rate limiting on public API", notes, { pause: 1400 })) await act(page, false, "Close", notes, { pause: 800 });
+  if (dark) await act(page, false, async () => dark, notes, { pause: 1500 });
+  else notes.push("No dark mode toggle found");
+}
+
 // ---------------------------------------------------------------- frame-stepped capture (canvas tasks)
 
 function fpsInputTimeline() {
@@ -472,6 +620,23 @@ function fpsInputTimeline() {
   for (const [a, b] of fireWindows) for (let t = a; t < b; t += 0.2) events.push({ t, type: "down", key: "KeyF" }, { t: t + 0.07, type: "up", key: "KeyF" });
   for (const t of reloads) events.push({ t, type: "down", key: "KeyR" }, { t: t + 0.1, type: "up", key: "KeyR" });
   return events.sort((x, y) => x.t - y.t);
+}
+
+function mobaTimeline() {
+  // Same for every model: click up the lane (toward the top-right), cast toward the enemy, fall back, push again.
+  const ev = [];
+  const push = (t, type, extra) => ev.push({ t, type, ...extra });
+  for (const t of [3, 7, 11, 15, 19, 23, 27]) push(t, "click", { x: 930, y: 330 });
+  push(8.5, "move", { x: 980, y: 300 }); push(9, "key", { key: "q" });
+  push(12.5, "move", { x: 1000, y: 320 }); push(13, "key", { key: "w" });
+  push(16.5, "move", { x: 960, y: 300 }); push(17, "key", { key: "e" });
+  push(21.5, "move", { x: 980, y: 290 }); push(22, "key", { key: "r" });
+  push(25, "key", { key: "q" });
+  for (const t of [30, 34]) push(t, "click", { x: 520, y: 600 });
+  push(37, "move", { x: 1000, y: 300 }); push(37.5, "key", { key: "w" });
+  for (const t of [40, 44, 48, 52, 56]) push(t, "click", { x: 930, y: 330 });
+  push(42, "key", { key: "q" }); push(46, "key", { key: "e" }); push(50.5, "key", { key: "r" }); push(54, "key", { key: "q" }); push(58, "key", { key: "w" });
+  return ev.sort((a, b) => a.t - b.t);
 }
 
 async function captureFrames(page, cdp, framesDir, { seconds, fps, onTime }) {
@@ -496,7 +661,7 @@ async function recordView(browser, task, model, view, buildUrl, outDir) {
   const mobile = view === "mobile";
   const size = mobile ? MOBILE : DESKTOP;
   const dpr = mobile ? 2 : 1;
-  const stepped = task.dir === "03-hexagon-physics" || task.dir === "04-fps-arena";
+  const stepped = Boolean(STEPPED[task.dir]);
   const context = await browser.newContext({
     viewport: size,
     deviceScaleFactor: dpr,
@@ -529,11 +694,11 @@ async function recordView(browser, task, model, view, buildUrl, outDir) {
 
   if (stepped) {
     const fps = 60;
-    let seconds = 20;
+    const cfg = STEPPED[task.dir];
+    const seconds = cfg.seconds;
     let onTime = null;
-    if (task.dir === "04-fps-arena") {
-      seconds = 40;
-      const timeline = fpsInputTimeline();
+    if (task.dir === "04-fps-arena" || task.dir === "06-moba") {
+      const timeline = task.dir === "04-fps-arena" ? fpsInputTimeline() : mobaTimeline();
       let cursor = 0;
       let played = false;
       let lastRestartCheck = 0;
@@ -551,9 +716,9 @@ async function recordView(browser, task, model, view, buildUrl, outDir) {
         }
         if (t - lastRestartCheck >= 1 && played) {
           lastRestartCheck = t;
-          const restart = await firstVisible(page.getByRole("button", { name: "Restart", exact: true }));
+          const restart = await firstVisible(page.getByRole("button", { name: cfg.restart, exact: true }));
           if (restart) {
-            notes.push(`Game over at ${t.toFixed(1)}s; pressed Restart`);
+            notes.push(`Game over at ${t.toFixed(1)}s; pressed ${cfg.restart}`);
             const b = await restart.boundingBox();
             await page.mouse.click(b.x + b.width / 2, b.y + b.height / 2);
           }
@@ -561,23 +726,29 @@ async function recordView(browser, task, model, view, buildUrl, outDir) {
         while (cursor < timeline.length && timeline[cursor].t <= t) {
           const ev = timeline[cursor++];
           if (ev.type === "down") await page.keyboard.down(ev.key === "KeyF" ? "f" : ev.key === "KeyR" ? "r" : ev.key);
-          else await page.keyboard.up(ev.key === "KeyF" ? "f" : ev.key === "KeyR" ? "r" : ev.key);
+          else if (ev.type === "up") await page.keyboard.up(ev.key === "KeyF" ? "f" : ev.key === "KeyR" ? "r" : ev.key);
+          else if (ev.type === "move") await page.mouse.move(ev.x, ev.y);
+          else if (ev.type === "click") {
+            await page.mouse.move(ev.x, ev.y);
+            await page.mouse.click(ev.x, ev.y);
+          } else if (ev.type === "key") await page.keyboard.press(ev.key);
         }
       };
     }
-    // Let the page settle (fonts, module imports) before the clock starts.
-    await sleep(1500);
+    // Let the page settle (fonts, module imports, procedural generation) before the clock starts.
+    await sleep(task.dir === "06-moba" ? 2500 : 1500);
     await captureFrames(page, cdp, framesDir, { seconds, fps, onTime });
     ffmpeg(["-framerate", String(fps), "-i", path.join(framesDir, "f%06d.jpg"), "-c:v", "libx264", "-preset", "slow", "-crf", "20", "-pix_fmt", "yuv420p", "-movflags", "+faststart", `${base}.mp4`]);
-    const posterFrame = task.dir === "04-fps-arena" ? Math.round(9 * fps) : Math.round(6 * fps);
+    const posterFrame = Math.round(cfg.poster * fps);
     ffmpeg(["-i", path.join(framesDir, `f${String(posterFrame).padStart(6, "0")}.jpg`), "-vf", "scale=1280:-2", "-q:v", "3", `${base}.jpg`]);
   } else {
     await sleep(600);
-    const scenario = task.dir === "01-saas-landing" ? landingScenario : dashboardScenario;
+    const scenario = { "01-saas-landing": landingScenario, "02-analytics-dashboard": dashboardScenario, "05-mobile-app": mobileAppScenario, "07-open-brief": openBriefScenario, "08-kanban": kanbanScenario }[task.dir];
+    if (!scenario) throw new Error(`no recording scenario for ${task.dir}`);
     // Poster: the first screen once it has settled.
     await sleep(900);
     await page.screenshot({ path: `${base}-poster.png` });
-    const list = await captureScreencast(page, cdp, size, dpr, framesDir, () => scenario(page, mobile, notes));
+    const list = await captureScreencast(page, cdp, size, dpr, framesDir, () => scenario(page, mobile, notes, cdp));
     ffmpeg(["-f", "concat", "-safe", "0", "-i", list, "-vf", `fps=30,scale=${size.width * dpr}:${size.height * dpr}:flags=lanczos,format=yuv420p`, "-c:v", "libx264", "-preset", "slow", "-crf", "21", "-movflags", "+faststart", `${base}.mp4`]);
     ffmpeg(["-i", `${base}-poster.png`, "-vf", `scale=${mobile ? 780 : 1280}:-2`, "-q:v", "3", `${base}.jpg`]);
     fs.rmSync(`${base}-poster.png`, { force: true });

@@ -1,0 +1,14 @@
+Invent a product and build its website.
+
+It can be anything: a physical product, an app, a service, a place, a food, a tool. You choose the name, the idea, the story, the visuals and every word. The only requirement: make it memorable.
+
+PAGE REQUIREMENTS
+- A complete, convincing marketing website on one page: a hero, at least three further sections, and a footer. Real copy throughout; no lorem ipsum, no placeholder boxes.
+- Fully responsive. It must look intentional at 1440x900 on desktop and at 390x844 on a phone.
+- Every image, illustration or visual is made with HTML, CSS, inline SVG or canvas.
+
+DELIVERY RULES
+- Work autonomously. Nobody will answer questions, so make reasonable assumptions and keep going until the page is finished.
+- Deliver a single file, ./index.html, with all HTML, CSS and JavaScript inline. No build step, no frameworks loaded from the network.
+- The only network resource allowed is fonts from Google Fonts. No other CDNs, no external images, no APIs.
+- The page must work when index.html is opened directly in a current version of Chrome, and when it is served over HTTP.

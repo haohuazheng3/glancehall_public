@@ -1,5 +1,5 @@
 import { ogCard, OG_SIZE } from "@/lib/og";
-import { getModel, models, tasks } from "@/lib/catalog";
+import { getModel, models, primaryView, tasks } from "@/lib/catalog";
 import { mediaUrl } from "@/lib/site";
 
 export const size = OG_SIZE;
@@ -12,5 +12,5 @@ export function generateStaticParams() {
 
 export default async function Image({ params }: { params: Promise<{ model: string }> }) {
   const m = getModel((await params).model)!;
-  return ogCard({ kicker: `${m.vendor} · ${m.effortLabel}`, title: m.name, posters: tasks.map((t) => mediaUrl(t.runs[m.key]?.media?.desktop?.poster)) });
+  return ogCard({ kicker: `${m.vendor} · ${m.effortLabel}`, title: m.name, posters: tasks.map((t) => mediaUrl(t.runs[m.key]?.media?.[primaryView(t)]?.poster)) });
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { formatDuration, getModel, harnessLabel, models, pairSlug, tasks } from "@/lib/catalog";
+import { formatDuration, getModel, harnessLabel, models, pairSlug, primaryView, tasks } from "@/lib/catalog";
 import { JsonLd, breadcrumbLd } from "@/lib/seo";
 import { VideoTile } from "@/components/VideoTile";
 import { Arrow } from "@/components/Stage";
@@ -68,9 +68,12 @@ export default async function ModelPage({ params }: { params: Promise<{ model: s
       <div className={s.builds}>
         {tasks.map((t) => {
           const run = t.runs[m.key];
+          const view = primaryView(t);
           return (
             <article key={t.slug} className={`module ${s.build}`}>
-              <VideoTile model={m} run={run} view="desktop" showLabel={false} />
+              <div className={view === "mobile" ? s.phoneTile : undefined}>
+                <VideoTile model={m} run={run} view={view} showLabel={false} />
+              </div>
               <div className={s.buildText}>
                 <p className="eyebrow">{t.category}</p>
                 <h2 className={s.buildTitle}>{t.title}</h2>

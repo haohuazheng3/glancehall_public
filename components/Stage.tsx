@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import type { Model, Task } from "@/lib/catalog";
+import { primaryView } from "@/lib/catalog";
 import { VideoTile } from "./VideoTile";
 import s from "./Stage.module.css";
 
@@ -10,6 +11,7 @@ import s from "./Stage.module.css";
 export function Stage({ tasks, models, initial }: { tasks: Task[]; models: Model[]; initial?: string }) {
   const [slug, setSlug] = useState(initial ?? tasks[0]?.slug);
   const task = tasks.find((t) => t.slug === slug) ?? tasks[0];
+  const view = primaryView(task);
   return (
     <div className={`module ${s.stage}`}>
       <div className={s.bar}>
@@ -25,9 +27,9 @@ export function Stage({ tasks, models, initial }: { tasks: Task[]; models: Model
           <Arrow />
         </Link>
       </div>
-      <div className={s.grid} role="tabpanel" aria-label={task.title}>
+      <div className={`${s.grid} ${view === "mobile" ? s.gridPhone : ""}`} role="tabpanel" aria-label={task.title}>
         {models.map((m) => (
-          <VideoTile key={`${task.slug}-${m.key}`} model={m} run={task.runs[m.key]} view="desktop" />
+          <VideoTile key={`${task.slug}-${m.key}`} model={m} run={task.runs[m.key]} view={view} />
         ))}
       </div>
       <p className={s.caption}>

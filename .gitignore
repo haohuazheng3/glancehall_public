@@ -23,3 +23,6 @@ media-out/
 .stamp-*
 logs/
 .DS_Store
+
+# pinned CLI builds used for benchmark runs (reinstall: see ops/README.md)
+bench/.cli/

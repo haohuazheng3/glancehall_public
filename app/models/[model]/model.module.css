@@ -60,6 +60,10 @@
   gap: 12px;
   border-radius: calc(var(--r-lg) + 10px);
 }
+.phoneTile {
+  max-width: 300px;
+  margin: 0 auto;
+}
 .buildText {
   padding: 4px 10px 10px;
   display: flex;

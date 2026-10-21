@@ -50,13 +50,17 @@ MODELS = {
     "gpt-6-1-sol": {"cli": "codex", "model": "gpt-6.1-sol", "effort": "xhigh"},
 }
 
-# Order of tasks inside one model's queue.
-TASK_ORDER = ["03-hexagon-physics", "01-saas-landing", "02-analytics-dashboard", "04-fps-arena"]
+# Order of tasks inside one model's queue (completed ones are skipped).
+TASK_ORDER = ["03-hexagon-physics", "01-saas-landing", "02-analytics-dashboard", "04-fps-arena",
+              "07-open-brief", "05-mobile-app", "08-kanban", "06-moba"]
 
 # Files we hand to the model; everything else in the run dir afterwards is model output.
 PROVIDED = {
     "02-analytics-dashboard": ["data.json"],
     "04-fps-arena": ["assets/three.module.js", "assets/three.core.js"],
+    "05-mobile-app": ["data.json"],
+    "06-moba": ["../04-fps-arena/assets/three.module.js", "../04-fps-arena/assets/three.core.js"],
+    "08-kanban": ["data.json"],
 }
 
 # Waits between attempts after an infrastructure failure. A subscription's session limit takes hours
@@ -64,6 +68,8 @@ PROVIDED = {
 INFRA_BACKOFF_S = [120, 900, 1800, 3600, 3600]
 
 INFRA_TEXT = re.compile(r"session limit|usage limit|rate limit|overloaded|too many requests", re.I)
+# "You've hit your session limit · resets 5:50am (America/Detroit)"
+RESET_AT = re.compile(r"resets\s+(\d{1,2})(?::(\d{2}))?\s*(am|pm)(?:\s*\(([\w/_+-]+)\))?", re.I)
 INFRA_STDERR = re.compile(r"failed to authenticate|oauth|econnreset|etimedout|enotfound|network error|socket hang up", re.I)
 
 print_lock = threading.Lock()
@@ -226,6 +232,24 @@ def infra_failure(cfg, code, log_path, err_path):
     return reason is not None, reason
 
 
+def seconds_until_reset(reason):
+    """If the CLI said when a subscription limit resets, how long to wait for that (plus a margin)."""
+    m = RESET_AT.search(reason or "")
+    if not m:
+        return None
+    hour, minute, ampm, tz = int(m.group(1)), int(m.group(2) or 0), m.group(3).lower(), m.group(4)
+    hour = hour % 12 + (12 if ampm == "pm" else 0)
+    try:
+        from zoneinfo import ZoneInfo
+        now = dt.datetime.now(ZoneInfo(tz)) if tz else dt.datetime.now().astimezone()
+    except Exception:  # noqa: BLE001 - unknown zone name: fall back to local time
+        now = dt.datetime.now().astimezone()
+    target = now.replace(hour=hour, minute=minute, second=0, microsecond=0)
+    if target <= now:
+        target += dt.timedelta(days=1)
+    return min(int((target - now).total_seconds()) + 120, 6 * 3600)
+
+
 def persist(task, model_key, run_dir, log_path, err_path, last_msg, attempts, started, finished, elapsed, code,
             versions, infra):
     """Copy the model's output (never the files we provided) plus the raw transcript into content/runs."""
@@ -319,7 +343,7 @@ def run_one(model_key, task, versions):
         log(f"done  {task} / {model_key} exit={code} {elapsed}s index={has_index} infra={infra}")
 
         if infra and attempt < max_attempts:
-            wait = INFRA_BACKOFF_S[attempt - 1]
+            wait = seconds_until_reset(reason) or INFRA_BACKOFF_S[attempt - 1]
             log(f"infra failure for {task} / {model_key} ({reason}); retrying in {wait}s")
             time.sleep(wait)
             continue

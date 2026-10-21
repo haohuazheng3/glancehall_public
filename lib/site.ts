@@ -4,7 +4,7 @@ export const SITE = {
   domain: process.env.NEXT_PUBLIC_SITE_DOMAIN ?? "glancehall.com",
   tagline: "We don't rate. We let you see.",
   description:
-    "Side-by-side, unedited builds from Claude and GPT. Same prompt, one shot, nothing fixed: watch the websites, dashboards, simulations and games each model actually makes, then judge for yourself.",
+    "Side-by-side, unedited builds from Claude and GPT. Same prompt, one shot, nothing fixed: watch the websites, apps, dashboards, simulations and games each model actually makes, then judge for yourself.",
   contactEmail: `contact@${process.env.NEXT_PUBLIC_SITE_DOMAIN ?? "glancehall.com"}`,
   foundedYear: 2026,
 } as const;

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { allPairs, pairSlug, parsePair, tasks } from "@/lib/catalog";
+import { allPairs, pairSlug, parsePair, primaryView, tasks } from "@/lib/catalog";
 import { JsonLd, breadcrumbLd } from "@/lib/seo";
 import { VideoTile } from "@/components/VideoTile";
 import s from "../../listing.module.css";
@@ -44,7 +44,7 @@ export default async function PairPage({ params }: { params: Promise<{ pair: str
       </header>
       <div className={c.list}>
         {tasks.map((t) => {
-          const view = "desktop" as const;
+          const view = primaryView(t);
           return (
             <section key={t.slug} className={`module ${c.task}`} aria-labelledby={`t-${t.slug}`}>
               <div className={c.taskHead}>
@@ -58,7 +58,7 @@ export default async function PairPage({ params }: { params: Promise<{ pair: str
                   Open this pair in the viewer
                 </Link>
               </div>
-              <div className={c.duo}>
+              <div className={`${c.duo} ${view === "mobile" ? c.duoPhone : ""}`}>
                 <VideoTile model={a} run={t.runs[a.key]} view={view} />
                 <VideoTile model={b} run={t.runs[b.key]} view={view} />
               </div>

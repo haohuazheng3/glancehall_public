@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { catalog, getTask, models, tasks } from "@/lib/catalog";
+import { catalog, getTask, models, primaryView, tasks } from "@/lib/catalog";
 import { mediaUrl } from "@/lib/site";
 import { JsonLd, breadcrumbLd, videoLd } from "@/lib/seo";
 import { TaskViewer } from "@/components/TaskViewer";
@@ -34,12 +34,13 @@ export default async function TaskPage({ params }: { params: Promise<{ task: str
   const next = tasks[(idx + 1) % tasks.length];
   const recorded = new Date(catalog.round.date + "T12:00:00Z").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
   const videos = models
-    .map((m) => ({ m, v: task.runs[m.key]?.media?.desktop }))
+    .map((m) => ({ m, v: task.runs[m.key]?.media?.[primaryView(task)] }))
     .filter((x) => x.v?.mp4 && x.v?.poster)
     .map(({ m, v }) =>
       videoLd({
         name: `${m.name} builds a ${task.title.toLowerCase()}`,
         description: `Unedited recording of the ${task.title.toLowerCase()} that ${m.name} built in one shot from the same prompt as every other model.`,
+        // Portrait recordings keep their own size; the schema just needs real numbers.
         thumbnailUrl: mediaUrl(v!.poster)!,
         contentUrl: mediaUrl(v!.mp4)!,
         uploadDate: `${catalog.round.date}T12:00:00Z`,

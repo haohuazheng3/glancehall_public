@@ -1,0 +1,22 @@
+Build a small MOBA-style game that runs in the browser: one lane, top-down 3D, in the spirit of League of Legends.
+
+TECHNOLOGY
+- three.js r186 is provided in this folder as an ES module: ./three.module.js (it imports ./three.core.js; keep both files and do not modify or rename them). Load it from a <script type="module"> with: import * as THREE from './three.module.js';
+- No other libraries and no network requests. There are no asset files: every model, texture and sound must be generated in code (procedural geometry, textures drawn on canvas, sound synthesised with the Web Audio API).
+
+THE GAME
+- A fixed-angle camera looking down at the battlefield from a high diagonal angle (roughly 55 degrees above the ground), locked on the player's hero. Seen on screen, the player's base is at the bottom-left of the map and the enemy base at the top-right, with one lane between them.
+- Each side has a base and two towers along the lane. Towers shoot at enemies in range. Towers and bases can be destroyed; destroying the enemy base wins, losing your own base loses.
+- Minion waves (a few melee and ranged minions) spawn from both bases every 20 seconds, the first wave 3 seconds after Play. They walk down the lane and fight whatever they meet.
+- The player's hero: left-click on the ground to move there, pathing around obstacles; when idle, the hero auto-attacks the nearest enemy in range. Four abilities on the Q, W, E and R keys, cast toward the mouse cursor, each with a cooldown, a distinct visual effect and a sound. Design them yourself (for example a skillshot, an area effect, a dash and an ultimate).
+- One enemy hero controlled by a simple AI: it farms minions, trades with the player when it is favourable and retreats when low on health.
+- Heroes respawn at their base 8 seconds after dying.
+- HUD: health and mana bars above every unit, ability icons with cooldown sweeps at the bottom, a minimap in a corner, a kill feed, gold and a match timer.
+- A start screen with a button labeled "Play" and an end screen that says Victory or Defeat with a button labeled "Play again".
+- Right-click must not open the browser context menu; the game must be fully playable with the left button and the keyboard.
+- Aim for 60 frames per second at 1440x900 and adapt to the window size. Art direction, atmosphere and sound design are up to you: make the battlefield readable from above and the abilities satisfying to use.
+
+DELIVERY RULES
+- Work autonomously. Nobody will answer questions, so make reasonable assumptions and keep going until the game is finished.
+- Deliver ./index.html (JavaScript may be inline or in additional .js files in this folder, loaded with relative paths). No build step.
+- The game must work when this folder is served over HTTP and opened in a current version of Chrome.

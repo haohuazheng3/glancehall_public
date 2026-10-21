@@ -1,10 +1,12 @@
 import Link from "next/link";
 import type { Model, Task } from "@/lib/catalog";
+import { primaryView } from "@/lib/catalog";
 import { mediaUrl } from "@/lib/site";
 import { Arrow } from "./Stage";
 import s from "./TaskCard.module.css";
 
 export function TaskCard({ task, models, index }: { task: Task; models: Model[]; index: number }) {
+  const view = primaryView(task);
   return (
     <Link href={`/tasks/${task.slug}`} className={`module lift ${s.card}`}>
       <div className={s.head}>
@@ -17,10 +19,11 @@ export function TaskCard({ task, models, index }: { task: Task; models: Model[];
       </div>
       <h3 className={s.title}>{task.title}</h3>
       <p className={s.summary}>{task.summary}</p>
-      <div className={s.thumbs}>
+      <div className={`${s.thumbs} ${view === "mobile" ? s.thumbsPhone : ""}`}>
         {models.map((m) => {
           const run = task.runs[m.key];
-          const poster = mediaUrl(run?.media?.desktop?.posterSmall ?? run?.media?.desktop?.poster);
+          const v = run?.media?.[view];
+          const poster = mediaUrl(v?.posterSmall ?? v?.poster);
           return (
             <div key={m.key} className={`${s.thumb} m-${m.accent}`}>
               {poster ? (

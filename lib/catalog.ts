@@ -111,6 +111,22 @@ export function formatTokens(n?: number) {
   return String(n);
 }
 
+// The view a task is shown in by default: phone-only tasks are portrait everywhere.
+export function primaryView(task: Task): ViewKind {
+  return task.views[0] ?? "desktop";
+}
+
+const WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve"];
+export function numberWord(n: number, capital = false) {
+  const w = n < WORDS.length ? WORDS[n] : n === 16 ? "sixteen" : n === 20 ? "twenty" : n === 24 ? "twenty-four" : n === 32 ? "thirty-two" : String(n);
+  return capital ? w.charAt(0).toUpperCase() + w.slice(1) : w;
+}
+
+export function listJoin(items: string[]) {
+  if (items.length <= 1) return items.join("");
+  return `${items.slice(0, -1).join(", ")} and ${items[items.length - 1]}`;
+}
+
 // "Claude Code 2.1.302" / "Codex CLI 0.163.0", from whatever version string the run recorded.
 export function harnessLabel(model: Model) {
   for (const t of tasks) {

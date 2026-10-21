@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { harnessLabel, models } from "@/lib/catalog";
+import { harnessLabel, listJoin, models, numberWord, tasks } from "@/lib/catalog";
 import { DocPage } from "@/components/DocPage";
 
 export const metadata: Metadata = {
@@ -31,15 +31,16 @@ export default function Methodology() {
 
       <h2>The briefs</h2>
       <p>
-        Round 01 has four briefs chosen to cover the work developers most often hand to a model: a marketing website, a
-        product interface, a physics simulation and a 3D game. Each brief fixes the content (product name, copy facts,
-        prices, the dataset, the controls) so the differences you see come from how well each model executes, not from what
-        it decided to make.
+        Round 01 has {numberWord(tasks.length)} briefs ({listJoin(tasks.map((t) => t.category.toLowerCase()))}) chosen to
+        cover the work developers most often hand to a model. Each brief fixes the content (product name, copy facts, prices,
+        the dataset, the controls) so the differences you see come from how well each model executes, not from what it
+        decided to make. The one exception is the open brief, which fixes nothing on purpose.
       </p>
       <p>
-        Builds must be a single <code>index.html</code> with no build step, so anyone can open them years from now. Network
-        access at runtime is limited to Google Fonts for the two interface briefs, and to nothing at all for the simulation and
-        the game. The game brief ships three.js r186 as a local file so every model has the same engine.
+        Builds must be a single <code>index.html</code> with no build step (games may add local script files), so anyone
+        can open them years from now. Network access at runtime is limited to Google Fonts for the interface briefs, and to
+        nothing at all for the simulation and the games. The 3D game briefs ship three.js r186 as a local file so every model
+        has the same engine.
       </p>
 
       <h2>How each model is run</h2>
@@ -91,13 +92,15 @@ codex exec --ignore-user-config --skip-git-repo-check --ephemeral \\
         <strong>Simulation and game.</strong> These are rendered frame by frame on a virtual clock: the recorder controls
         <code> requestAnimationFrame</code>, <code>performance.now()</code>, <code>Date.now()</code> and timers, and captures
         each frame at 60 fps. A slow recording machine can never make one model look choppier than another. Randomness is seeded
-        identically for every build. In the game, the same 40-second input script (move, strafe, turn, fire, reload) is played
-        into every build after pressing Play; if a build reaches its game-over screen, the recorder presses Restart.
+        identically for every build. In the games, the same input script is played into every build after pressing Play (40
+        seconds of moving, turning, firing and reloading in the shooter; 60 seconds of clicking up the lane and casting
+        abilities in the MOBA); if a build reaches its end screen, the recorder presses the restart button.
       </p>
       <p>
         <strong>Website and dashboard.</strong> These are captured in real time from Chrome at 1440×900 and on a 390×844 phone
         viewport, while a script scrolls at a fixed speed and uses the controls the brief asked for: the Yearly toggle, an FAQ
-        question, chart hover, table sorting, filters, pagination, search and dark mode. A small circle shows where the script
+        question, chart hover, table sorting, filters, pagination, search, dark mode, drag and drop, and the send-money flow
+        in the phone app. A small circle shows where the script
         is pointing. If a control the brief required can&apos;t be found, that is noted on the build rather than worked around.
       </p>
       <p>

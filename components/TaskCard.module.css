@@ -49,6 +49,12 @@
   gap: 8px;
   margin-top: 10px;
 }
+.thumbsPhone {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.thumbsPhone .thumb {
+  aspect-ratio: 390 / 844;
+}
 .thumb {
   position: relative;
   aspect-ratio: 16 / 10;

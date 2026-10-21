@@ -1,0 +1,18 @@
+{
+  "slug": "mobile-finance-app",
+  "order": 5,
+  "title": "Mobile finance app",
+  "category": "Mobile app",
+  "draft": true,
+  "summary": "A phone-sized personal finance app on one fixed dataset: balance and activity tabs, a grouped transaction list, and a four-step send-money flow with an on-screen keypad, a confirmation sheet and a success screen.",
+  "watchFor": [
+    "Does it feel like an app or a shrunken website?",
+    "Tab transitions, the sheet slide-up and tap feedback",
+    "Touch targets and safe areas",
+    "Does the new transfer really appear and the balance update?"
+  ],
+  "views": [
+    "mobile"
+  ],
+  "interaction": "Open Activity and scroll, back to Home, then Send: pick Maya Patel, type 42.50 on the keypad, Review, Confirm, Done."
+}

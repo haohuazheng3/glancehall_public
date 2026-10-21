@@ -1,0 +1,18 @@
+{
+  "slug": "moba-lane",
+  "order": 6,
+  "title": "One-lane MOBA",
+  "category": "Top-down 3D",
+  "draft": true,
+  "summary": "A League-style lane in three.js: fixed high-angle camera, click-to-move hero with four abilities on Q W E R, minion waves, towers, an AI enemy hero, health bars, a minimap and a kill feed. Every asset generated in code.",
+  "watchFor": [
+    "Readability from above: can you tell units, lanes and towers apart?",
+    "Ability effects and sound (open it live)",
+    "Does the enemy hero behave like a player or a dummy?",
+    "Pathing: does the hero walk around things?"
+  ],
+  "views": [
+    "desktop"
+  ],
+  "interaction": "The same 60-second script for every build: press Play, click up the lane, cast Q W E R toward the enemy, fall back, push again."
+}

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { catalog, harnessLabel, models, tasks } from "@/lib/catalog";
+import { catalog, harnessLabel, listJoin, models, numberWord, tasks } from "@/lib/catalog";
 import { Stage, Arrow } from "@/components/Stage";
 import { TaskCard } from "@/components/TaskCard";
 import { ModelCard } from "@/components/ModelCard";
@@ -68,10 +68,10 @@ export default function Home() {
         <div className={s.secHead}>
           <p className="eyebrow">{catalog.round.title}</p>
           <h2 id="builds-h" className="h2">
-            Four briefs. Four models. Sixteen builds.
+            {numberWord(tasks.length, true)} briefs. {numberWord(models.length, true)} models. {numberWord(tasks.length * models.length, true)} builds.
           </h2>
           <p className="lede">
-            Website UI, software UI, a physics simulation and a 3D game: the work developers actually ask models to do.
+            {listJoin(tasks.map((t) => t.category))}: the work developers actually ask models to do.
           </p>
         </div>
         <div className={s.tasks}>

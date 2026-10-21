@@ -1,0 +1,19 @@
+Design and build Fern, a (fictional) personal finance app, as a mobile web app.
+
+DATA
+The dataset is in ./data.json: the current balance, recent transactions, contacts and this month's spending by category. Use exactly this data and embed it inline in index.html (the page must work when opened directly from disk, so do not fetch the file). Treat 2026-10-21 as today.
+
+THE APP
+- It is a phone app. Design for a 390x844 viewport; on larger screens show the app centred at that size on a plain background. Respect the top and bottom safe areas (env(safe-area-inset-top/bottom)).
+- A bottom tab bar with exactly three tabs, labeled "Home", "Activity" and "Send". Switching tabs is animated.
+- Home: the current balance, quick actions, and the latest transactions.
+- Activity: the full transaction list grouped by day (today, yesterday, then dates), with a spending-by-category summary for the month at the top.
+- Send: a flow in four steps. 1) Pick a contact from the list. 2) Enter an amount on an on-screen numeric keypad with buttons labeled 0 to 9 and "." (never the browser keyboard), then tap a button labeled "Review". 3) A bottom sheet that summarises recipient and amount, with a button labeled "Confirm". 4) A success screen showing the new balance, with a button labeled "Done" that returns to Home. The new transfer then appears at the top of Home and Activity and the balance is updated.
+- Touch targets at least 44px, visible tap feedback on every control, no hover-only interactions, and motion that feels native: sheets slide up, screens transition, lists scroll smoothly.
+- Visual design, colour, typography and iconography are up to you; icons must be inline SVG. Aim for the quality of a top finance app on the App Store.
+
+DELIVERY RULES
+- Work autonomously. Nobody will answer questions, so make reasonable assumptions and keep going until the app is finished.
+- Deliver a single file, ./index.html, with all HTML, CSS, JavaScript and data inline. No build step, no frameworks loaded from the network.
+- The only network resource allowed is fonts from Google Fonts. No other CDNs, no external images, no APIs.
+- The app must work when index.html is opened directly in a current version of Chrome, and when it is served over HTTP. It will be used at 390x844 with touch.

@@ -15,7 +15,8 @@ type Props = {
 
 // Runs the model's untouched build in a sandboxed iframe served from a separate origin.
 export function LivePlayer({ src, task, model, others, game }: Props) {
-  const [device, setDevice] = useState<"desktop" | "mobile">("desktop");
+  // Phone-only briefs open at phone width; the switch only appears when both widths were recorded.
+  const [device, setDevice] = useState<"desktop" | "mobile">(task.views.includes("desktop") ? "desktop" : "mobile");
   const [loaded, setLoaded] = useState(false);
   const [nonce, setNonce] = useState(0);
   // Render the iframe only after hydration: a server-rendered iframe can finish loading before React
@@ -23,7 +24,7 @@ export function LivePlayer({ src, task, model, others, game }: Props) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
   const frame = useRef<HTMLIFrameElement>(null);
-  const hasMobile = task.views.includes("mobile");
+  const hasMobile = task.views.includes("mobile") && task.views.includes("desktop");
 
   return (
     <div className={s.page}>

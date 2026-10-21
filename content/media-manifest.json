@@ -410,5 +410,37 @@
     ]
    }
   }
+ },
+ "open-brief": {
+  "gpt-6-1-sol": {
+   "recordedFor": "2026-10-21T20:50:00.543782+00:00",
+   "media": {
+    "desktop": {
+     "mp4": "r01/open-brief/gpt-6-1-sol/desktop.mp4",
+     "preview": "r01/open-brief/gpt-6-1-sol/desktop-preview.mp4",
+     "poster": "r01/open-brief/gpt-6-1-sol/desktop.jpg",
+     "posterSmall": "r01/open-brief/gpt-6-1-sol/desktop-sm.jpg",
+     "seconds": 15.2,
+     "width": 1440,
+     "height": 900,
+     "bytes": 2377862
+    },
+    "mobile": {
+     "mp4": "r01/open-brief/gpt-6-1-sol/mobile.mp4",
+     "preview": "r01/open-brief/gpt-6-1-sol/mobile-preview.mp4",
+     "poster": "r01/open-brief/gpt-6-1-sol/mobile.jpg",
+     "posterSmall": "r01/open-brief/gpt-6-1-sol/mobile-sm.jpg",
+     "seconds": 20.6,
+     "width": 780,
+     "height": 1688,
+     "bytes": 4494463
+    }
+   },
+   "runtime": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": []
+   }
+  }
  }
 }

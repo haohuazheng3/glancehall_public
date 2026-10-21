@@ -100,7 +100,12 @@ if (ZONE && MEDIA_HOST && uploaded.length) {
       body: JSON.stringify({ files }),
     });
     const d = await r.json();
-    if (!d.success) throw new Error(`purge failed: ${JSON.stringify(d.errors).slice(0, 300)}`);
+    if (!d.success) {
+      // Not fatal: the objects are uploaded. (Observed 2026-10-21: the API token lacks Cache Purge, and the
+      // media domain answers cf-cache-status: DYNAMIC anyway, i.e. nothing is cached at the edge.)
+      console.warn(`purge skipped: ${JSON.stringify(d.errors).slice(0, 200)}`);
+      break;
+    }
   }
-  console.log(`purged ${uploaded.length} URLs from the CDN cache`);
+  console.log(`purge requested for ${uploaded.length} URLs`);
 }

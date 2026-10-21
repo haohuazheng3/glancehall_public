@@ -11,7 +11,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-ROUND = {"id": "r01", "title": "Round 01", "date": "2026-10-17"}
+ROUND = {"id": "r01", "title": "Round 01", "date": "2026-10-21"}
 
 
 def load(p, default=None):

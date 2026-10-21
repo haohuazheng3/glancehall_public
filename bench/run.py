@@ -67,7 +67,7 @@ PROVIDED = {
 # to reset, so the backoff grows instead of hammering the API three times in six minutes.
 INFRA_BACKOFF_S = [120, 900, 1800, 3600, 3600]
 
-INFRA_TEXT = re.compile(r"session limit|usage limit|rate limit|overloaded|too many requests", re.I)
+INFRA_TEXT = re.compile(r"session limit|usage limit|rate limit|overloaded|too many requests|unable to connect|ssl|certificate|econn|etimedout|network", re.I)
 # "You've hit your session limit · resets 5:50am (America/Detroit)"
 RESET_AT = re.compile(r"resets\s+(\d{1,2})(?::(\d{2}))?\s*(am|pm)(?:\s*\(([\w/_+-]+)\))?", re.I)
 INFRA_STDERR = re.compile(r"failed to authenticate|oauth|econnreset|etimedout|enotfound|network error|socket hang up", re.I)
@@ -211,7 +211,9 @@ def infra_failure(cfg, code, log_path, err_path):
             if ev.get("type") == "result":
                 text = str(ev.get("result") or "")
                 status = ev.get("api_error_status")
-                if ev.get("is_error") and (status in (429, 500, 502, 503, 529) or INFRA_TEXT.search(text)):
+                # Any run the CLI itself ended with an API error never let the model finish.
+                if ev.get("is_error") and (ev.get("terminal_reason") == "api_error" or status in (429, 500, 502, 503, 529)
+                                           or INFRA_TEXT.search(text)):
                     reason = text[:200] or f"API error {status}"
                 break
     else:

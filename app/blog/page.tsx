@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CATEGORIES, getAllPosts, postsIn } from "@/lib/blog";
 import { PostList } from "@/components/PostList";
 import { Arrow } from "@/components/Stage";
+import { JsonLd, breadcrumbLd } from "@/lib/seo";
 import s from "../listing.module.css";
 
 export const metadata: Metadata = {
@@ -16,6 +17,7 @@ export default function Blog() {
   const featured = posts.filter((p) => p.featured).slice(0, 3);
   return (
     <div className="wrap">
+      <JsonLd data={breadcrumbLd([{ name: "Journal", path: "/blog" }])} />
       <header className={s.head}>
         <p className="eyebrow">Journal</p>
         <h1 className="h1">Notes from the hall.</h1>

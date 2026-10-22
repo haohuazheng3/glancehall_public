@@ -7,7 +7,7 @@ import { formatDate, getCategory, getHub, PAGE_SIZE, postsIn } from "@/lib/blog"
 import { JsonLd, breadcrumbLd } from "@/lib/seo";
 import { mdxComponents } from "@/components/mdx/Embeds";
 import { PostList } from "@/components/PostList";
-import { SITE } from "@/lib/site";
+import { SITE, SITE_URL } from "@/lib/site";
 import s from "../../listing.module.css";
 
 // A category page is a hub in its own right: its own keyword, an editorial introduction that earns the
@@ -23,7 +23,23 @@ export async function CategoryHub({ category, page }: { category: string; page: 
   const Intro = hub ? (await evaluate(hub.body, { ...runtime, baseUrl: import.meta.url, remarkPlugins: [remarkGfm], useMDXComponents: () => mdxComponents })).default : null;
   return (
     <div className="wrap">
-      <JsonLd data={breadcrumbLd([{ name: "Journal", path: "/blog" }, { name: c.title, path: `/blog/${c.slug}` }])} />
+      <JsonLd
+        data={[
+          breadcrumbLd([{ name: "Journal", path: "/blog" }, { name: c.title, path: `/blog/${c.slug}` }]),
+          {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            name: c.h1,
+            description: c.description,
+            url: `${SITE_URL}/blog/${c.slug}${page > 1 ? `/page/${page}` : ""}`,
+            publisher: { "@id": `${SITE_URL}/#organization` },
+            mainEntity: {
+              "@type": "ItemList",
+              itemListElement: posts.map((p, i) => ({ "@type": "ListItem", position: (page - 1) * PAGE_SIZE + i + 1, url: `${SITE_URL}/blog/${p.category}/${p.slug}`, name: p.title })),
+            },
+          },
+        ]}
+      />
       <header className={s.head}>
         <nav aria-label="Breadcrumb" style={{ display: "flex", gap: 8, fontSize: 13.5, color: "var(--text-3)" }}>
           <Link href="/blog">Journal</Link>

@@ -13,8 +13,9 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
   if (!c) return {};
   const empty = postsIn(c.slug).length === 0;
   return {
-    title: c.title,
+    title: c.metaTitle,
     description: c.description,
+    keywords: [...c.keywords],
     alternates: { canonical: `/blog/${c.slug}` },
     // Empty hubs stay out of the index until they have something worth finding.
     ...(empty ? { robots: { index: false, follow: true } } : {}),

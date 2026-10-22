@@ -7,7 +7,7 @@ import s from "../listing.module.css";
 
 export const metadata: Metadata = {
   title: "Journal",
-  description: "Notes on what the builds show: head-to-head readings, round reports and practical advice for building with AI coding agents.",
+  description: "Comparisons, reviews and answers that all point back at the same evidence: 32 unedited builds from Claude and GPT models, recorded and playable.",
   alternates: { canonical: "/blog" },
 };
 
@@ -19,14 +19,14 @@ export default function Blog() {
       <header className={s.head}>
         <p className="eyebrow">Journal</p>
         <h1 className="h1">Notes from the hall.</h1>
-        <p className="lede">Readings of the builds, written to help you decide. Still no scores.</p>
+        <p className="lede">Six shelves. Every page on them ends at a build you can open. Still no scores.</p>
       </header>
       <div className={s.grid3}>
         {CATEGORIES.map((c) => {
           const n = postsIn(c.slug).length;
           return (
             <Link key={c.slug} href={`/blog/${c.slug}`} className="module lift" style={{ padding: 24, display: "flex", flexDirection: "column", gap: 10, minHeight: 200 }}>
-              <span className="eyebrow">{n ? `${n} ${n === 1 ? "post" : "posts"}` : "Coming soon"}</span>
+              <span className="eyebrow">{n ? `${n} ${n === 1 ? "page" : "pages"}` : "Coming soon"}</span>
               <span style={{ fontFamily: "var(--font-serif)", fontSize: 30, lineHeight: 1.05 }}>{c.title}</span>
               <span className="muted" style={{ fontSize: 14.5 }}>
                 {c.description}

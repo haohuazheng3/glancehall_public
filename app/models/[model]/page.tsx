@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ model: st
   const m = getModel((await params).model);
   if (!m) return {};
   return {
-    title: `${m.name}: every build, unedited`,
+    title: `${m.name} builds: all eight briefs, unedited`,
     description: `Watch what ${m.name} (${m.effortLabel.toLowerCase()}) actually builds from one prompt: a landing page, a dashboard, a physics simulation and a 3D shooter, recorded without edits.`,
     alternates: { canonical: `/models/${m.key}` },
   };

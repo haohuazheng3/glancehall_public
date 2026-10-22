@@ -83,6 +83,7 @@
      "inputTokens": 10135348,
      "outputTokens": 144068,
      "turns": 91,
+     "apiCostUsd": 7.15,
      "files": [
       "index.html"
      ],
@@ -128,6 +129,7 @@
      "inputTokens": 2574801,
      "outputTokens": 130942,
      "turns": 57,
+     "apiCostUsd": 10.88,
      "files": [
       "index.html"
      ],
@@ -173,6 +175,7 @@
      "inputTokens": 744063,
      "outputTokens": 33522,
      "turns": 1,
+     "apiCostUsd": 2.88,
      "files": [
       "index.html"
      ],
@@ -218,6 +221,7 @@
      "inputTokens": 1290774,
      "outputTokens": 44520,
      "turns": 1,
+     "apiCostUsd": 0.69,
      "files": [
       "index.html"
      ],
@@ -287,6 +291,7 @@
      "inputTokens": 22661818,
      "outputTokens": 284884,
      "turns": 118,
+     "apiCostUsd": 13.63,
      "files": [
       "index.html"
      ],
@@ -332,6 +337,7 @@
      "inputTokens": 4526810,
      "outputTokens": 142193,
      "turns": 65,
+     "apiCostUsd": 12.8,
      "files": [
       "index.html"
      ],
@@ -377,6 +383,7 @@
      "inputTokens": 570877,
      "outputTokens": 34875,
      "turns": 1,
+     "apiCostUsd": 2.79,
      "files": [
       "index.html"
      ],
@@ -422,6 +429,7 @@
      "inputTokens": 730642,
      "outputTokens": 36498,
      "turns": 1,
+     "apiCostUsd": 0.54,
      "files": [
       "index.html"
      ],
@@ -488,6 +496,7 @@
      "inputTokens": 11531222,
      "outputTokens": 211066,
      "turns": 83,
+     "apiCostUsd": 8.73,
      "files": [
       "index.html"
      ],
@@ -523,6 +532,7 @@
      "inputTokens": 2545720,
      "outputTokens": 105848,
      "turns": 43,
+     "apiCostUsd": 8.75,
      "files": [
       "index.html"
      ],
@@ -558,6 +568,7 @@
      "inputTokens": 583950,
      "outputTokens": 23749,
      "turns": 1,
+     "apiCostUsd": 2.12,
      "files": [
       "index.html"
      ],
@@ -593,6 +604,7 @@
      "inputTokens": 1065588,
      "outputTokens": 43071,
      "turns": 1,
+     "apiCostUsd": 0.65,
      "files": [
       "index.html"
      ],
@@ -651,6 +663,7 @@
      "inputTokens": 71358905,
      "outputTokens": null,
      "turns": 162,
+     "apiCostUsd": null,
      "files": [
       "audio.js",
       "effects.js",
@@ -700,6 +713,7 @@
      "inputTokens": 10961805,
      "outputTokens": 239312,
      "turns": 60,
+     "apiCostUsd": 20.48,
      "files": [
       "audio.js",
       "effects.js",
@@ -743,6 +757,7 @@
      "inputTokens": 1746099,
      "outputTokens": 64440,
      "turns": 1,
+     "apiCostUsd": 5.64,
      "files": [
       "game.js",
       "index.html"
@@ -779,6 +794,7 @@
      "inputTokens": 2451064,
      "outputTokens": 61163,
      "turns": 1,
+     "apiCostUsd": 1.03,
      "files": [
       "game.js",
       "index.html",

@@ -25,6 +25,7 @@ export type Run = {
   inputTokens?: number;
   outputTokens?: number;
   turns?: number;
+  apiCostUsd?: number | null;
   files?: string[];
   sourceBytes?: number;
   artifact?: string | null;
@@ -102,6 +103,11 @@ export function formatDuration(s?: number) {
   const sec = Math.round(s % 60);
   if (m >= 60) return `${Math.floor(m / 60)}h ${m % 60}m`;
   return m ? `${m}m ${sec.toString().padStart(2, "0")}s` : `${sec}s`;
+}
+
+export function formatUsd(n?: number | null) {
+  if (n == null) return "—";
+  return n < 10 ? `$${n.toFixed(2)}` : `$${n.toFixed(1)}`;
 }
 
 export function formatTokens(n?: number) {

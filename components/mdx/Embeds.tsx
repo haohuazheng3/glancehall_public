@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { formatDuration, formatTokens, formatUsd, getModel, getTask, models as allModels, primaryView, tasks as allTasks, type Model, type Run, type Task, type ViewKind } from "@/lib/catalog";
 import { VideoTile } from "@/components/VideoTile";
 import { PromptBlock } from "@/components/PromptBlock";
+import { StageEmbed } from "./StageEmbed";
 import s from "./mdx.module.css";
 
 // Components available inside blog MDX. They read the static catalog, so every embed shows the real
@@ -21,46 +22,13 @@ function playable(run: Run | undefined) {
   return run?.status === "ok";
 }
 
-function Tiles({ task, ms, view }: { task: Task; ms: Model[]; view: ViewKind }) {
-  return (
-    <div className={`${s.grid} ${view === "mobile" || ms.length > 2 ? s.grid4 : ""}`}>
-      {ms.map((m) => (
-        <div key={m.key} className={s.cell}>
-          <VideoTile model={m} run={task.runs[m.key]} view={view} />
-          {playable(task.runs[m.key]) && (
-            <Link href={`/play/${task.slug}/${m.key}`} className={s.open}>
-              Open {m.name}&rsquo;s build
-            </Link>
-          )}
-        </div>
-      ))}
-    </div>
-  );
-}
-
 // The core tool, embedded: every selected model's recording for one brief, with the blind test one click away.
 export function BuildStage({ task, models, view, caption }: { task: string; models?: string; view?: ViewKind; caption?: string }) {
   const t = getTask(task);
   if (!t) return null;
   const ms = pickModels(models);
   const v = view && t.views.includes(view) ? view : primaryView(t);
-  return (
-    <div className={`module ${s.embed}`}>
-      <div className={s.bar}>
-        <span className="eyebrow">{t.title} · same prompt, one shot, unedited</span>
-        <div className={s.actions}>
-          <Link className="btn btn-primary btn-sm" href={`/tasks/${t.slug}?blind=1`}>
-            Blind test
-          </Link>
-          <Link className="btn btn-ghost btn-sm" href={`/tasks/${t.slug}`}>
-            Open side by side
-          </Link>
-        </div>
-      </div>
-      <Tiles task={t} ms={ms} view={v} />
-      {caption && <p className={s.caption}>{caption}</p>}
-    </div>
-  );
+  return <StageEmbed task={t} models={ms} initialView={v} caption={caption} />;
 }
 
 // Two models on one brief.

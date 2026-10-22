@@ -107,7 +107,7 @@ export function formatDuration(s?: number) {
 
 export function formatUsd(n?: number | null) {
   if (n == null) return "—";
-  return n < 10 ? `$${n.toFixed(2)}` : `$${n.toFixed(1)}`;
+  return `$${n.toFixed(2)}`;
 }
 
 export function formatTokens(n?: number) {

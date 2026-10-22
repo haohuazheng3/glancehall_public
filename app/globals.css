@@ -544,13 +544,13 @@ textarea.field {
 .prose li {
   margin: 6px 0;
 }
-.prose a {
+.prose a:not(.btn) {
   color: var(--text);
   text-decoration: underline;
   text-decoration-color: var(--line-strong);
   text-underline-offset: 3px;
 }
-.prose a:hover {
+.prose a:not(.btn):hover {
   text-decoration-color: var(--text);
 }
 .prose strong {

@@ -3,7 +3,6 @@
   "order": 7,
   "title": "Open brief",
   "category": "Open brief",
-  "draft": true,
   "summary": "No product, no copy, no palette given. The whole brief is: invent something and build its website; make it memorable. This is what each model does when nobody tells it what to make.",
   "watchFor": [
     "What did it choose to invent, and is the idea any good?",
@@ -15,5 +14,6 @@
     "desktop",
     "mobile"
   ],
-  "interaction": "Scroll the whole page at a fixed speed on desktop and on a phone; open the menu on the phone if there is one."
+  "interaction": "Scroll the whole page at a fixed speed on desktop and on a phone; open the menu on the phone if there is one.",
+  "noun": "a site for an invented product"
 }

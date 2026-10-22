@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { formatDuration, getModel, harnessLabel, models, pairSlug, primaryView, tasks } from "@/lib/catalog";
+import { briefNouns, formatDuration, getModel, harnessLabel, models, numberWord, pairSlug, primaryView, tasks } from "@/lib/catalog";
 import { JsonLd, breadcrumbLd } from "@/lib/seo";
 import { VideoTile } from "@/components/VideoTile";
+import { PostList } from "@/components/PostList";
+import { postsForModel } from "@/lib/blog";
 import { Arrow } from "@/components/Stage";
 import s from "./model.module.css";
 
@@ -17,8 +19,8 @@ export async function generateMetadata({ params }: { params: Promise<{ model: st
   const m = getModel((await params).model);
   if (!m) return {};
   return {
-    title: `${m.name} builds: all eight briefs, unedited`,
-    description: `Watch what ${m.name} (${m.effortLabel.toLowerCase()}) actually builds from one prompt: a landing page, a dashboard, a physics simulation and a 3D shooter, recorded without edits.`,
+    title: `${m.name} builds: all ${numberWord(tasks.length)} briefs, unedited`,
+    description: `Watch what ${m.name} (${m.effortLabel.toLowerCase()}) actually builds from one prompt, across ${numberWord(tasks.length)} briefs from ${briefNouns()[0]} to ${briefNouns()[tasks.length - 1]}, recorded without edits.`,
     alternates: { canonical: `/models/${m.key}` },
   };
 }
@@ -26,6 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ model: st
 export default async function ModelPage({ params }: { params: Promise<{ model: string }> }) {
   const m = getModel((await params).model);
   if (!m) notFound();
+  const related = postsForModel(m.key);
   const rivals = models.filter((x) => x.key !== m.key);
   const pairHref = (o: string) => {
     const i = models.findIndex((x) => x.key === m.key);
@@ -117,6 +120,15 @@ export default async function ModelPage({ params }: { params: Promise<{ model: s
           ))}
         </div>
       </section>
+
+      {related.length > 0 && (
+        <section className="section" aria-labelledby="journal-h" style={{ marginTop: 72 }}>
+          <h2 id="journal-h" className="h2" style={{ marginBottom: 24 }}>
+            Read more about {m.name}
+          </h2>
+          <PostList posts={related} />
+        </section>
+      )}
     </div>
   );
 }

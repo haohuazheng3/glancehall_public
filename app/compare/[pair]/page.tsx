@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { allPairs, pairSlug, parsePair, primaryView, tasks } from "@/lib/catalog";
+import { allPairs, briefNouns, numberWord, pairSlug, parsePair, primaryView, tasks } from "@/lib/catalog";
 import { JsonLd, breadcrumbLd } from "@/lib/seo";
 import { VideoTile } from "@/components/VideoTile";
 import s from "../../listing.module.css";
@@ -18,8 +18,8 @@ export async function generateMetadata({ params }: { params: Promise<{ pair: str
   if (!p) return {};
   const [a, b] = p;
   return {
-    title: `${a.name} vs ${b.name}: four builds, side by side`,
-    description: `${a.name} vs ${b.name} on the same four briefs, recorded unedited: a SaaS landing page, an analytics dashboard, a physics simulation and a 3D shooter. No scores, just the work.`,
+    title: `${a.name} vs ${b.name}: ${numberWord(tasks.length)} builds, side by side`,
+    description: `${a.name} vs ${b.name} on the same ${numberWord(tasks.length)} briefs, from ${briefNouns()[0]} to ${briefNouns()[tasks.length - 1]}, recorded unedited. No scores, just the work.`,
     alternates: { canonical: `/compare/${pairSlug(a.key, b.key)}` },
   };
 }
@@ -38,8 +38,8 @@ export default async function PairPage({ params }: { params: Promise<{ pair: str
           {a.name} <span className="faint" style={{ fontStyle: "italic" }}>vs</span> {b.name}
         </h1>
         <p className="lede">
-          Same four briefs, same single attempt, same recording script. Watch them next to each other and make up your own
-          mind.
+          Same {numberWord(tasks.length)} briefs, same single attempt, same recording script. Watch them next to each other and
+          make up your own mind.
         </p>
       </header>
       <div className={c.list}>

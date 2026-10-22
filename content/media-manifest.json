@@ -420,10 +420,10 @@
      "preview": "r01/open-brief/gpt-6-1-sol/desktop-preview.mp4",
      "poster": "r01/open-brief/gpt-6-1-sol/desktop.jpg",
      "posterSmall": "r01/open-brief/gpt-6-1-sol/desktop-sm.jpg",
-     "seconds": 15.2,
+     "seconds": 15.1,
      "width": 1440,
      "height": 900,
-     "bytes": 2377862
+     "bytes": 2243162
     },
     "mobile": {
      "mp4": "r01/open-brief/gpt-6-1-sol/mobile.mp4",
@@ -433,7 +433,7 @@
      "seconds": 20.6,
      "width": 780,
      "height": 1688,
-     "bytes": 4494463
+     "bytes": 4567480
     }
    },
    "runtime": {
@@ -453,7 +453,7 @@
      "seconds": 15,
      "width": 1440,
      "height": 900,
-     "bytes": 2701599
+     "bytes": 2850654
     },
     "mobile": {
      "mp4": "r01/open-brief/gpt-6-astra/mobile.mp4",
@@ -463,7 +463,7 @@
      "seconds": 20,
      "width": 780,
      "height": 1688,
-     "bytes": 5165026
+     "bytes": 5352912
     }
    },
    "runtime": {
@@ -480,10 +480,10 @@
      "preview": "r01/open-brief/claude-fable-5-1/desktop-preview.mp4",
      "poster": "r01/open-brief/claude-fable-5-1/desktop.jpg",
      "posterSmall": "r01/open-brief/claude-fable-5-1/desktop-sm.jpg",
-     "seconds": 23.6,
+     "seconds": 23.8,
      "width": 1440,
      "height": 900,
-     "bytes": 1806036
+     "bytes": 1815388
     },
     "mobile": {
      "mp4": "r01/open-brief/claude-fable-5-1/mobile.mp4",
@@ -493,7 +493,7 @@
      "seconds": 35.4,
      "width": 780,
      "height": 1688,
-     "bytes": 8489417
+     "bytes": 8512500
     }
    },
    "runtime": {
@@ -510,10 +510,10 @@
      "preview": "r01/open-brief/claude-opus-5-5/desktop-preview.mp4",
      "poster": "r01/open-brief/claude-opus-5-5/desktop.jpg",
      "posterSmall": "r01/open-brief/claude-opus-5-5/desktop-sm.jpg",
-     "seconds": 29,
+     "seconds": 29.3,
      "width": 1440,
      "height": 900,
-     "bytes": 3552182
+     "bytes": 3750018
     },
     "mobile": {
      "mp4": "r01/open-brief/claude-opus-5-5/mobile.mp4",
@@ -523,7 +523,7 @@
      "seconds": 47.6,
      "width": 780,
      "height": 1688,
-     "bytes": 15936750
+     "bytes": 15832144
     }
    },
    "runtime": {
@@ -542,10 +542,10 @@
      "preview": "r01/mobile-finance-app/gpt-6-astra/mobile-preview.mp4",
      "poster": "r01/mobile-finance-app/gpt-6-astra/mobile.jpg",
      "posterSmall": "r01/mobile-finance-app/gpt-6-astra/mobile-sm.jpg",
-     "seconds": 22.4,
+     "seconds": 22.5,
      "width": 780,
      "height": 1688,
-     "bytes": 2418546
+     "bytes": 2472082
     }
    },
    "runtime": {
@@ -565,7 +565,7 @@
      "seconds": 22.8,
      "width": 780,
      "height": 1688,
-     "bytes": 2304101
+     "bytes": 2278797
     }
    },
    "runtime": {
@@ -582,10 +582,10 @@
      "preview": "r01/mobile-finance-app/claude-fable-5-1/mobile-preview.mp4",
      "poster": "r01/mobile-finance-app/claude-fable-5-1/mobile.jpg",
      "posterSmall": "r01/mobile-finance-app/claude-fable-5-1/mobile-sm.jpg",
-     "seconds": 22.1,
+     "seconds": 22.2,
      "width": 780,
      "height": 1688,
-     "bytes": 2294583
+     "bytes": 2353394
     }
    },
    "runtime": {
@@ -595,10 +595,23 @@
    }
   },
   "claude-opus-5-5": {
-   "recordedFor": "2026-10-21T22:10:05.497492+00:00",
-   "media": {},
+   "recordedFor": "2026-10-22T03:56:41.684222+00:00",
+   "media": {
+    "mobile": {
+     "mp4": "r01/mobile-finance-app/claude-opus-5-5/mobile.mp4",
+     "preview": "r01/mobile-finance-app/claude-opus-5-5/mobile-preview.mp4",
+     "poster": "r01/mobile-finance-app/claude-opus-5-5/mobile.jpg",
+     "posterSmall": "r01/mobile-finance-app/claude-opus-5-5/mobile-sm.jpg",
+     "seconds": 23.2,
+     "width": 780,
+     "height": 1688,
+     "bytes": 3118588
+    }
+   },
    "runtime": {
-    "note": "No index.html was produced."
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": []
    }
   }
  },
@@ -611,20 +624,20 @@
      "preview": "r01/kanban-board/gpt-6-astra/desktop-preview.mp4",
      "poster": "r01/kanban-board/gpt-6-astra/desktop.jpg",
      "posterSmall": "r01/kanban-board/gpt-6-astra/desktop-sm.jpg",
-     "seconds": 25.7,
+     "seconds": 26.1,
      "width": 1440,
      "height": 900,
-     "bytes": 835647
+     "bytes": 852820
     },
     "mobile": {
      "mp4": "r01/kanban-board/gpt-6-astra/mobile.mp4",
      "preview": "r01/kanban-board/gpt-6-astra/mobile-preview.mp4",
      "poster": "r01/kanban-board/gpt-6-astra/mobile.jpg",
      "posterSmall": "r01/kanban-board/gpt-6-astra/mobile-sm.jpg",
-     "seconds": 13.6,
+     "seconds": 13.8,
      "width": 780,
      "height": 1688,
-     "bytes": 557797
+     "bytes": 560759
     }
    },
    "runtime": {
@@ -641,10 +654,10 @@
      "preview": "r01/kanban-board/gpt-6-1-sol/desktop-preview.mp4",
      "poster": "r01/kanban-board/gpt-6-1-sol/desktop.jpg",
      "posterSmall": "r01/kanban-board/gpt-6-1-sol/desktop-sm.jpg",
-     "seconds": 26.5,
+     "seconds": 26.6,
      "width": 1440,
      "height": 900,
-     "bytes": 952064
+     "bytes": 962927
     },
     "mobile": {
      "mp4": "r01/kanban-board/gpt-6-1-sol/mobile.mp4",
@@ -654,7 +667,7 @@
      "seconds": 14,
      "width": 780,
      "height": 1688,
-     "bytes": 676302
+     "bytes": 675201
     }
    },
    "runtime": {
@@ -664,10 +677,33 @@
    }
   },
   "claude-opus-5-5": {
-   "recordedFor": "2026-10-21T22:10:10.549114+00:00",
-   "media": {},
+   "recordedFor": "2026-10-22T05:37:27.702160+00:00",
+   "media": {
+    "desktop": {
+     "mp4": "r01/kanban-board/claude-opus-5-5/desktop.mp4",
+     "preview": "r01/kanban-board/claude-opus-5-5/desktop-preview.mp4",
+     "poster": "r01/kanban-board/claude-opus-5-5/desktop.jpg",
+     "posterSmall": "r01/kanban-board/claude-opus-5-5/desktop-sm.jpg",
+     "seconds": 26.8,
+     "width": 1440,
+     "height": 900,
+     "bytes": 1181674
+    },
+    "mobile": {
+     "mp4": "r01/kanban-board/claude-opus-5-5/mobile.mp4",
+     "preview": "r01/kanban-board/claude-opus-5-5/mobile-preview.mp4",
+     "poster": "r01/kanban-board/claude-opus-5-5/mobile.jpg",
+     "posterSmall": "r01/kanban-board/claude-opus-5-5/mobile-sm.jpg",
+     "seconds": 14.1,
+     "width": 780,
+     "height": 1688,
+     "bytes": 888508
+    }
+   },
    "runtime": {
-    "note": "No index.html was produced."
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": []
    }
   },
   "claude-fable-5-1": {
@@ -678,20 +714,20 @@
      "preview": "r01/kanban-board/claude-fable-5-1/desktop-preview.mp4",
      "poster": "r01/kanban-board/claude-fable-5-1/desktop.jpg",
      "posterSmall": "r01/kanban-board/claude-fable-5-1/desktop-sm.jpg",
-     "seconds": 26.6,
+     "seconds": 27.5,
      "width": 1440,
      "height": 900,
-     "bytes": 982171
+     "bytes": 1011500
     },
     "mobile": {
      "mp4": "r01/kanban-board/claude-fable-5-1/mobile.mp4",
      "preview": "r01/kanban-board/claude-fable-5-1/mobile-preview.mp4",
      "poster": "r01/kanban-board/claude-fable-5-1/mobile.jpg",
      "posterSmall": "r01/kanban-board/claude-fable-5-1/mobile-sm.jpg",
-     "seconds": 13.8,
+     "seconds": 13.9,
      "width": 780,
      "height": 1688,
-     "bytes": 659001
+     "bytes": 643704
     }
    },
    "runtime": {
@@ -743,17 +779,43 @@
    }
   },
   "claude-opus-5-5": {
-   "recordedFor": "2026-10-21T22:10:15.572695+00:00",
-   "media": {},
+   "recordedFor": "2026-10-22T08:07:29.400749+00:00",
+   "media": {
+    "desktop": {
+     "mp4": "r01/moba-lane/claude-opus-5-5/desktop.mp4",
+     "preview": "r01/moba-lane/claude-opus-5-5/desktop-preview.mp4",
+     "poster": "r01/moba-lane/claude-opus-5-5/desktop.jpg",
+     "posterSmall": "r01/moba-lane/claude-opus-5-5/desktop-sm.jpg",
+     "seconds": 60,
+     "width": 1440,
+     "height": 900,
+     "bytes": 43673795
+    }
+   },
    "runtime": {
-    "note": "No index.html was produced."
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": []
    }
   },
   "claude-fable-5-1": {
-   "recordedFor": "2026-10-21T22:10:15.383058+00:00",
-   "media": {},
+   "recordedFor": "2026-10-22T04:58:35.845508+00:00",
+   "media": {
+    "desktop": {
+     "mp4": "r01/moba-lane/claude-fable-5-1/desktop.mp4",
+     "preview": "r01/moba-lane/claude-fable-5-1/desktop-preview.mp4",
+     "poster": "r01/moba-lane/claude-fable-5-1/desktop.jpg",
+     "posterSmall": "r01/moba-lane/claude-fable-5-1/desktop-sm.jpg",
+     "seconds": 60,
+     "width": 1440,
+     "height": 900,
+     "bytes": 55836063
+    }
+   },
    "runtime": {
-    "note": "No index.html was produced."
+    "consoleErrors": [],
+    "pageErrors": [],
+    "notes": []
    }
   }
  }

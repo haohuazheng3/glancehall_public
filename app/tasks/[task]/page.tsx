@@ -5,6 +5,8 @@ import { catalog, getTask, models, primaryView, tasks } from "@/lib/catalog";
 import { mediaUrl } from "@/lib/site";
 import { JsonLd, breadcrumbLd, videoLd } from "@/lib/seo";
 import { TaskViewer } from "@/components/TaskViewer";
+import { PostList } from "@/components/PostList";
+import { postsForTask } from "@/lib/blog";
 import { PromptBlock } from "@/components/PromptBlock";
 import { Arrow } from "@/components/Stage";
 import s from "./task.module.css";
@@ -48,6 +50,7 @@ export default async function TaskPage({ params }: { params: Promise<{ task: str
         pagePath: `/tasks/${task.slug}`,
       })
     );
+  const related = postsForTask(task.slug);
   return (
     <>
       <JsonLd
@@ -108,6 +111,15 @@ export default async function TaskPage({ params }: { params: Promise<{ task: str
         </div>
 
         <PromptBlock prompt={task.prompt} />
+
+        {related.length > 0 && (
+          <section aria-labelledby="journal-h" style={{ marginTop: 8 }}>
+            <h2 id="journal-h" className="h3" style={{ marginBottom: 16 }}>
+              Read more about this brief
+            </h2>
+            <PostList posts={related} />
+          </section>
+        )}
 
         <nav className={s.pager} aria-label="Other builds">
           <Link href={`/tasks/${prev.slug}`} className={`module lift ${s.pageLink}`}>

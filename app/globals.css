@@ -582,7 +582,16 @@ textarea.field {
   width: 100%;
   border-collapse: collapse;
   font-size: 14.5px;
+  margin: 0;
+}
+.prose .table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   margin: 0 0 20px;
+}
+.prose .table-wrap table {
+  min-width: 520px;
 }
 .prose th,
 .prose td {

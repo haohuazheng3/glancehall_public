@@ -4,10 +4,12 @@ import { notFound } from "next/navigation";
 import { evaluate } from "@mdx-js/mdx";
 import * as runtime from "react/jsx-runtime";
 import remarkGfm from "remark-gfm";
+import { rehypeWrapTables } from "@/lib/rehype-wrap-tables";
 import rehypeSlug from "rehype-slug";
 import { formatDate, getAllPosts, getCategory, getPost, headings, readingMinutes, relatedPosts } from "@/lib/blog";
 import { JsonLd, articleLd, breadcrumbLd, faqLd } from "@/lib/seo";
 import { SITE } from "@/lib/site";
+import { models, numberWord, tasks } from "@/lib/catalog";
 import { Figure, Toc, mdxComponents } from "@/components/mdx/Embeds";
 import { PostList } from "@/components/PostList";
 import s from "@/components/DocPage.module.css";
@@ -43,7 +45,7 @@ export default async function PostPage({ params }: { params: Promise<{ category:
     ...runtime,
     baseUrl: import.meta.url,
     remarkPlugins: [remarkGfm],
-    rehypePlugins: [rehypeSlug],
+    rehypePlugins: [rehypeSlug, rehypeWrapTables],
     useMDXComponents: () => ({ ...mdxComponents, TableOfContents: () => <Toc items={toc} /> }),
   });
   const path = `/blog/${p.category}/${p.slug}`;
@@ -104,7 +106,7 @@ export default async function PostPage({ params }: { params: Promise<{ category:
               Judge the builds yourself.
             </p>
             <p className="muted" style={{ margin: "6px 0 0" }}>
-              Eight briefs, four models, nothing edited. Watch them side by side or take the blind test.
+              {numberWord(tasks.length, true)} briefs, {numberWord(models.length)} models, nothing edited. Watch them side by side or take the blind test.
             </p>
           </div>
           <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>

@@ -248,6 +248,38 @@ export function ModelSummary() {
   );
 }
 
+// API-equivalent cost of every build: one row per brief, one column per model, straight from the catalog.
+export function CostTable() {
+  return (
+    <div className={`module ${s.facts}`}>
+      <table>
+        <thead>
+          <tr>
+            <th>Brief</th>
+            {allModels.map((m) => (
+              <th key={m.key}>{m.name}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {allTasks.map((t) => (
+            <tr key={t.slug}>
+              <td>
+                <Link href={`/tasks/${t.slug}`}>{t.title}</Link>
+              </td>
+              {allModels.map((m) => {
+                const r = t.runs[m.key];
+                const cell = !r || r.status === "pending" ? "in progress" : r.apiCostUsd == null ? "not recorded" : formatUsd(r.apiCostUsd);
+                return <td key={m.key}>{cell}</td>;
+              })}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 // The exact prompt for a brief, collapsible, with copy.
 export function PromptOf({ task }: { task: string }) {
   const t = getTask(task);
@@ -298,4 +330,4 @@ export function Toc({ items }: { items: { id: string; text: string }[] }) {
   );
 }
 
-export const mdxComponents = { BuildStage, Duel, ModelGrid, BlindCta, OpenBuild, TaskFacts, ModelFacts, ModelSummary, PromptOf, Figure, Verdict, Note };
+export const mdxComponents = { BuildStage, Duel, ModelGrid, BlindCta, OpenBuild, TaskFacts, ModelFacts, ModelSummary, CostTable, PromptOf, Figure, Verdict, Note };

@@ -3,7 +3,6 @@
   "order": 5,
   "title": "Mobile finance app",
   "category": "Mobile app",
-  "draft": true,
   "summary": "A phone-sized personal finance app on one fixed dataset: balance and activity tabs, a grouped transaction list, and a four-step send-money flow with an on-screen keypad, a confirmation sheet and a success screen.",
   "watchFor": [
     "Does it feel like an app or a shrunken website?",
@@ -14,5 +13,6 @@
   "views": [
     "mobile"
   ],
-  "interaction": "Open Activity and scroll, back to Home, then Send: pick Maya Patel, type 42.50 on the keypad, Review, Confirm, Done."
+  "interaction": "Open Activity and scroll, back to Home, then Send: pick Maya Patel, type 42.50 on the keypad, Review, Confirm, Done.",
+  "noun": "a phone finance app"
 }

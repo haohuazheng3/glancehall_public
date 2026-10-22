@@ -14,5 +14,6 @@
     "desktop",
     "mobile"
   ],
-  "interaction": "Hover the revenue chart, sort by Amount, filter to Pending, page through, search, then switch to dark mode."
+  "interaction": "Hover the revenue chart, sort by Amount, filter to Pending, page through, search, then switch to dark mode.",
+  "noun": "an analytics dashboard"
 }

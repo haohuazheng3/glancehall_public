@@ -11,7 +11,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-ROUND = {"id": "r01", "title": "Round 01", "date": "2026-10-21"}
+ROUND = {"id": "r01", "title": "Round 01", "date": "2026-10-22"}
 
 # List API prices per million tokens, checked 2026-10-21 on developers.openai.com (model pages).
 # Claude Code reports its own API-equivalent cost per run, so only the Codex runs are priced here.

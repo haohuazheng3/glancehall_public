@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { evaluate } from "@mdx-js/mdx";
 import * as runtime from "react/jsx-runtime";
 import remarkGfm from "remark-gfm";
+import { rehypeWrapTables } from "@/lib/rehype-wrap-tables";
 import { formatDate, getCategory, getHub, PAGE_SIZE, postsIn } from "@/lib/blog";
 import { JsonLd, breadcrumbLd } from "@/lib/seo";
 import { mdxComponents } from "@/components/mdx/Embeds";
@@ -20,7 +21,7 @@ export async function CategoryHub({ category, page }: { category: string; page: 
   if (page < 1 || page > pages) notFound();
   const posts = all.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
   const hub = page === 1 ? getHub(c.slug) : null;
-  const Intro = hub ? (await evaluate(hub.body, { ...runtime, baseUrl: import.meta.url, remarkPlugins: [remarkGfm], useMDXComponents: () => mdxComponents })).default : null;
+  const Intro = hub ? (await evaluate(hub.body, { ...runtime, baseUrl: import.meta.url, remarkPlugins: [remarkGfm], rehypePlugins: [rehypeWrapTables], useMDXComponents: () => mdxComponents })).default : null;
   return (
     <div className="wrap">
       <JsonLd

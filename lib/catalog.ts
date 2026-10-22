@@ -51,6 +51,7 @@ export type Task = {
   order: number;
   title: string;
   category: string;
+  noun?: string;
   summary: string;
   watchFor: string[];
   views: ViewKind[];
@@ -126,6 +127,11 @@ const WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "e
 export function numberWord(n: number, capital = false) {
   const w = n < WORDS.length ? WORDS[n] : n === 16 ? "sixteen" : n === 20 ? "twenty" : n === 24 ? "twenty-four" : n === 32 ? "thirty-two" : String(n);
   return capital ? w.charAt(0).toUpperCase() + w.slice(1) : w;
+}
+
+// "a SaaS landing page", "a 3D shooter"… for copy that lists the briefs.
+export function briefNouns() {
+  return tasks.map((t) => t.noun ?? t.title.toLowerCase());
 }
 
 export function listJoin(items: string[]) {

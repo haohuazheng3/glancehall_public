@@ -13,5 +13,6 @@
   "views": [
     "desktop"
   ],
-  "interaction": "The same scripted input for every model: press Play, move, strafe, turn and fire for 40 seconds."
+  "interaction": "The same scripted input for every model: press Play, move, strafe, turn and fire for 40 seconds.",
+  "noun": "a 3D shooter"
 }

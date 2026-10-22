@@ -3,7 +3,6 @@
   "order": 8,
   "title": "Kanban board",
   "category": "Interactive tool",
-  "draft": true,
   "summary": "A team board with fixed cards: drag and drop within and across columns with placeholders and animation, a detail panel, filters, search, undo, dark mode, and one-column-at-a-time scrolling on a phone.",
   "watchFor": [
     "Drag feel: does the card follow, does a placeholder show, do others move aside?",
@@ -15,5 +14,6 @@
     "desktop",
     "mobile"
   ],
-  "interaction": "Drag two cards across columns, undo, filter Bug, open a card, close it, switch to dark mode; on the phone, swipe through the columns and open a card."
+  "interaction": "Drag two cards across columns, undo, filter Bug, open a card, close it, switch to dark mode; on the phone, swipe through the columns and open a card.",
+  "noun": "a kanban board"
 }

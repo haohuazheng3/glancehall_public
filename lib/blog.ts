@@ -160,6 +160,25 @@ export function relatedPosts(p: Post, n = 3) {
   return [...named, ...same].slice(0, n);
 }
 
+// Posts that embed or discuss a given brief or model, the most focused first: used to link money pages
+// back to the journal. A post's focus is how many times it embeds or links the brief or model.
+function ranked(re: RegExp, n: number) {
+  return getAllPosts()
+    .map((p) => ({ p, score: (p.body.match(re) ?? []).length }))
+    .filter((x) => x.score > 0)
+    .sort((a, b) => b.score - a.score || (a.p.published < b.p.published ? 1 : -1))
+    .slice(0, n)
+    .map((x) => x.p);
+}
+
+export function postsForTask(slug: string, n = 4) {
+  return ranked(new RegExp(`task="${slug}"|/tasks/${slug}\\b`, "g"), n);
+}
+
+export function postsForModel(key: string, n = 4) {
+  return ranked(new RegExp(`(?:model|a|b)="${key}"|models="[^"]*${key}|/models/${key}\\b`, "g"), n);
+}
+
 export const getHub = cache((slug: string): Hub | null => {
   const f = path.join(HUBS, `${slug}.mdx`);
   if (!fs.existsSync(f)) return null;

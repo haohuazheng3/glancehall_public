@@ -2,7 +2,7 @@
  "round": {
   "id": "r01",
   "title": "Round 01",
-  "date": "2026-10-21"
+  "date": "2026-10-22"
  },
  "models": [
   {
@@ -68,6 +68,7 @@
     "mobile"
    ],
    "interaction": "Scroll the whole page, open the menu on mobile, switch pricing to Yearly, open an FAQ answer.",
+   "noun": "a SaaS landing page",
    "dir": "01-saas-landing",
    "prompt": "Design and build the marketing landing page for Driftwood, a (fictional) scheduling app for freelancers and independent consultants.\n\nABOUT THE PRODUCT\nDriftwood gives freelancers one booking link that respects their focus time: clients pick a slot, Driftwood protects deep-work blocks, adds buffers around calls, and can collect payment when a session is booked.\n\nFeatures (present all four):\n1. Booking links: one link, several meeting types, automatic time-zone detection.\n2. Focus guard: defends deep-work blocks and caps the number of meetings per day.\n3. Smart buffers: prep and travel time added before and after calls.\n4. Paid sessions: clients pay when they book (via Stripe), with automatic receipts.\n\nIntegrations to show: Google Calendar, Outlook, iCloud Calendar, Zoom, Stripe, Notion.\n\nPricing, with a Monthly / Yearly toggle (yearly = two months free):\n- Solo: $0. 1 booking link, 2 connected calendars, Driftwood branding on the booking page.\n- Pro: $12/month, or $10/month billed yearly. Unlimited links, focus guard, smart buffers, paid sessions, no branding. Mark this plan as the most popular.\n- Studio: $29/month, or $24/month billed yearly. Everything in Pro for up to 5 teammates, round-robin booking, shared analytics.\n\nFAQ: use exactly these five questions, in this order, and write the answers yourself:\n1. Is there really a free plan?\n2. Which calendars does Driftwood work with?\n3. Can clients book across time zones?\n4. How do paid sessions work?\n5. Can I cancel anytime?\n\nPAGE REQUIREMENTS\n- Sections, in this order: navigation bar; hero; testimonials (three short quotes from invented freelancers, each with a name and profession); features; how it works (three steps); pricing; FAQ; final call to action; footer.\n- The hero has a headline and a supporting line that you write, a primary button labeled \"Start free\" and a secondary button labeled \"See how it works\" that scrolls to the how-it-works section.\n- The hero includes a visual of the product itself (for example a mock booking interface) built with HTML, CSS or SVG.\n- The pricing toggle switches all prices between monthly and yearly, using the labels \"Monthly\" and \"Yearly\".\n- Each FAQ answer expands and collapses when its question is clicked.\n- Fully responsive. It must look intentional at 1440x900 on desktop and at 390x844 on a phone; on the phone the navigation collapses into a menu.\n- Visual design, layout, colour palette, typography, illustration and motion are entirely up to you. Aim for the quality of the website of a top-tier product company.\n\nDELIVERY RULES\n- Work autonomously. Nobody will answer questions, so make reasonable assumptions and keep going until the page is finished.\n- Deliver a single file, ./index.html, with all HTML, CSS and JavaScript inline. No build step, no frameworks loaded from the network.\n- The only network resource allowed is fonts from Google Fonts. No other CDNs, no external images, no APIs. Every image or illustration must be made with HTML, CSS, inline SVG or canvas.\n- The page must work when index.html is opened directly in a current version of Chrome, and when it is served over HTTP.",
    "runs": {
@@ -274,6 +275,7 @@
     "mobile"
    ],
    "interaction": "Hover the revenue chart, sort by Amount, filter to Pending, page through, search, then switch to dark mode.",
+   "noun": "an analytics dashboard",
    "dir": "02-analytics-dashboard",
    "prompt": "Design and build the admin dashboard of Lumen & Oak, a (fictional) online store that sells home goods.\n\nDATA\nThe dataset is in ./data.json. Use exactly this data, and embed it inline in index.html (the page must work when opened directly from disk, so do not fetch the file).\n\nLAYOUT AND FEATURES\n- Sidebar navigation with these items: Overview (active), Orders, Products, Customers, Analytics, Settings. Show the store name and the signed-in user (an avatar with initials is fine).\n- Top bar with: the page title \"Overview\", a search field, a date-range indicator reading \"Last 30 days\", and a dark-mode toggle button with aria-label=\"Toggle dark mode\".\n- Four KPI cards computed from the data: Revenue, Orders, Conversion rate (orders / sessions) and Average order value. Each card shows the change against the previous 30 days, using previous_period_totals.\n- Revenue chart: daily revenue for the 30 days, drawn by you with SVG or canvas (no chart libraries). Hovering over the chart shows a tooltip with the date and the revenue of the nearest day.\n- Sales by channel, from the channels data, shown in whatever form you think works best.\n- Top products, from the top_products data.\n- Recent orders table with exactly these columns: Order, Customer, Date, Status, Amount.\n  - Status filter tabs labeled exactly: All, Paid, Pending, Refunded.\n  - Clicking a column header sorts by that column; clicking it again reverses the order.\n  - Pagination with 8 rows per page and buttons labeled \"Previous\" and \"Next\".\n  - Typing in the top-bar search field filters the table by customer name or order id.\n- Dark mode: a complete, deliberately designed dark theme (not an inverted filter), switched with the toggle button.\n- Responsive: at 390px wide the sidebar collapses behind a menu button with aria-label=\"Open menu\", and the content reflows properly for a phone.\n- Visual design is entirely up to you. Aim for the craft of a best-in-class SaaS product.\n\nDELIVERY RULES\n- Work autonomously. Nobody will answer questions, so make reasonable assumptions and keep going until the dashboard is finished.\n- Deliver a single file, ./index.html, with all HTML, CSS, JavaScript and data inline. No build step, no frameworks or chart libraries.\n- The only network resource allowed is fonts from Google Fonts. No other CDNs, no external images, no APIs.\n- The page must work when index.html is opened directly in a current version of Chrome, and when it is served over HTTP. It will be viewed at 1440x900 on desktop and 390x844 on a phone.",
    "runs": {
@@ -481,6 +483,7 @@
     "desktop"
    ],
    "interaction": "No input: the first 20 seconds after page load, recorded frame by frame.",
+   "noun": "a physics simulation",
    "dir": "03-hexagon-physics",
    "prompt": "Build a physics simulation in the browser: 20 balls bouncing inside a spinning hexagon.\n\nREQUIREMENTS\n- A regular hexagon, centred in the viewport and as large as comfortably fits, rotating continuously at a constant speed of one full turn every 10 seconds.\n- 20 balls of equal size, numbered 1 to 20, each with a distinct colour. They start near the centre and fall under gravity.\n- Implement the physics yourself, with no libraries: gravity, air damping, restitution when bouncing, ball-to-ball collisions, and collisions with the moving walls. Because the walls rotate, the velocity of the wall at the point of contact must affect each bounce.\n- Friction between balls and walls makes the balls spin. Show each ball's rotation by drawing its number rotating with it.\n- Balls must never escape the hexagon or pass through a wall, and must not sink into each other when they pile up.\n- Use time-based updates (based on the elapsed time between frames) so the simulation behaves the same at any frame rate. Render with canvas 2D, driven by requestAnimationFrame.\n- Fill the window and stay correct when the window is resized. It will be viewed at 1440x900 on desktop and 390x844 on a phone.\n- Start automatically when the page loads; no interaction is required. The visual style is up to you.\n\nDELIVERY RULES\n- Work autonomously. Nobody will answer questions, so make reasonable assumptions and keep going until the simulation is finished.\n- Deliver a single file, ./index.html, with all HTML, CSS and JavaScript inline. No build step, no libraries, no network requests of any kind.\n- The page must work when index.html is opened directly in a current version of Chrome, and when it is served over HTTP.",
    "runs": {
@@ -646,6 +649,7 @@
     "desktop"
    ],
    "interaction": "The same scripted input for every model: press Play, move, strafe, turn and fire for 40 seconds.",
+   "noun": "a 3D shooter",
    "dir": "04-fps-arena",
    "prompt": "Build a small first-person shooter that runs in the browser.\n\nTECHNOLOGY\n- three.js r186 is provided in this folder as an ES module: ./three.module.js (it imports ./three.core.js; keep both files and do not modify or rename them). Load it from a <script type=\"module\"> with: import * as THREE from './three.module.js';\n- No other libraries and no network requests. There are no asset files: every model, texture and sound must be generated in code (procedural geometry, textures drawn on canvas, sound synthesised with the Web Audio API).\n\nTHE GAME\n- A 3D arena, indoor or outdoor, with walls and obstacles that the player collides with.\n- Enemies arrive in waves, move toward the player, find their way around obstacles instead of getting stuck, and attack when they are close.\n- Shooting has clear feedback: muzzle flash, weapon recoil, a hit marker or hit reaction on the enemy, and a death effect.\n- HUD with a crosshair, health, ammo with reloading, score and the current wave.\n- A start screen with a button labeled \"Play\", and a game-over screen that shows the score and has a button labeled \"Restart\".\n- Controls: W A S D to move, the mouse to look around (pointer lock after clicking Play), left mouse button or F to shoot, R to reload. The left and right arrow keys must also turn the view, for players without a mouse.\n- The game must remain playable if pointer lock is unavailable (keyboard turning still works).\n- Aim for 60 frames per second on a laptop, and adapt to any window size. It will be played at 1440x900.\n- Art direction, atmosphere, lighting and sound design are up to you. Make it look good and feel good to play.\n\nDELIVERY RULES\n- Work autonomously. Nobody will answer questions, so make reasonable assumptions and keep going until the game is finished.\n- Deliver ./index.html (JavaScript may be inline or in additional .js files in this folder, loaded with relative paths). No build step.\n- The game must work when this folder is served over HTTP and opened in a current version of Chrome.",
    "runs": {
@@ -820,6 +824,802 @@
       "notes": [
        "desktop: Game over at 35.5s; pressed Restart"
       ]
+     }
+    }
+   }
+  },
+  {
+   "slug": "mobile-finance-app",
+   "order": 5,
+   "title": "Mobile finance app",
+   "category": "Mobile app",
+   "summary": "A phone-sized personal finance app on one fixed dataset: balance and activity tabs, a grouped transaction list, and a four-step send-money flow with an on-screen keypad, a confirmation sheet and a success screen.",
+   "watchFor": [
+    "Does it feel like an app or a shrunken website?",
+    "Tab transitions, the sheet slide-up and tap feedback",
+    "Touch targets and safe areas",
+    "Does the new transfer really appear and the balance update?"
+   ],
+   "views": [
+    "mobile"
+   ],
+   "interaction": "Open Activity and scroll, back to Home, then Send: pick Maya Patel, type 42.50 on the keypad, Review, Confirm, Done.",
+   "noun": "a phone finance app",
+   "dir": "05-mobile-app",
+   "prompt": "Design and build Fern, a (fictional) personal finance app, as a mobile web app.\n\nDATA\nThe dataset is in ./data.json: the current balance, recent transactions, contacts and this month's spending by category. Use exactly this data and embed it inline in index.html (the page must work when opened directly from disk, so do not fetch the file). Treat 2026-10-21 as today.\n\nTHE APP\n- It is a phone app. Design for a 390x844 viewport; on larger screens show the app centred at that size on a plain background. Respect the top and bottom safe areas (env(safe-area-inset-top/bottom)).\n- A bottom tab bar with exactly three tabs, labeled \"Home\", \"Activity\" and \"Send\". Switching tabs is animated.\n- Home: the current balance, quick actions, and the latest transactions.\n- Activity: the full transaction list grouped by day (today, yesterday, then dates), with a spending-by-category summary for the month at the top.\n- Send: a flow in four steps. 1) Pick a contact from the list. 2) Enter an amount on an on-screen numeric keypad with buttons labeled 0 to 9 and \".\" (never the browser keyboard), then tap a button labeled \"Review\". 3) A bottom sheet that summarises recipient and amount, with a button labeled \"Confirm\". 4) A success screen showing the new balance, with a button labeled \"Done\" that returns to Home. The new transfer then appears at the top of Home and Activity and the balance is updated.\n- Touch targets at least 44px, visible tap feedback on every control, no hover-only interactions, and motion that feels native: sheets slide up, screens transition, lists scroll smoothly.\n- Visual design, colour, typography and iconography are up to you; icons must be inline SVG. Aim for the quality of a top finance app on the App Store.\n\nDELIVERY RULES\n- Work autonomously. Nobody will answer questions, so make reasonable assumptions and keep going until the app is finished.\n- Deliver a single file, ./index.html, with all HTML, CSS, JavaScript and data inline. No build step, no frameworks loaded from the network.\n- The only network resource allowed is fonts from Google Fonts. No other CDNs, no external images, no APIs.\n- The app must work when index.html is opened directly in a current version of Chrome, and when it is served over HTTP. It will be used at 390x844 with touch.",
+   "runs": {
+    "claude-opus-5-5": {
+     "status": "ok",
+     "blocked": false,
+     "seconds": 4139.5,
+     "startedAt": "2026-10-22T02:47:42.140077+00:00",
+     "finishedAt": "2026-10-22T03:56:41.684222+00:00",
+     "cliVersion": "2.1.302 (Claude Code)",
+     "attempts": 4,
+     "attemptNotes": [
+      "Attempt 1: The Claude CLI could not reach the API (\"Unable to connect to API: SSL certificate has expired\") and ended the run after 17 minutes. No index.html existed. Nothing from this attempt was published; the model got a fresh attempt once the API was reachable again.",
+      "Attempt 2: The account's Claude session limit was reached (HTTP 429) after 103 minutes; an unfinished index.html was on disk and the agent was still iterating. Nothing from this attempt was published.",
+      "Attempt 3: The benchmark harness itself was stopped 82 minutes in (the operator's session ended and took the runner with it). Nothing from this attempt was published; the run was restarted from scratch."
+     ],
+     "inputTokens": 25647880,
+     "outputTokens": 294919,
+     "turns": 119,
+     "apiCostUsd": 21.06,
+     "files": [
+      "index.html"
+     ],
+     "sourceBytes": 117478,
+     "artifact": "r01/mobile-finance-app/claude-opus-5-5/build/index.html",
+     "media": {
+      "mobile": {
+       "mp4": "r01/mobile-finance-app/claude-opus-5-5/mobile.mp4",
+       "preview": "r01/mobile-finance-app/claude-opus-5-5/mobile-preview.mp4",
+       "poster": "r01/mobile-finance-app/claude-opus-5-5/mobile.jpg",
+       "posterSmall": "r01/mobile-finance-app/claude-opus-5-5/mobile-sm.jpg",
+       "seconds": 23.2,
+       "width": 780,
+       "height": 1688,
+       "bytes": 3118588
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": []
+     }
+    },
+    "claude-fable-5-1": {
+     "status": "ok",
+     "blocked": false,
+     "seconds": 2112.2,
+     "startedAt": "2026-10-21T21:04:41.540934+00:00",
+     "finishedAt": "2026-10-21T21:39:53.661480+00:00",
+     "cliVersion": "2.1.302 (Claude Code)",
+     "attempts": 1,
+     "attemptNotes": [],
+     "inputTokens": 3123914,
+     "outputTokens": 130434,
+     "turns": 57,
+     "apiCostUsd": 11.46,
+     "files": [
+      "index.html"
+     ],
+     "sourceBytes": 74321,
+     "artifact": "r01/mobile-finance-app/claude-fable-5-1/build/index.html",
+     "media": {
+      "mobile": {
+       "mp4": "r01/mobile-finance-app/claude-fable-5-1/mobile.mp4",
+       "preview": "r01/mobile-finance-app/claude-fable-5-1/mobile-preview.mp4",
+       "poster": "r01/mobile-finance-app/claude-fable-5-1/mobile.jpg",
+       "posterSmall": "r01/mobile-finance-app/claude-fable-5-1/mobile-sm.jpg",
+       "seconds": 22.2,
+       "width": 780,
+       "height": 1688,
+       "bytes": 2353394
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": []
+     }
+    },
+    "gpt-6-astra": {
+     "status": "ok",
+     "blocked": false,
+     "seconds": 540.4,
+     "startedAt": "2026-10-21T20:52:20.750356+00:00",
+     "finishedAt": "2026-10-21T21:01:21.085054+00:00",
+     "cliVersion": "codex-cli 0.163.0",
+     "attempts": 1,
+     "attemptNotes": [],
+     "inputTokens": 883326,
+     "outputTokens": 27206,
+     "turns": 1,
+     "apiCostUsd": 2.73,
+     "files": [
+      "index.html"
+     ],
+     "sourceBytes": 47787,
+     "artifact": "r01/mobile-finance-app/gpt-6-astra/build/index.html",
+     "media": {
+      "mobile": {
+       "mp4": "r01/mobile-finance-app/gpt-6-astra/mobile.mp4",
+       "preview": "r01/mobile-finance-app/gpt-6-astra/mobile-preview.mp4",
+       "poster": "r01/mobile-finance-app/gpt-6-astra/mobile.jpg",
+       "posterSmall": "r01/mobile-finance-app/gpt-6-astra/mobile-sm.jpg",
+       "seconds": 22.5,
+       "width": 780,
+       "height": 1688,
+       "bytes": 2472082
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": []
+     }
+    },
+    "gpt-6-1-sol": {
+     "status": "ok",
+     "blocked": false,
+     "seconds": 825.7,
+     "startedAt": "2026-10-21T20:50:00.572286+00:00",
+     "finishedAt": "2026-10-21T21:03:46.196699+00:00",
+     "cliVersion": "codex-cli 0.163.0",
+     "attempts": 1,
+     "attemptNotes": [],
+     "inputTokens": 1840515,
+     "outputTokens": 48014,
+     "turns": 1,
+     "apiCostUsd": 0.83,
+     "files": [
+      "index.html"
+     ],
+     "sourceBytes": 58301,
+     "artifact": "r01/mobile-finance-app/gpt-6-1-sol/build/index.html",
+     "media": {
+      "mobile": {
+       "mp4": "r01/mobile-finance-app/gpt-6-1-sol/mobile.mp4",
+       "preview": "r01/mobile-finance-app/gpt-6-1-sol/mobile-preview.mp4",
+       "poster": "r01/mobile-finance-app/gpt-6-1-sol/mobile.jpg",
+       "posterSmall": "r01/mobile-finance-app/gpt-6-1-sol/mobile-sm.jpg",
+       "seconds": 22.8,
+       "width": 780,
+       "height": 1688,
+       "bytes": 2278797
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": []
+     }
+    }
+   }
+  },
+  {
+   "slug": "moba-lane",
+   "order": 6,
+   "title": "One-lane MOBA",
+   "category": "Top-down 3D",
+   "summary": "A League-style lane in three.js: fixed high-angle camera, click-to-move hero with four abilities on Q W E R, minion waves, towers, an AI enemy hero, health bars, a minimap and a kill feed. Every asset generated in code.",
+   "watchFor": [
+    "Readability from above: can you tell units, lanes and towers apart?",
+    "Ability effects and sound (open it live)",
+    "Does the enemy hero behave like a player or a dummy?",
+    "Pathing: does the hero walk around things?"
+   ],
+   "views": [
+    "desktop"
+   ],
+   "interaction": "The same 60-second script for every build: press Play, click up the lane, cast Q W E R toward the enemy, fall back, push again.",
+   "noun": "a one-lane MOBA",
+   "dir": "06-moba",
+   "prompt": "Build a small MOBA-style game that runs in the browser: one lane, top-down 3D, in the spirit of League of Legends.\n\nTECHNOLOGY\n- three.js r186 is provided in this folder as an ES module: ./three.module.js (it imports ./three.core.js; keep both files and do not modify or rename them). Load it from a <script type=\"module\"> with: import * as THREE from './three.module.js';\n- No other libraries and no network requests. There are no asset files: every model, texture and sound must be generated in code (procedural geometry, textures drawn on canvas, sound synthesised with the Web Audio API).\n\nTHE GAME\n- A fixed-angle camera looking down at the battlefield from a high diagonal angle (roughly 55 degrees above the ground), locked on the player's hero. Seen on screen, the player's base is at the bottom-left of the map and the enemy base at the top-right, with one lane between them.\n- Each side has a base and two towers along the lane. Towers shoot at enemies in range. Towers and bases can be destroyed; destroying the enemy base wins, losing your own base loses.\n- Minion waves (a few melee and ranged minions) spawn from both bases every 20 seconds, the first wave 3 seconds after Play. They walk down the lane and fight whatever they meet.\n- The player's hero: left-click on the ground to move there, pathing around obstacles; when idle, the hero auto-attacks the nearest enemy in range. Four abilities on the Q, W, E and R keys, cast toward the mouse cursor, each with a cooldown, a distinct visual effect and a sound. Design them yourself (for example a skillshot, an area effect, a dash and an ultimate).\n- One enemy hero controlled by a simple AI: it farms minions, trades with the player when it is favourable and retreats when low on health.\n- Heroes respawn at their base 8 seconds after dying.\n- HUD: health and mana bars above every unit, ability icons with cooldown sweeps at the bottom, a minimap in a corner, a kill feed, gold and a match timer.\n- A start screen with a button labeled \"Play\" and an end screen that says Victory or Defeat with a button labeled \"Play again\".\n- Right-click must not open the browser context menu; the game must be fully playable with the left button and the keyboard.\n- Aim for 60 frames per second at 1440x900 and adapt to the window size. Art direction, atmosphere and sound design are up to you: make the battlefield readable from above and the abilities satisfying to use.\n\nDELIVERY RULES\n- Work autonomously. Nobody will answer questions, so make reasonable assumptions and keep going until the game is finished.\n- Deliver ./index.html (JavaScript may be inline or in additional .js files in this folder, loaded with relative paths). No build step.\n- The game must work when this folder is served over HTTP and opened in a current version of Chrome.",
+   "runs": {
+    "claude-opus-5-5": {
+     "status": "ok",
+     "blocked": false,
+     "seconds": 9001.4,
+     "startedAt": "2026-10-22T05:37:27.877342+00:00",
+     "finishedAt": "2026-10-22T08:07:29.400749+00:00",
+     "cliVersion": "2.1.302 (Claude Code)",
+     "attempts": 2,
+     "attemptNotes": [
+      "Attempt 1: The Claude CLI could not reach the API (\"Unable to connect to API: SSL certificate has expired\") and ended the run after a few seconds. No index.html existed. Nothing from this attempt was published; the model got a fresh attempt once the API was reachable again.",
+      "Attempt 2: stopped at the 150-minute limit; the files on disk at that moment are what is published."
+     ],
+     "inputTokens": 67074154,
+     "outputTokens": null,
+     "turns": 174,
+     "apiCostUsd": null,
+     "files": [
+      "abilities.js",
+      "ai.js",
+      "audio.js",
+      "config.js",
+      "ctx.js",
+      "fx.js",
+      "game.js",
+      "hud.js",
+      "index.html",
+      "input.js",
+      "main.js",
+      "models.js",
+      "post.js",
+      "textures.js",
+      "units.js",
+      "util.js",
+      "world.js"
+     ],
+     "sourceBytes": 292634,
+     "artifact": "r01/moba-lane/claude-opus-5-5/build/index.html",
+     "media": {
+      "desktop": {
+       "mp4": "r01/moba-lane/claude-opus-5-5/desktop.mp4",
+       "preview": "r01/moba-lane/claude-opus-5-5/desktop-preview.mp4",
+       "poster": "r01/moba-lane/claude-opus-5-5/desktop.jpg",
+       "posterSmall": "r01/moba-lane/claude-opus-5-5/desktop-sm.jpg",
+       "seconds": 60,
+       "width": 1440,
+       "height": 900,
+       "bytes": 43673795
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": []
+     }
+    },
+    "claude-fable-5-1": {
+     "status": "ok",
+     "blocked": false,
+     "seconds": 7853.6,
+     "startedAt": "2026-10-22T02:47:42.146343+00:00",
+     "finishedAt": "2026-10-22T04:58:35.845508+00:00",
+     "cliVersion": "2.1.302 (Claude Code)",
+     "attempts": 4,
+     "attemptNotes": [
+      "Attempt 1: The Claude CLI could not reach the API (\"Unable to connect to API: SSL certificate has expired\") and ended the run after a few seconds. No index.html existed. Nothing from this attempt was published; the model got a fresh attempt once the API was reachable again.",
+      "Attempt 2: The account's Claude session limit was reached (HTTP 429) after 58 minutes; unfinished files were on disk. Nothing from this attempt was published.",
+      "Attempt 3: The benchmark harness itself was stopped 82 minutes in (the operator's session ended and took the runner with it). Nothing from this attempt was published; the run was restarted from scratch."
+     ],
+     "inputTokens": 15967745,
+     "outputTokens": 276160,
+     "turns": 67,
+     "apiCostUsd": 24.76,
+     "files": [
+      "abilities.js",
+      "ai.js",
+      "audio.js",
+      "constants.js",
+      "effects.js",
+      "game.js",
+      "geo.js",
+      "hud.js",
+      "index.html",
+      "main.js",
+      "models.js",
+      "textures.js",
+      "units.js",
+      "world.js"
+     ],
+     "sourceBytes": 208504,
+     "artifact": "r01/moba-lane/claude-fable-5-1/build/index.html",
+     "media": {
+      "desktop": {
+       "mp4": "r01/moba-lane/claude-fable-5-1/desktop.mp4",
+       "preview": "r01/moba-lane/claude-fable-5-1/desktop-preview.mp4",
+       "poster": "r01/moba-lane/claude-fable-5-1/desktop.jpg",
+       "posterSmall": "r01/moba-lane/claude-fable-5-1/desktop-sm.jpg",
+       "seconds": 60,
+       "width": 1440,
+       "height": 900,
+       "bytes": 55836063
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": []
+     }
+    },
+    "gpt-6-astra": {
+     "status": "ok",
+     "blocked": false,
+     "seconds": 1486.7,
+     "startedAt": "2026-10-21T21:13:51.755630+00:00",
+     "finishedAt": "2026-10-21T21:38:38.361590+00:00",
+     "cliVersion": "codex-cli 0.163.0",
+     "attempts": 1,
+     "attemptNotes": [],
+     "inputTokens": 2600030,
+     "outputTokens": 74492,
+     "turns": 1,
+     "apiCostUsd": 7.27,
+     "files": [
+      "audio.js",
+      "game.js",
+      "index.html",
+      "style.css",
+      "world.js"
+     ],
+     "sourceBytes": 97774,
+     "artifact": "r01/moba-lane/gpt-6-astra/build/index.html",
+     "media": {
+      "desktop": {
+       "mp4": "r01/moba-lane/gpt-6-astra/desktop.mp4",
+       "preview": "r01/moba-lane/gpt-6-astra/desktop-preview.mp4",
+       "poster": "r01/moba-lane/gpt-6-astra/desktop.jpg",
+       "posterSmall": "r01/moba-lane/gpt-6-astra/desktop-sm.jpg",
+       "seconds": 60,
+       "width": 1440,
+       "height": 900,
+       "bytes": 29699872
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": []
+     }
+    },
+    "gpt-6-1-sol": {
+     "status": "ok",
+     "blocked": false,
+     "seconds": 1181.3,
+     "startedAt": "2026-10-21T21:18:17.134053+00:00",
+     "finishedAt": "2026-10-21T21:37:58.327742+00:00",
+     "cliVersion": "codex-cli 0.163.0",
+     "attempts": 1,
+     "attemptNotes": [],
+     "inputTokens": 2661941,
+     "outputTokens": 67223,
+     "turns": 1,
+     "apiCostUsd": 1.12,
+     "files": [
+      "game.js",
+      "index.html",
+      "style.css"
+     ],
+     "sourceBytes": 87197,
+     "artifact": "r01/moba-lane/gpt-6-1-sol/build/index.html",
+     "media": {
+      "desktop": {
+       "mp4": "r01/moba-lane/gpt-6-1-sol/desktop.mp4",
+       "preview": "r01/moba-lane/gpt-6-1-sol/desktop-preview.mp4",
+       "poster": "r01/moba-lane/gpt-6-1-sol/desktop.jpg",
+       "posterSmall": "r01/moba-lane/gpt-6-1-sol/desktop-sm.jpg",
+       "seconds": 60,
+       "width": 1440,
+       "height": 900,
+       "bytes": 9318680
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": []
+     }
+    }
+   }
+  },
+  {
+   "slug": "open-brief",
+   "order": 7,
+   "title": "Open brief",
+   "category": "Open brief",
+   "summary": "No product, no copy, no palette given. The whole brief is: invent something and build its website; make it memorable. This is what each model does when nobody tells it what to make.",
+   "watchFor": [
+    "What did it choose to invent, and is the idea any good?",
+    "Originality versus the generic SaaS template",
+    "Typography, colour and motion with no constraints",
+    "Does the phone layout keep the personality?"
+   ],
+   "views": [
+    "desktop",
+    "mobile"
+   ],
+   "interaction": "Scroll the whole page at a fixed speed on desktop and on a phone; open the menu on the phone if there is one.",
+   "noun": "a site for an invented product",
+   "dir": "07-open-brief",
+   "prompt": "Invent a product and build its website.\n\nIt can be anything: a physical product, an app, a service, a place, a food, a tool. You choose the name, the idea, the story, the visuals and every word. The only requirement: make it memorable.\n\nPAGE REQUIREMENTS\n- A complete, convincing marketing website on one page: a hero, at least three further sections, and a footer. Real copy throughout; no lorem ipsum, no placeholder boxes.\n- Fully responsive. It must look intentional at 1440x900 on desktop and at 390x844 on a phone.\n- Every image, illustration or visual is made with HTML, CSS, inline SVG or canvas.\n\nDELIVERY RULES\n- Work autonomously. Nobody will answer questions, so make reasonable assumptions and keep going until the page is finished.\n- Deliver a single file, ./index.html, with all HTML, CSS and JavaScript inline. No build step, no frameworks loaded from the network.\n- The only network resource allowed is fonts from Google Fonts. No other CDNs, no external images, no APIs.\n- The page must work when index.html is opened directly in a current version of Chrome, and when it is served over HTTP.",
+   "runs": {
+    "claude-opus-5-5": {
+     "status": "ok",
+     "blocked": false,
+     "seconds": 4464.4,
+     "startedAt": "2026-10-21T20:39:10.198035+00:00",
+     "finishedAt": "2026-10-21T21:53:34.438110+00:00",
+     "cliVersion": "2.1.302 (Claude Code)",
+     "attempts": 1,
+     "attemptNotes": [],
+     "inputTokens": 19899162,
+     "outputTokens": 465735,
+     "turns": 87,
+     "apiCostUsd": 16.65,
+     "files": [
+      "index.html"
+     ],
+     "sourceBytes": 182458,
+     "artifact": "r01/open-brief/claude-opus-5-5/build/index.html",
+     "media": {
+      "desktop": {
+       "mp4": "r01/open-brief/claude-opus-5-5/desktop.mp4",
+       "preview": "r01/open-brief/claude-opus-5-5/desktop-preview.mp4",
+       "poster": "r01/open-brief/claude-opus-5-5/desktop.jpg",
+       "posterSmall": "r01/open-brief/claude-opus-5-5/desktop-sm.jpg",
+       "seconds": 29.3,
+       "width": 1440,
+       "height": 900,
+       "bytes": 3750018
+      },
+      "mobile": {
+       "mp4": "r01/open-brief/claude-opus-5-5/mobile.mp4",
+       "preview": "r01/open-brief/claude-opus-5-5/mobile-preview.mp4",
+       "poster": "r01/open-brief/claude-opus-5-5/mobile.jpg",
+       "posterSmall": "r01/open-brief/claude-opus-5-5/mobile-sm.jpg",
+       "seconds": 47.6,
+       "width": 780,
+       "height": 1688,
+       "bytes": 15832144
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": []
+     }
+    },
+    "claude-fable-5-1": {
+     "status": "ok",
+     "blocked": false,
+     "seconds": 1531.3,
+     "startedAt": "2026-10-21T20:39:10.197978+00:00",
+     "finishedAt": "2026-10-21T21:04:41.431817+00:00",
+     "cliVersion": "2.1.302 (Claude Code)",
+     "attempts": 1,
+     "attemptNotes": [],
+     "inputTokens": 1708222,
+     "outputTokens": 104150,
+     "turns": 51,
+     "apiCostUsd": 8.85,
+     "files": [
+      "index.html"
+     ],
+     "sourceBytes": 83061,
+     "artifact": "r01/open-brief/claude-fable-5-1/build/index.html",
+     "media": {
+      "desktop": {
+       "mp4": "r01/open-brief/claude-fable-5-1/desktop.mp4",
+       "preview": "r01/open-brief/claude-fable-5-1/desktop-preview.mp4",
+       "poster": "r01/open-brief/claude-fable-5-1/desktop.jpg",
+       "posterSmall": "r01/open-brief/claude-fable-5-1/desktop-sm.jpg",
+       "seconds": 23.8,
+       "width": 1440,
+       "height": 900,
+       "bytes": 1815388
+      },
+      "mobile": {
+       "mp4": "r01/open-brief/claude-fable-5-1/mobile.mp4",
+       "preview": "r01/open-brief/claude-fable-5-1/mobile-preview.mp4",
+       "poster": "r01/open-brief/claude-fable-5-1/mobile.jpg",
+       "posterSmall": "r01/open-brief/claude-fable-5-1/mobile-sm.jpg",
+       "seconds": 35.4,
+       "width": 780,
+       "height": 1688,
+       "bytes": 8512500
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": []
+     }
+    },
+    "gpt-6-astra": {
+     "status": "ok",
+     "blocked": false,
+     "seconds": 790.8,
+     "startedAt": "2026-10-21T20:39:09.914509+00:00",
+     "finishedAt": "2026-10-21T20:52:20.741945+00:00",
+     "cliVersion": "codex-cli 0.163.0",
+     "attempts": 1,
+     "attemptNotes": [],
+     "inputTokens": 1152498,
+     "outputTokens": 43120,
+     "turns": 1,
+     "apiCostUsd": 4.17,
+     "files": [
+      "index.html"
+     ],
+     "sourceBytes": 60251,
+     "artifact": "r01/open-brief/gpt-6-astra/build/index.html",
+     "media": {
+      "desktop": {
+       "mp4": "r01/open-brief/gpt-6-astra/desktop.mp4",
+       "preview": "r01/open-brief/gpt-6-astra/desktop-preview.mp4",
+       "poster": "r01/open-brief/gpt-6-astra/desktop.jpg",
+       "posterSmall": "r01/open-brief/gpt-6-astra/desktop-sm.jpg",
+       "seconds": 15,
+       "width": 1440,
+       "height": 900,
+       "bytes": 2850654
+      },
+      "mobile": {
+       "mp4": "r01/open-brief/gpt-6-astra/mobile.mp4",
+       "preview": "r01/open-brief/gpt-6-astra/mobile-preview.mp4",
+       "poster": "r01/open-brief/gpt-6-astra/mobile.jpg",
+       "posterSmall": "r01/open-brief/gpt-6-astra/mobile-sm.jpg",
+       "seconds": 20,
+       "width": 780,
+       "height": 1688,
+       "bytes": 5352912
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": []
+     }
+    },
+    "gpt-6-1-sol": {
+     "status": "ok",
+     "blocked": false,
+     "seconds": 650.6,
+     "startedAt": "2026-10-21T20:39:09.914251+00:00",
+     "finishedAt": "2026-10-21T20:50:00.543782+00:00",
+     "cliVersion": "codex-cli 0.163.0",
+     "attempts": 1,
+     "attemptNotes": [],
+     "inputTokens": 1015675,
+     "outputTokens": 40299,
+     "turns": 1,
+     "apiCostUsd": 0.71,
+     "files": [
+      "index.html"
+     ],
+     "sourceBytes": 66309,
+     "artifact": "r01/open-brief/gpt-6-1-sol/build/index.html",
+     "media": {
+      "desktop": {
+       "mp4": "r01/open-brief/gpt-6-1-sol/desktop.mp4",
+       "preview": "r01/open-brief/gpt-6-1-sol/desktop-preview.mp4",
+       "poster": "r01/open-brief/gpt-6-1-sol/desktop.jpg",
+       "posterSmall": "r01/open-brief/gpt-6-1-sol/desktop-sm.jpg",
+       "seconds": 15.1,
+       "width": 1440,
+       "height": 900,
+       "bytes": 2243162
+      },
+      "mobile": {
+       "mp4": "r01/open-brief/gpt-6-1-sol/mobile.mp4",
+       "preview": "r01/open-brief/gpt-6-1-sol/mobile-preview.mp4",
+       "poster": "r01/open-brief/gpt-6-1-sol/mobile.jpg",
+       "posterSmall": "r01/open-brief/gpt-6-1-sol/mobile-sm.jpg",
+       "seconds": 20.6,
+       "width": 780,
+       "height": 1688,
+       "bytes": 4567480
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": []
+     }
+    }
+   }
+  },
+  {
+   "slug": "kanban-board",
+   "order": 8,
+   "title": "Kanban board",
+   "category": "Interactive tool",
+   "summary": "A team board with fixed cards: drag and drop within and across columns with placeholders and animation, a detail panel, filters, search, undo, dark mode, and one-column-at-a-time scrolling on a phone.",
+   "watchFor": [
+    "Drag feel: does the card follow, does a placeholder show, do others move aside?",
+    "Does Undo really revert the last move?",
+    "Overdue flags, counts and filters staying consistent",
+    "Dark mode: designed or inverted?"
+   ],
+   "views": [
+    "desktop",
+    "mobile"
+   ],
+   "interaction": "Drag two cards across columns, undo, filter Bug, open a card, close it, switch to dark mode; on the phone, swipe through the columns and open a card.",
+   "noun": "a kanban board",
+   "dir": "08-kanban",
+   "prompt": "Design and build a kanban board for Northwind Labs, a (fictional) product team.\n\nDATA\nThe board, its columns, people and cards are in ./data.json. Use exactly this data and embed it inline in index.html (the page must work when opened directly from disk, so do not fetch the file). Treat 2026-10-21 as today.\n\nFEATURES\n- Four columns, in this order and with exactly these titles: Backlog, In progress, Review, Done. Each column shows how many cards it holds.\n- Cards show the title, a coloured tag, the assignee's initials and the due date. Cards whose due date is before today are visibly flagged as overdue.\n- Drag and drop cards within a column and between columns, with the mouse and with touch: the dragged card follows the pointer, a placeholder shows where it will land, and the other cards animate out of the way. The order persists in localStorage and survives a reload.\n- Clicking a card opens a detail panel with the title, description, tag, assignee and due date, all editable, and a button labeled \"Close\".\n- A button labeled \"Add card\" at the bottom of each column creates a new card inline.\n- Filter chips above the board, labeled exactly: All, Bug, Feature, Design, Research. A search field filters cards by title as you type.\n- A button labeled \"Undo\" (also Ctrl/Cmd+Z) that reverts the last move or edit.\n- A dark-mode toggle button with aria-label=\"Toggle dark mode\" and a complete, deliberately designed dark theme.\n- Responsive: at 390px wide the columns scroll horizontally one at a time (scroll snap), and everything works by touch.\n- Visual design is entirely up to you. Aim for the craft of a best-in-class product tool.\n\nDELIVERY RULES\n- Work autonomously. Nobody will answer questions, so make reasonable assumptions and keep going until the board is finished.\n- Deliver a single file, ./index.html, with all HTML, CSS, JavaScript and data inline. No build step, no frameworks or drag-and-drop libraries.\n- The only network resource allowed is fonts from Google Fonts. No other CDNs, no external images, no APIs.\n- The page must work when index.html is opened directly in a current version of Chrome, and when it is served over HTTP. It will be viewed at 1440x900 on desktop and 390x844 on a phone.",
+   "runs": {
+    "claude-opus-5-5": {
+     "status": "ok",
+     "blocked": false,
+     "seconds": 6045.7,
+     "startedAt": "2026-10-22T03:56:41.969783+00:00",
+     "finishedAt": "2026-10-22T05:37:27.702160+00:00",
+     "cliVersion": "2.1.302 (Claude Code)",
+     "attempts": 2,
+     "attemptNotes": [
+      "Attempt 1: The Claude CLI could not reach the API (\"Unable to connect to API: SSL certificate has expired\") and ended the run after a few seconds. No index.html existed. Nothing from this attempt was published; the model got a fresh attempt once the API was reachable again."
+     ],
+     "inputTokens": 19033992,
+     "outputTokens": 445737,
+     "turns": 81,
+     "apiCostUsd": 19.98,
+     "files": [
+      "index.html"
+     ],
+     "sourceBytes": 116173,
+     "artifact": "r01/kanban-board/claude-opus-5-5/build/index.html",
+     "media": {
+      "desktop": {
+       "mp4": "r01/kanban-board/claude-opus-5-5/desktop.mp4",
+       "preview": "r01/kanban-board/claude-opus-5-5/desktop-preview.mp4",
+       "poster": "r01/kanban-board/claude-opus-5-5/desktop.jpg",
+       "posterSmall": "r01/kanban-board/claude-opus-5-5/desktop-sm.jpg",
+       "seconds": 26.8,
+       "width": 1440,
+       "height": 900,
+       "bytes": 1181674
+      },
+      "mobile": {
+       "mp4": "r01/kanban-board/claude-opus-5-5/mobile.mp4",
+       "preview": "r01/kanban-board/claude-opus-5-5/mobile-preview.mp4",
+       "poster": "r01/kanban-board/claude-opus-5-5/mobile.jpg",
+       "posterSmall": "r01/kanban-board/claude-opus-5-5/mobile-sm.jpg",
+       "seconds": 14.1,
+       "width": 780,
+       "height": 1688,
+       "bytes": 888508
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": []
+     }
+    },
+    "claude-fable-5-1": {
+     "status": "ok",
+     "blocked": false,
+     "seconds": 2707.5,
+     "startedAt": "2026-10-21T22:12:25.655602+00:00",
+     "finishedAt": "2026-10-21T22:57:33.278755+00:00",
+     "cliVersion": "2.1.302 (Claude Code)",
+     "attempts": 2,
+     "attemptNotes": [
+      "Attempt 1: The Claude CLI could not reach the API (\"Unable to connect to API: SSL certificate has expired\") and ended the run after 30 minutes. No index.html existed. Nothing from this attempt was published; the model got a fresh attempt once the API was reachable again."
+     ],
+     "inputTokens": 2843065,
+     "outputTokens": 179935,
+     "turns": 41,
+     "apiCostUsd": 12.83,
+     "files": [
+      "index.html"
+     ],
+     "sourceBytes": 81796,
+     "artifact": "r01/kanban-board/claude-fable-5-1/build/index.html",
+     "media": {
+      "desktop": {
+       "mp4": "r01/kanban-board/claude-fable-5-1/desktop.mp4",
+       "preview": "r01/kanban-board/claude-fable-5-1/desktop-preview.mp4",
+       "poster": "r01/kanban-board/claude-fable-5-1/desktop.jpg",
+       "posterSmall": "r01/kanban-board/claude-fable-5-1/desktop-sm.jpg",
+       "seconds": 27.5,
+       "width": 1440,
+       "height": 900,
+       "bytes": 1011500
+      },
+      "mobile": {
+       "mp4": "r01/kanban-board/claude-fable-5-1/mobile.mp4",
+       "preview": "r01/kanban-board/claude-fable-5-1/mobile-preview.mp4",
+       "poster": "r01/kanban-board/claude-fable-5-1/mobile.jpg",
+       "posterSmall": "r01/kanban-board/claude-fable-5-1/mobile-sm.jpg",
+       "seconds": 13.9,
+       "width": 780,
+       "height": 1688,
+       "bytes": 643704
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": []
+     }
+    },
+    "gpt-6-astra": {
+     "status": "ok",
+     "blocked": false,
+     "seconds": 750.7,
+     "startedAt": "2026-10-21T21:01:21.096269+00:00",
+     "finishedAt": "2026-10-21T21:13:51.745502+00:00",
+     "cliVersion": "codex-cli 0.163.0",
+     "attempts": 1,
+     "attemptNotes": [],
+     "inputTokens": 1109222,
+     "outputTokens": 38119,
+     "turns": 1,
+     "apiCostUsd": 3.6,
+     "files": [
+      "index.html"
+     ],
+     "sourceBytes": 63382,
+     "artifact": "r01/kanban-board/gpt-6-astra/build/index.html",
+     "media": {
+      "desktop": {
+       "mp4": "r01/kanban-board/gpt-6-astra/desktop.mp4",
+       "preview": "r01/kanban-board/gpt-6-astra/desktop-preview.mp4",
+       "poster": "r01/kanban-board/gpt-6-astra/desktop.jpg",
+       "posterSmall": "r01/kanban-board/gpt-6-astra/desktop-sm.jpg",
+       "seconds": 26.1,
+       "width": 1440,
+       "height": 900,
+       "bytes": 852820
+      },
+      "mobile": {
+       "mp4": "r01/kanban-board/gpt-6-astra/mobile.mp4",
+       "preview": "r01/kanban-board/gpt-6-astra/mobile-preview.mp4",
+       "poster": "r01/kanban-board/gpt-6-astra/mobile.jpg",
+       "posterSmall": "r01/kanban-board/gpt-6-astra/mobile-sm.jpg",
+       "seconds": 13.8,
+       "width": 780,
+       "height": 1688,
+       "bytes": 560759
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": []
+     }
+    },
+    "gpt-6-1-sol": {
+     "status": "ok",
+     "blocked": false,
+     "seconds": 870.9,
+     "startedAt": "2026-10-21T21:03:46.210053+00:00",
+     "finishedAt": "2026-10-21T21:18:17.114912+00:00",
+     "cliVersion": "codex-cli 0.163.0",
+     "attempts": 1,
+     "attemptNotes": [],
+     "inputTokens": 1608403,
+     "outputTokens": 53095,
+     "turns": 1,
+     "apiCostUsd": 0.83,
+     "files": [
+      "index.html"
+     ],
+     "sourceBytes": 65053,
+     "artifact": "r01/kanban-board/gpt-6-1-sol/build/index.html",
+     "media": {
+      "desktop": {
+       "mp4": "r01/kanban-board/gpt-6-1-sol/desktop.mp4",
+       "preview": "r01/kanban-board/gpt-6-1-sol/desktop-preview.mp4",
+       "poster": "r01/kanban-board/gpt-6-1-sol/desktop.jpg",
+       "posterSmall": "r01/kanban-board/gpt-6-1-sol/desktop-sm.jpg",
+       "seconds": 26.6,
+       "width": 1440,
+       "height": 900,
+       "bytes": 962927
+      },
+      "mobile": {
+       "mp4": "r01/kanban-board/gpt-6-1-sol/mobile.mp4",
+       "preview": "r01/kanban-board/gpt-6-1-sol/mobile-preview.mp4",
+       "poster": "r01/kanban-board/gpt-6-1-sol/mobile.jpg",
+       "posterSmall": "r01/kanban-board/gpt-6-1-sol/mobile-sm.jpg",
+       "seconds": 14,
+       "width": 780,
+       "height": 1688,
+       "bytes": 675201
+      }
+     },
+     "runtime": {
+      "consoleErrors": [],
+      "pageErrors": [],
+      "notes": []
      }
     }
    }

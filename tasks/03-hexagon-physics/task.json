@@ -13,5 +13,6 @@
   "views": [
     "desktop"
   ],
-  "interaction": "No input: the first 20 seconds after page load, recorded frame by frame."
+  "interaction": "No input: the first 20 seconds after page load, recorded frame by frame.",
+  "noun": "a physics simulation"
 }

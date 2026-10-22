@@ -14,5 +14,6 @@
     "desktop",
     "mobile"
   ],
-  "interaction": "Scroll the whole page, open the menu on mobile, switch pricing to Yearly, open an FAQ answer."
+  "interaction": "Scroll the whole page, open the menu on mobile, switch pricing to Yearly, open an FAQ answer.",
+  "noun": "a SaaS landing page"
 }

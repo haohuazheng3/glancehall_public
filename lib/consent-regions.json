@@ -1,0 +1,9 @@
+{
+  "comment": "Where analytics need opt-in consent before they load: the 27 EU member states, the rest of the EEA (Iceland, Liechtenstein, Norway), the United Kingdom and Switzerland. ISO 3166-1 alpha-2, as Vercel reports it in x-vercel-ip-country.",
+  "optIn": [
+    "AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE", "GR", "HU", "IE", "IT", "LV", "LT", "LU", "MT", "NL",
+    "PL", "PT", "RO", "SK", "SI", "ES", "SE",
+    "IS", "LI", "NO",
+    "GB", "CH"
+  ]
+}

@@ -49,6 +49,34 @@
 .col a:hover {
   color: var(--text);
 }
+.linkButton {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+.linkButton:hover {
+  color: var(--text);
+}
+.trackOff {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  color: var(--text-3);
+}
+.trackOff .linkButton {
+  min-height: 0;
+  color: var(--text-2);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 .bottom {
   display: flex;
   justify-content: space-between;

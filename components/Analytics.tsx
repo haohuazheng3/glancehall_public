@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { analyticsAllowed, onConsentChange } from "./consent";
+import { useEffect } from "react";
+import { analyticsAllowed, onConsentChange, readConsent } from "./consent";
 
-// FlowGlance is the only analytics on this site. It loads only when consent allows it.
+// FlowGlance is the only analytics on this site. Whether it loads is decided in ./consent.
 const SITE_KEY = process.env.NEXT_PUBLIC_FLOWGLANCE_SITE;
+export const SNIPPET_ID = "fw-snippet";
 
 declare global {
   interface Window {
@@ -13,6 +14,7 @@ declare global {
 }
 
 export function track(name: string, props?: Record<string, unknown>) {
+  if (readConsent() === "denied") return;
   try {
     window.fw?.("event", name, props ?? {});
   } catch {
@@ -20,20 +22,29 @@ export function track(name: string, props?: Record<string, unknown>) {
   }
 }
 
+function load() {
+  if (!SITE_KEY || document.getElementById(SNIPPET_ID)) return;
+  const s = document.createElement("script");
+  s.id = SNIPPET_ID;
+  s.defer = true;
+  s.src = "https://flowglance.com/fw.js";
+  s.dataset.site = SITE_KEY;
+  document.head.appendChild(s);
+}
+
 export function Analytics() {
-  const [allowed, setAllowed] = useState(false);
   useEffect(() => {
-    setAllowed(analyticsAllowed());
-    return onConsentChange(() => setAllowed(analyticsAllowed()));
+    let alive = true;
+    const decide = () =>
+      void analyticsAllowed().then((ok) => {
+        if (alive && ok) load();
+      });
+    decide();
+    const off = onConsentChange(decide);
+    return () => {
+      alive = false;
+      off();
+    };
   }, []);
-  useEffect(() => {
-    if (!allowed || !SITE_KEY || document.getElementById("fw-snippet")) return;
-    const s = document.createElement("script");
-    s.id = "fw-snippet";
-    s.defer = true;
-    s.src = "https://flowglance.com/fw.js";
-    s.dataset.site = SITE_KEY;
-    document.head.appendChild(s);
-  }, [allowed]);
   return null;
 }

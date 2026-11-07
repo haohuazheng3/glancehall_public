@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SITE } from "@/lib/site";
+import { DoNotTrack } from "./DoNotTrack";
 import { LogoMark } from "./Logo";
 import s from "./Footer.module.css";
 
@@ -55,6 +56,11 @@ export function Footer() {
                     <Link href={l.href}>{l.label}</Link>
                   </li>
                 ))}
+                {c.title === "Legal" && (
+                  <li>
+                    <DoNotTrack />
+                  </li>
+                )}
               </ul>
             </div>
           ))}

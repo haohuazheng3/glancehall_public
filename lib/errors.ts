@@ -15,7 +15,8 @@ type ErrInput = {
 // Browser-side noise that no code change can fix: dropped connections, aborted navigations, extension errors.
 const CLIENT_NOISE = /network ?error|load failed|failed to fetch|resizeobserver loop|^script error|operation was aborted|aborterror|loading chunk|chunkloaderror/i;
 
-// Only "error" severity flips /api/health and pages the owner; "warning" still lands in the inbox.
+// Only "error" severity counts toward /api/health's openErrors (informational) and the owner's daily digest;
+// "warning" still lands in the inbox.
 function classify(input: ErrInput, name: string, message: string, frame: string): "error" | "warning" {
   if (input.severity) return input.severity;
   if (input.source !== "client") return "error";

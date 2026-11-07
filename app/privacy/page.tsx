@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function Privacy() {
   return (
-    <DocPage eyebrow="Legal" title="Privacy policy" updated="October 17, 2026" intro="Short version: no accounts, no payments, no ads, no selling data. Here is everything, in plain words.">
+    <DocPage eyebrow="Legal" title="Privacy policy" updated="October 31, 2026" intro="Short version: no accounts, no payments, no ads, no selling data. Here is everything, in plain words.">
       <h2>Who we are</h2>
       <p>
         {SITE.name} (&quot;we&quot;) runs {SITE.domain}. For anything in this policy, write to{" "}
@@ -48,17 +48,39 @@ export default function Privacy() {
       <p>We don&apos;t use advertising cookies. We store these small items in your browser:</p>
       <ul>
         <li>
-          <code>theme</code>: whether you chose the light or dark theme.
+          <code>theme</code> (local storage): whether you chose the light or dark theme.
         </li>
         <li>
-          <code>consent.analytics</code>: your analytics choice, so we don&apos;t ask again.
+          <code>gh_consent</code> (cookie, 180 days): your analytics choice, <code>granted</code> or <code>denied</code>, so we
+          respect it on every page.
         </li>
-        <li>FlowGlance may store an anonymous visitor identifier, only if analytics is allowed.</li>
+        <li>
+          <code>gh_region</code> (cookie, 30 days): whether analytics need your consent where you are, so we don&apos;t look it up
+          on every visit.
+        </li>
+        <li>FlowGlance may store an anonymous visitor identifier, only while analytics is running.</li>
+      </ul>
+
+      <h3 id="analytics-choices">When analytics runs, and how to turn it off</h3>
+      <p>
+        To decide, we ask our host for the country your connection comes from. The host works it out from your IP address; we
+        don&apos;t store the country or the address.
+      </p>
+      <ul>
+        <li>
+          <strong>EU, EEA, UK and Switzerland</strong>, or if we can&apos;t tell where you are: FlowGlance stays off. A banner asks
+          first, and it loads only if you choose <em>Allow</em>. <em>Decline</em> keeps it off.
+        </li>
+        <li>
+          <strong>Everywhere else</strong>: FlowGlance runs by default and there is no banner. You can opt out at any time with{" "}
+          <strong>Do not track me</strong> in the footer of every page. That stores <code>gh_consent=denied</code>, and FlowGlance
+          is not loaded again in this browser.
+        </li>
       </ul>
       <p>
-        If you browse from the EU, EEA, UK or Switzerland, analytics stays off until you allow it. Elsewhere it is on by default
-        and you can opt out from the banner; to change your choice later, clear this site&apos;s data in your browser and choose
-        again.
+        The same footer link withdraws a consent you gave earlier. After opting out, the footer shows <em>Not tracked</em> with an{" "}
+        <em>Undo</em> button. Undo removes the choice, so the default for your region applies again. Clearing this site&apos;s
+        cookies has the same effect.
       </p>
       <p>
         The live builds on this site are written by AI models and run in a sandbox on a separate media domain. They may use your

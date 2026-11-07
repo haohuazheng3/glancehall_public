@@ -6,7 +6,10 @@ export const dynamic = "force-dynamic";
 const REQUIRED = ["DATABASE_URL", "ADMIN_TOKEN", "IP_HASH_SALT", "NEXT_PUBLIC_MEDIA_BASE"];
 const OPTIONAL = ["NEXT_PUBLIC_FLOWGLANCE_SITE", "NOTIFY_WEBHOOK_URL", "NOTIFY_WEBHOOK_SECRET", "SITE_INDEXABLE"];
 
-// Self-diagnosis. Reports names only, never values. Non-200 when something needs attention.
+// Self-diagnosis. Reports names only, never values.
+// HTTP 200 means the site can serve: database reachable and every required variable present. Open errors in
+// the /admin inbox and optional variables are informational only (the owner gets a daily digest of open errors
+// instead), so the uptime probe in workers/health and the deploy smoke test only fail on real outages.
 export async function GET() {
   const env = Object.fromEntries([...REQUIRED, ...OPTIONAL].map((k) => [k, Boolean(process.env[k])]));
   let database: { ok: boolean; ms?: number; error?: string } = { ok: false, error: "not configured" };
@@ -24,7 +27,7 @@ export async function GET() {
     }
   }
   const missing = REQUIRED.filter((k) => !process.env[k]);
-  const healthy = database.ok && missing.length === 0 && (openErrors ?? 0) === 0;
+  const healthy = database.ok && missing.length === 0;
   return json(
     {
       status: healthy ? "ok" : "degraded",
